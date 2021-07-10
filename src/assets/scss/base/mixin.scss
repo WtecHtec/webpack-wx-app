@@ -1,0 +1,149 @@
+// 文字截取
+@mixin text-overflow() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    word-wrap: normal;
+}
+
+@mixin word-break() {
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+// No wrap
+@mixin no-wrap() {
+    word-break: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+@mixin ellipsis-lines($lines: 2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+}
+
+@mixin setTopLine($c: #dfe2eb) {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px solid $c;
+    color: $c;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+}
+
+@mixin setBottomLine($c: #dfe2eb) {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid $c;
+    color: $c;
+    transform-origin: 0 100%;
+    transform: scaleY(0.5);
+}
+
+@mixin setLeftLine($c: #dfe2eb) {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-left: 1px solid $c;
+    color: $c;
+    transform-origin: 0 0;
+    transform: scaleX(0.5);
+}
+
+@mixin setRightLine($c: #dfe2eb) {
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-right: 1px solid $c;
+    color: $c;
+    transform-origin: 100% 0;
+    transform: scaleX(0.5);
+}
+
+@mixin retina-one-px-border($direction: top, $color: #eee) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+
+    @if $direction == top or $direction == bottom {
+        right: 0;
+        height: 0;
+        transform: scaleY(0.5);
+        border-top: 1px solid $color;
+    }
+    @if $direction == bottom {
+        top: auto;
+        bottom: 0;
+    }
+    @if $direction == right or $direction == left {
+        width: 0;
+        bottom: 0;
+        transform: scaleX(0.5);
+        border-left: 1px solid $color;
+    }
+    @if $direction == right {
+        left: auto;
+        right: 0;
+    }
+    @if $direction == all {
+        width: 200%;
+        height: 200%;
+        transform-origin: left top;
+        transform: scale(0.5);
+        border: 1px solid $color;
+    }
+}
+
+// 隐藏/清除滚动条
+@mixin clearScrollbar() {
+  // 隐藏滚动条
+  -ms-overflow-style: none; //IE 10+
+  overflow: -moz-scrollbars-none; //Firefox
+  // 谷歌内核webkit
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+    display: none;
+  }
+  // 安卓手机得要这样设置才能清除
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+    display: none;
+  }
+}
+
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}

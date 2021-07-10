@@ -1,0 +1,53 @@
+// loading加载样式
+@import "../base/mixin.scss";
+
+
+// 加载中模块
+.m-loading {
+  padding: 24rpx 0;
+  text-align: center;
+  .m-loading__txt {
+    font-size: 28rpx;
+    color: #999999;
+  }
+}
+
+
+
+//  m-loading-dot-fade  多个小圆点淡入效果
+.m-loading-dot-fade {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1rpx) translateZ(0);
+  font-size: 0;
+  .ele {
+    display: inline-block;
+    width: 16rpx;
+    height: 16rpx;
+    margin-right: 24rpx;
+    border-radius: 50%;
+    background: #265CF0;
+    animation: loading-dot-fade 1s ease infinite;
+    &:nth-child(1) {
+      animation-delay: -.75s;
+    }
+    &:nth-child(2) {
+      animation-delay: -.6s;
+    }
+    &:nth-child(3) {
+      animation-delay: -.45s;
+    }
+
+    &:last-child {
+      margin-right: 0rpx;
+    }
+  }
+}
+@keyframes loading-dot-fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

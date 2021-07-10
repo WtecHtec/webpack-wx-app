@@ -1,0 +1,42 @@
+.m-btn {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #333;
+  line-height: 1.41176471;
+  overflow: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  &.m-btn--default {
+      color: #666666;
+      background: #F5F6FA;
+      min-height: 45px;
+      &::after {
+          display: none;
+      }
+  }
+  &.m-btn--primary {
+      color: #fff;
+      background: #265bed;
+      min-height: 45px;
+  }
+  .m-btn__icon {
+    margin-left: 12rpx;
+  }
+}
+
+.m-btn[disabled] {
+  background: #ccdaff !important;
+  color: #fff !important;
+  &::after {
+      border: none;
+  }
+}

@@ -1,0 +1,64 @@
+// 指引层样式
+.m-guide {
+  position: relative;
+  height: 100vh;
+  box-sizing: border-box;
+  .guide-txt {
+    font-size: 28rpx;
+    color: #FFFFFF;
+    line-height: 40rpx;
+  }
+  .make-sure-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24rpx;
+    .m-btn--round {
+      padding: 0rpx 32rpx 0rpx 32rpx;
+      height: 56rpx;
+      line-height: 56rpx;
+      display: flex;
+      align-items: center;
+      font-size: 28rpx;
+      color: #fff;
+      background: transparent;
+      &:after {
+        border-color: #fff;
+      }
+    }
+  }
+}
+
+
+.m-guide03 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  .m-guide-item {
+    padding-top: 79rpx;
+    padding-left: 141rpx;
+  }
+  .guide-image {
+    position: absolute;
+    top: 16rpx;
+    left: 41rpx;
+    width: 84rpx;
+    height: 84rpx;
+  }
+}
+.m-guide04 {
+  position: absolute;
+  left: 0;
+  top: 60%;
+  width: 100%;
+  .m-guide-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .guide-image {
+    margin-top: 23rpx;
+    width: 15rpx;
+    height: 68rpx;
+  }
+}

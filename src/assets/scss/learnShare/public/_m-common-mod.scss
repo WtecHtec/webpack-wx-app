@@ -1,0 +1,626 @@
+@import '../../base/mixin.scss';
+// lable+content的模块组(上下结构)
+.m-group-form {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  // label在左侧的样式
+  .group-form__item {
+    position: relative;
+  }
+  .group-form__label {
+    font-size: 24rpx;
+    color: #999999;
+    line-height: 36rpx;
+    padding: 32rpx 30rpx 8rpx;
+  }
+  .group-form__content {
+    position: relative;
+    &.-paddingLR-30 {
+      padding-left: 30rpx;
+      padding-right: 30rpx;
+    }
+  }
+  .group-form__value {
+    display: flex;
+    align-items: flex-start;
+    flex: 1;
+    .iconfont2 {
+      line-height: 48rpx;
+      color: #265CF0;
+      margin-left: 16rpx;
+    }
+  }
+  .group-form__text {
+    font-size: 32rpx;
+    color: #000000;
+    line-height: 48rpx;
+    word-wrap: break-word;
+    word-break: normal;
+  }
+  .group-form__tagWrap {
+    margin-left: 37rpx;
+  }
+  .group-form__tag {
+    padding: 0rpx 21rpx;
+    line-height: 46rpx;
+    font-size: 28rpx;
+    color: #265CF0;
+    text-align: center;
+    background: rgba($color: #265CF0, $alpha: 0.06);
+    border-radius: 46rpx;
+  }
+}
+
+// lable+content的模块组(左右结构)
+.workOrder-details--infoList {
+  line-height: 1.5;
+  .infoList__item {
+    font-size: 30rpx;
+    display: flex;
+    &:not(:last-child) {
+      margin-bottom: 16rpx;
+    }
+  }
+  .infoList__titleWrap {
+    &.-flex-210 {
+      flex: 0 0 210rpx;
+    }
+  }
+  .infoList__title {
+    flex-shrink: 0;
+    color: #666666;
+    width: 150rpx;
+    display: flex;
+    text {
+      &:not(:first-child) {
+        margin-left: auto;
+      }
+    }
+  }
+  .infoList__value {
+    flex: 1;
+    color: #000000;
+    word-wrap: break-word;
+    word-break: normal;
+    overflow: hidden;
+    // 高亮文字
+    &.-high-light {
+      color: #ED4343;
+      .iconfont2 {
+        font-size: 24rpx;
+        color: #ED4343;
+        margin-right: 6rpx;
+      }
+    }
+    &.-flex {
+      display: flex;
+      align-items: center;
+    }
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #999;
+    }
+    .copy-btn {
+      display: inline;
+      color: #265CF0;
+      margin-left: 8rpx;
+    }
+    .copy-btn2 {
+      font-size: 28rpx;
+      display: inline;
+      color: #265CF0;
+      margin-left: 16rpx;
+    }
+    .shrink-operation-btn {
+      display: inline;
+      color: #265CF0;
+    }
+  }
+  .infoList__valueWrap {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    .infoList__value:not(:first-child) {
+      margin-top: 16rpx;
+    }
+  }
+  .infoList__valueItem {
+    display: flex;
+    align-items: center;
+    &:not(:first-child) {
+      margin-top: 24rpx;
+    }
+    .infoList__value {
+      flex: 1;
+      @include ellipsis-lines($lines: 1);
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+  }
+  .infoList__valueRight {
+    flex-shrink: 0;
+    font-size: 30rpx;
+    color: #999999;
+    line-height: 44rpx;
+    margin-left: 10rpx;
+  }
+}
+
+// 顶部质检状态信息
+.m-quality--status {
+  position: relative;
+  display: flex;
+  padding: 26rpx 30rpx;
+  &.bottom-spac {
+    margin-bottom: 16rpx;
+  }
+  &.bottom-line:after {
+    @include setBottomLine($c: #E5E5E6);
+  }
+  .quality__bd {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  .quality__ft {
+    display: flex;
+    align-items: center;
+  }
+  .quality__icon {
+    display: flex;
+    align-items: center;
+    margin-right: 12rpx;
+    .iconfont2 {
+      font-size: 40rpx;
+      color: #265CF0;
+      &.icon-196{
+        color: #ED4343;
+      }
+      &.icon-195{
+        color: #3CC947;
+      }
+      &.icon-193{
+        color: #FA9128;
+      }
+    }
+  }
+  .quality__text {
+    font-size: 34rpx;
+    font-weight: bold;
+    color: #000000;
+    @include ellipsis-lines($lines: 1);
+    word-wrap: break-word;
+    word-break: normal;
+  }
+  .quality__arow {
+    display: flex;
+    align-items: center;
+    margin-left: 8rpx;
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #999;
+    }
+  }
+}
+
+// 底部语音模块
+.m-bottom--voicebar {
+  position: relative;
+  background: #FFFFFF;
+  box-shadow: 0 0 6rpx 0 rgba(0,0,0,0.06);
+  border-radius: 20rpx 20rpx 0 0;
+  padding-top: 50rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+  .voicebar__bd {
+    position: relative;
+    padding: 30rpx 0rpx;
+  }
+  .voicebar__ft {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30rpx;
+  }
+  .voicebar__btnBar {
+    padding: 0rpx 131rpx 30rpx;
+    display: flex;
+    align-items: center;
+  }
+  .voicebar__btnItem {
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &:active {
+      opacity: 0.85;
+    }
+    &:last-child {
+      margin-right: unset;
+    }
+    &.disabled {
+      &:active {
+        opacity: 1;
+      }
+      .voicebar__btnIcon {
+        opacity: 0.4;
+      }
+      .voicebar__btnText {
+        color: #999;
+      }
+    }
+    &.-largeSize {
+      position: relative;
+      top: -24rpx;
+      .voicebar__btnIcon {
+        width: 120rpx;
+        height: 120rpx;
+        border-radius: 50%;
+        background: #265CF0;
+        box-shadow: 0 4rpx 14rpx 0 rgba(38,92,240,0.40);
+      }
+      .iconfont2 {
+        color: #fff;
+      }
+    }
+    &.hidden {
+      visibility: hidden;
+    }
+  }
+  .voicebar__btnIcon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 88rpx;
+    height: 88rpx;
+    .iconfont2 {
+      position: relative;
+      font-size: 54rpx;
+      color: #265CF0;
+      z-index: 1;
+    }
+    .icon-70 {
+      font-size: 38rpx;
+    }
+    // 播放进度组件中的图标样式布局
+    .circle_box .iconfont2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+  }
+  // 进度条圆环
+  .voicebar__circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 88rpx;
+    height: 88rpx;
+    border-radius: 50%;
+    background: #EAEFFD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    .circle-content {
+      width: 80rpx;
+      height: 80rpx;
+      border-radius: 50%;
+      background: #fff;
+    }
+  }
+  .voicebar__btnText {
+    margin-top: 16rpx;
+    font-size: 24rpx;
+    color: #666666;
+    text-align: center;
+    line-height: 26rpx;
+  }
+  .footer-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 30rpx;
+    &.-leftLine {
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 2rpx;
+        height: 24rpx;
+        border-left: 2rpx solid #E5E5E6;
+        transform-origin: 0 0;
+        transform: scaleX(0.5) translateY(-50%);
+      }
+    }
+    &.-disabled {
+      .footer-btn__icon,.footer-btn__text {
+        opacity: 0.4;
+      }
+    }
+  }
+  .footer-btn__icon {
+    display: flex;
+    align-items: center;
+    margin-right: 8rpx;
+    .iconfont2 {
+      font-size: 32rpx;
+      color: #999999;
+      margin-top: 2rpx;
+    }
+    .icon-104 {
+      font-size: 40rpx;
+      margin-top: 0rpx;
+    }
+  }
+  .footer-btn__text {
+    font-size: 28rpx;
+    color: #999999;
+  }
+}
+.voicebar__voice.fixed {
+  position: fixed;
+  top: 30rpx;
+  left: 30rpx;
+  right: 30rpx;
+  z-index: 101;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  &:before {
+    content: "";
+    position: absolute;
+    left: -30rpx;
+    top: -30rpx;
+    display: block;
+    width: 100vw;
+    height: 190rpx;
+    opacity: 0.9;
+    background-image: linear-gradient(180deg, #F5F6FA 74%, rgba(245,246,250,0.00) 100%);
+  }
+  .components-audio {
+    position: relative;
+    z-index: 11;
+  }
+  .weui-audio {
+    background: #fff;
+    box-shadow: 0 2px 10px 0 rgba(102,114,144,0.20);
+    padding-left: 0rpx;
+    .weui-audio__icon {
+      padding: 10rpx 32rpx 10rpx 20rpx;
+      margin-right: 0rpx;
+      image {
+        width: 56rpx;
+        height: 56rpx;
+      }
+    }
+    &:after {
+      display: none;
+    }
+  }
+}
+
+// 模块之间的描述文字
+.m-panel--between {
+  padding: 16rpx 30rpx 8rpx;
+  text-align: left;
+  font-size: 24rpx;
+  color: #666;
+}
+
+// 页面底部的链接模块
+.m-footer--link {
+  font-size: 26rpx;
+  color: #265CF0;
+  text-align: center;
+  padding: 64rpx 0rpx 28rpx 0rpx;
+}
+
+// 页面底部带分割线的信息
+.m-footer--line {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  padding: 36rpx 30rpx;
+  background: #F5F6FA;
+  &:before {
+    content: "";
+    height: 1px;
+    border-top: 1px solid #E5E5E6;
+    position: absolute;
+    top: 50%;
+    left: 30rpx;
+    right: 30rpx;
+    transform-origin: 0 0;
+    transform: scaleY(0.5) translateY(-50%);
+  }
+  .text__block {
+    position: relative;
+    padding: 0rpx 30rpx;
+    font-size: 24rpx;
+    line-height: 33rpx;
+    color: #CCCCCC;
+    background: #F5F6FA;
+  }
+}
+
+
+// 历史浏览记录模块
+.browse-history {
+  position: relative;
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #000;
+  .txt {
+    flex: 1;
+    @include ellipsis-lines($lines: 1);
+    word-wrap: break-all;
+    // 切割所有字符
+    word-break: break-all;
+  }
+  .iconfont2 {
+    flex-shrink: 0;
+    color: #999;
+    font-size: 28rpx;
+  }
+}
+
+// 顶部卡片式标题
+.m-title--card {
+  position: relative;
+  padding: 30rpx 30rpx 40rpx 30rpx;
+  .m-title__hd {
+    position: relative;
+  }
+  .m-title__bd {
+    position: relative;
+  }
+  .title-text {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #000000;
+    line-height: 48rpx;
+  }
+  .m-title__infoWrap {
+    display: flex;
+    align-items: center;
+    margin-top: 18rpx;
+    .m-tag--normal {
+      margin-right: 12rpx;
+    }
+  }
+  .m-title__publishTime {
+    font-size: 28rpx;
+    color: #999999;
+    line-height: 36rpx;
+  }
+}
+
+
+
+// 进度圆环
+.box{
+  width: 88rpx;
+  height: 88rpx;
+  position: absolute;
+  background-color: #EAEFFD;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    border-radius: 50%;
+    width: 80rpx; 
+    height: 80rpx;
+    transform: translate(-50%, -50%);
+    line-height: 80rpx;
+  }
+  .clip{
+    width: 88rpx;
+    height: 88rpx;
+    position: absolute;
+    border: 4rpx solid #EAEFFD;
+    border-radius: 50%;
+    clip: rect(0, 88rpx, 88rpx, 44rpx);
+    box-sizing: border-box;
+  }
+  .left{
+    width: 88rpx;
+    height: 88rpx;
+    position: absolute;
+    border: 4rpx solid #265CF0;
+    border-radius: 50%;
+    clip: rect(0 44rpx 88rpx 0);
+    top: -4rpx;
+    left: -4rpx;
+    box-sizing: border-box;
+    // transition: all 0.1s linear;
+  }
+  .right{
+    width: 88rpx;
+    height: 88rpx;
+    position: absolute;
+    border: 4rpx solid #265CF0;
+    border-radius: 50%;
+    clip: rect(0 88rpx 88rpx 44rpx);
+    top: -4rpx;
+    left: -4rpx;
+    box-sizing: border-box;
+  }
+  .width-none{
+    width: 0;
+  }
+  .auto{
+    clip: auto;
+  }
+}
+
+
+// 多行文本输入框组件
+.m-textarea--normal {
+  position: relative;
+  .m-textarea__wrap {
+    display: flex;
+    padding: 21rpx 30rpx;
+  }
+  .m-textarea__input {
+    width: 100%;
+    height: 458rpx;
+    font-size: 32rpx;
+  }
+  .m-textarea__wordPrompt {
+    text-align: right;
+    font-size: 24rpx;
+    line-height: 33rpx;
+    color: #CCCCCC;
+    padding: 0rpx 30rpx 30rpx 0rpx;
+  }
+}
+
+
+// switch开关栏 组件
+.m-switch--content {
+  .m-switch__item {
+    display: flex;
+    align-items: center;
+    padding: 26rpx 30rpx;
+  }
+  .m-switch__left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  .m-switch__right {
+    flex-shrink: 0;
+    margin-left: 30rpx;
+  }
+  .m-switch__label {
+    font-size: 32rpx;
+    color: #666666;
+    line-height: 48rpx;
+  }
+}
+
+// 描述文字 组件
+.m-tips--desc {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 16rpx 30rpx;
+  .m-tips__txt {
+    font-size: 26rpx;
+    color: #999999;
+    line-height: 40rpx;
+  }
+}

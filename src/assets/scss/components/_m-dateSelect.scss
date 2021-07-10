@@ -1,0 +1,230 @@
+.m-dateSelect {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+.dateSelect-hd__container {
+  position: relative;
+  &::after {
+    @include setBottomLine($c: #dfe2eb);
+  }
+  .hd-date__select {
+    position: relative;
+    padding: 20rpx 133rpx;
+    &::after {
+      @include setBottomLine($c: #dfe2eb);
+    }
+  }
+  .hd-date__list {
+    padding: 4rpx;
+    display: flex;
+    background: #f5f6fa;
+    border-radius: 8rpx;
+  }
+  .hd-date__item {
+    min-width: 84rpx;
+    padding: 6rpx 0;
+    margin-right: 4rpx;
+    flex: 1;
+    font-size: 28rpx;
+    text-align: center;
+    color: #666;
+    &:last-child {
+      margin-right: 0;
+    }
+    &.-current {
+      background: #fff;
+      box-shadow: 0 2rpx 4rpx 0 rgba(138,151,184,0.20);
+      border-radius: 8rpx;
+      color: #265cf0;
+      font-weight: bold;
+    }
+  }
+  .hd-date__title {
+    padding: 6rpx 0;
+    text-align: center;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #000;
+    line-height: 48rpx;
+  }
+  .hd-time__list {
+    padding: 20rpx 30rpx;
+    display: flex;
+  }
+  .hd-time__item {
+    padding: 7rpx;
+    flex: 1;
+    margin-right: 12rpx;
+    background: #f5f6fa;
+    border-radius: 4rpx;
+    font-size: 24rpx;
+    color: #333;
+    text-align: center;
+    line-height: 34rpx;
+    &:last-child {
+      margin-right: 0;
+    }
+    &.-current {
+      background: rgba($color: #265cf0, $alpha: .08);
+      color: #265cf0;
+      font-weight: bold;
+    }
+  }
+  .hd-day__list {
+    display: flex;
+  }
+  .hd-day__item {
+    flex: 1;
+    padding: 13rpx 0;
+    font-size: 24rpx;
+    color: #999;
+    text-align: center;
+  }
+}
+.m-dateSelect__bd {
+  position: relative;
+  flex: 1;
+}
+.m-calendar__wrap {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.m-calendar__item {
+  padding-top: 24rpx;
+  .calendar-title {
+    padding: 0 30rpx;
+    font-size: 28rpx;
+    color: #666;
+  }
+  .calendar-list {
+    display: flex;
+    flex-wrap: wrap;
+    .calendar-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12rpx;
+      width: calc(100vw / 7);
+      height: 120rpx;
+      .num {
+        font-size: 32rpx;
+        color: #000;
+      }
+      .txt {
+        display: none;
+        position: absolute;
+        bottom: 8rpx;
+        text-align: center;
+        font-size: 20rpx;
+        color: #265cf0;
+        line-height: 30rpx;
+      }
+      &.-start {
+        background: #265cf0;
+        border-radius: 8rpx 0 0 8rpx;
+        .num {
+          font-weight: bold;
+          color: #fff;
+        }
+        .txt {
+          color: #fff;
+        }
+      }
+      &.-end {
+        background: #265cf0;
+        border-radius: 0 8rpx 8rpx 0;
+        .num {
+          font-weight: bold;
+          color: #fff;
+        }
+        .txt {
+          color: #fff;
+        }
+      }
+      &.-pass {
+        background: #e5ebfd;
+        .num {
+          color: #265cf0;
+        }
+      }
+      &.-month {
+        background: #265cf0;
+        border-radius: 8rpx;
+        .num {
+          font-weight: bold;
+          color: #fff;
+        }
+        .txt {
+          display: inline-block;
+          color: #fff;
+        }
+      }
+      &.-current {
+        .txt {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+.calendar-year__item {
+  position: relative;
+  padding: 24rpx 30rpx;
+  display: flex;
+  align-items: center;
+  &::after {
+    @include setBottomLine($c: #dfe2eb);
+  }
+  &:last-child {
+    &::after {
+      border: none;
+    }
+  }
+  &.-current {
+    background: #eef2fe;
+    .item-txt {
+      color: #265cf0;
+    }
+  }
+  .item-txt {
+    margin-right: 8rpx;
+    font-size: 32rpx;
+    color: #000;
+    line-height: 48rpx;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+.dateSelect-ft__btnWrap {
+  position: relative;
+  padding: 24rpx 30rpx;
+  display: flex;
+  &::after {
+    @include setTopLine($c: #dfe2eb);
+  }
+  .m-btn--normal {
+    flex: 1;
+  }
+}
+.time-period {
+  margin-right: 30rpx;
+  flex: 1;
+}
+.time-period__item {
+  margin-bottom: 8rpx;
+  font-size: 22rpx;
+  color: #666;
+  line-height: 34rpx;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

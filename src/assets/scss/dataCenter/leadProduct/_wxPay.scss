@@ -1,0 +1,23 @@
+// 重点产品头部导航
+@import '../../base/mixin.scss';
+.lead-product-page {
+  overflow: hidden;
+  &.has-top-tabBar {
+    padding-top: calc(88rpx + 16rpx);
+  }
+}
+
+
+// 重点产品分类下拉弹窗
+.lead-product--sort {
+  padding: 15rpx;
+  .m-label-group {
+    .m-label-item {
+      width: 330rpx;
+      line-height: 88rpx;
+      margin: 15rpx;
+      padding: 0rpx;
+      box-sizing: border-box;
+    }
+  }
+}

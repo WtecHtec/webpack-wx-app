@@ -1,0 +1,13 @@
+/**
+* 云智服内部315模块分包独立样式汇总
+* 分包页面会适用主包已有的样式，但是此处的独立样式不影响主包样式
+* 分包每一个页面的样式文件 *.scss 里面都要引用这个汇总样式。如：@import "../../../app-315.wxss";
+**/
+@import "./iconfont.scss";
+@import "./lib-mod.scss";
+@import "./index.scss";
+@import "./details.scss";
+@import "./history.scss";
+@import "./browse.scss";
+@import "./error.scss";
+@import "./portal.scss";

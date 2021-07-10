@@ -1,0 +1,100 @@
+
+.drawer-content{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.drawer-bg{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.drawer-opacity{
+  opacity: 0;
+}
+
+.drawer-pointer{
+  pointer-events:none;
+}
+
+.drawer-box{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    &.drawer-up{
+      animation: drawer-up 0.3s forwards;
+    }
+    &.drawer-down{
+        animation: drawer-down 0.3s forwards;
+    }
+}
+
+.drawer-box-show{
+  position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    &.drawer-up{
+      animation: drawer-show 0.3s forwards;
+    }
+    &.drawer-down{
+        animation: drawer-hide 0.3s forwards;
+    }
+}
+
+.drawer-mask{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%,-50%);
+  &.drawer-up{
+    animation: drawer-big 0.3s forwards;
+  }
+  &.drawer-down{
+      animation: drawer-small 0.3s forwards;
+  }
+}
+
+.drawer-show{
+    animation: drawer-show 0.3s forwards;
+}
+.drawer-hide{
+    animation: drawer-hide 0.3s forwards;
+}
+
+@keyframes drawer-big{
+  from { transform: translate(-50%, -50%) scale(0,0); }
+  to { transform: translate(-50%, -50%) scale(1,1);}
+}
+@keyframes drawer-small{
+  from { transform: translate(-50%, -50%) scale(1,1); }
+  to { transform: translate(-50%, -50%) scale(0,0);}
+}
+@keyframes drawer-show{
+  from { opacity: 0; }
+  to { opacity: 1;}
+}
+@keyframes drawer-hide{
+  from { opacity: 1; }
+  to { opacity: 0;}
+}
+@keyframes drawer-up{
+  from { transform: translateY(100%); }
+  to { transform: translateY(0%); }
+}
+@keyframes drawer-down{
+  from { transform: translateY(0%); }
+  to { transform: translateY(100%); }
+}

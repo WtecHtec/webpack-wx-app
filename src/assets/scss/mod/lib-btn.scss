@@ -1,0 +1,133 @@
+.w-btn {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #333;
+    line-height: 1.41176471;
+    overflow: hidden;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &.w-btn-default {
+        color: #666666;
+        background: #F5F6FA;
+        min-height: 45px;
+        &::after {
+            display: none;
+        }
+    }
+    &.w-btn-primary {
+        color: #fff;
+        background: #265bed;
+        min-height: 45px;
+    }
+    
+}
+
+.w-btn[disabled] {
+    background: #ccdaff !important;
+    color: #fff !important;
+    &::after {
+        border: none;
+    }
+}
+
+
+// 正常按钮
+.m-btn--normal {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #265CF0;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 0px;
+  &:after { // 去除小程序button边框
+      border: none;
+  }
+  &.deauful {
+    background: #ffffff!important;
+    color: #265CF0!important;
+    &:after {
+      content: "";
+      @include retina-one-px-border($direction: all, $color: #265CF0);
+      border-radius: 16rpx;
+    }
+    &.disabled,[disabled] {
+      background: #ffffff!important;
+      color: #A9BEF9!important;
+      &:after {
+        border-color: #A9BEF9;
+      }
+    }
+  }
+  &.cancel {
+      background: #F5F6FA!important;
+      color: #666666!important;
+  }
+  .iconfont2 {
+    margin-right: 12rpx;
+  }
+  &.disabled,[disabled] {
+    background: #CCDAFF!important;
+    color: #FFFFFF!important;
+  }
+  &.-wdith326 {
+    width: 326rpx;
+  }
+}
+
+// 两侧是圆形的按钮
+.m-btn--round {
+  position: relative;
+  display: inline-block;
+  padding: 8rpx 24rpx 8rpx 24rpx;
+  line-height: 40rpx;
+  background: #265CF0;
+  border-radius: 28rpx;
+  font-size: 28rpx;
+  color: #FFFFFF;
+  text-align: center;
+  &.deauful {
+    background: #ffffff;
+    color: #265CF0;
+    &:after {
+      content: "";
+      @include retina-one-px-border($direction: all, $color: #265CF0);
+      border-radius: 90rpx;
+    }
+  }
+  .iconfont2 {
+    font-size: 28rpx;
+    margin-left: 4rpx;
+    color: #265CF0;
+  }
+  .leftIcon {
+    display: inline-block;
+    .iconfont2 {
+      margin-right: 14rpx;
+    }
+  }
+  .m-btn__txt {
+    display: inline-block;
+  }
+  // 大号按钮
+  &.-largeSize {
+    padding: 16rpx 41rpx;
+    border-radius: 36rpx;
+    &.deauful:after {
+      border-radius: 72rpx;
+    }
+  }
+}

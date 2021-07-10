@@ -1,0 +1,15 @@
+/* 数据中心 样式汇总 */
+
+// 通用样式
+@import './public/_panel.scss';
+@import './public/_datatab.scss';
+@import './public/_tabBar.scss';
+
+// 员工数据所有样式
+@import "./staffData/main.scss";
+
+// 经营分析所有样式
+@import "./manageAnalysis/main.scss";
+
+// 云智服 重点产品 样式
+@import "./leadProduct/main.scss";

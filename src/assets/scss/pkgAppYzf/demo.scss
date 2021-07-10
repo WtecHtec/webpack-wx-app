@@ -1,0 +1,49 @@
+@import "../base/mixin.scss";
+
+
+
+.page-main {
+  min-height: 100vh;
+  @include clearfix();
+  box-sizing: border-box;
+}
+
+.page-fixtop {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+}
+
+.page-fixbottom_index {
+  min-height: calc(100vh - 180rpx - constant(safe-area-inset-bottom));
+  min-height: calc(100vh - 180rpx - env(safe-area-inset-bottom));
+}
+
+
+.page-white-bg {
+  background: #ffffff;
+}
+
+
+.box1 {
+  background: oldlace;
+  height: 180rpx;
+}
+
+
+.box2 {
+  background: orange;
+  height: 180rpx;
+}
+
+
+.page-footerheight {
+  height: 180rpx;
+  position: relative;
+  .fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

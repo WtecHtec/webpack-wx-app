@@ -1,0 +1,392 @@
+// 员工数据
+@import '../../base/mixin.scss';
+
+.staff-data {
+  // .m-panel--card {
+  //   margin-bottom: 16rpx;
+  //   &:last-child {
+  //     margin-bottom: 0;
+  //   }
+  // }
+  overflow: hidden;
+  .pm-box {
+    
+    position: relative;
+    &::after {
+      @include setBottomLine($c: #E5E5E6);
+      left: 30rpx;
+      right: 30rpx;
+    }
+    &:last-child::after {
+      display: none;
+    }
+  }
+}
+
+.frontline-2ndWrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.frontline-2nd {
+  overflow: hidden;
+}
+
+// 员工数据改版-待更新代码
+.koufen-list {
+  padding: 0rpx;
+  .koufen__item {
+    display: flex;
+    align-items: center;
+    height: 88rpx;
+    padding: 0rpx 30rpx;
+    // 下划分线
+    &.bottomline {
+      position: relative;
+      &::after {
+        @include setBottomLine($c: #E5E5E6);
+        left: 30rpx;
+        // right: 30rpx;
+      }
+    }
+  }
+  .koufen__desc {
+    flex: 1;
+    font-size: 28rpx;
+    color: #000;
+    @include ellipsis-lines($lines: 1);
+    position: relative;
+  }
+  .koufen__number {
+    width: 106rpx;
+    font-size: 32rpx;
+    color: #333;
+    text-align: right;
+    font-weight: bold;
+    word-break: break-all;
+    @include  ellipsis-lines($lines: 1); 
+  }
+  .m-more {
+    margin-top: 31rpx;
+  }
+  .koufen__arow {
+      flex-shrink: 0;
+      margin-left: 16rpx;
+      .icon-26 {
+          font-size: 28rpx;
+          color: #999;
+      }
+  }
+  // 需要上划分线
+  &.topline {
+    position: relative;
+    &::before {
+      @include setTopLine($c: #E5E5E6);
+      left: 30rpx;
+      right: 30rpx;
+    }
+  }
+  // 下划分线
+  &.bottomline {
+    position: relative;
+    &::after {
+      @include setBottomLine($c: #E5E5E6);
+      left: 30rpx;
+      right: 30rpx;
+    }
+  }
+  // 每一列的的间距保持一致
+  &.-same-space {
+    padding: 12rpx 0rpx;
+    .koufen__item {
+      height: 60rpx;
+      padding-top: 10rpx;
+      padding-bottom: 10rpx;
+    }
+  }
+}
+
+// 员工成绩排行
+.pr-rank {
+
+  width: 100%;
+  overflow: hidden;
+  .rank-items {
+    display: flex;
+    padding: 0 30rpx 30rpx 30rpx;
+    margin-left: -6rpx;
+    margin-right: -6rpx;
+  }
+  .item {
+    position: relative;
+    background: #F7F8FA;
+    border-radius: 8rpx;
+    margin: 0 6rpx;
+    height: 210rpx;
+    flex: 1 0 0;
+    display: flex;
+    align-items: center;
+    
+
+    flex-direction: column;
+    .avatar {
+      width: 88rpx;
+      height: 88rpx;
+      border-radius: 50%;
+      margin-top: 56rpx;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;   
+        left: 0;
+        width: 200%;
+        height: 200%;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+        box-sizing: border-box;
+        border-radius:50%;
+        border: 1px solid #E5E5E6;
+      }
+      image {
+        border-radius: 50%;
+      }
+    }
+    .name {
+      font-size: 24rpx;
+      color: #000000;
+      text-align: center;
+      margin-top: 4rpx;
+      padding: 0 16rpx;
+      box-sizing: border-box;
+      @include ellipsis-lines($lines: 1);
+      word-break: break-all;
+
+    }
+    .pm {
+      position: absolute;
+      background: #EDF0F5;
+      border-radius: 8rpx 0 8rpx 0;
+      top:0;
+      left: 0;
+      padding: 4rpx 16rpx 3rpx 16rpx;
+      font-size: 24rpx;
+      color: #8A97B8;
+    }
+  }
+}
+
+
+.page-inner--empty {
+  &.-noBg {
+    .m-empty--status {
+      background: transparent;
+    }
+  }
+  .m-empty--status {
+    padding-top: 232rpx;
+    background: #F5F6FA;
+    .m-empty__image {
+      width: 210rpx;
+      height: 210rpx;
+    }
+    .m-empty__btnWrap {
+      margin-top: 30rpx;
+    }
+    .m-btn--round {
+      padding: 0rpx 40rpx;
+      line-height: 64rpx;
+      font-size: 28rpx;
+      &.deauful {
+        background: transparent;
+      }
+    }
+  }
+}
+.bgcolor-white .page-inner--empty .m-empty--status {
+  background: #fff;
+}
+  
+
+.quality-page {
+  overflow: hidden;
+}
+// 质检得分头部
+.quality-header {
+  padding: 16rpx 30rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+// 质检得分详情模块
+.quality {
+  position: relative;
+  padding: 30rpx;
+  .quality__content {
+    position: relative;
+    font-size: 30rpx;
+    color: #000000;
+    line-height: 45rpx;
+    padding-top: 24rpx;
+    &:after {
+      @include setTopLine($c: #E5E5E6);
+    }
+  }
+  .quality-info--wrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24rpx;
+  }
+  .quality-info__left {
+    flex-shrink: 0;
+  }
+  .quality-info__center {
+    flex: 1;
+  }
+  .quality-info__right {
+    flex-shrink: 0;
+  }
+  .quality-info--icon {
+    width: 70rpx;
+    height: 70rpx;
+    margin-right: 16rpx;
+  }
+  .quality-info--orderNum {
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    color: #333333;
+    @include ellipsis-lines($lines: 1);
+    word-break: break-all;
+    .iconfont2 {
+      color: #265CF0;
+      font-size: 28rpx;
+      margin-left: 8rpx;
+    }
+  }
+  .quality-info--orderDate {
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    color: #999999;
+    margin-top: 8rpx;
+    .m-tag--normal {
+      margin-right: 8rpx;
+    }
+  }
+  .quality-info__fraction {
+    display: flex;
+    align-items: center;
+    .num {
+      font-size: 40rpx;
+      font-weight: bold;
+      color: #000000;
+    }
+    .unit {
+      font-size: 26rpx;
+      color: #000000;
+      margin-left: 4rpx;
+      margin-top: 4rpx;
+    }
+  }
+}
+
+// 视角切换
+.view-switch-page {
+  position: relative;
+  .m-empty--status {
+    background: transparent;
+    padding-top: 80rpx;
+    .m-empty__image {
+      width: 320rpx;
+      height: 210rpx;
+    }
+    .m-empty__txtWrap {
+      margin-top: 0rpx;
+      padding: 0rpx 193rpx;
+    }
+    .m-empty__txt {
+      font-size: 32rpx;
+      color: #333;
+      margin-top: 16rpx;
+    }
+    .m-empty__desc {
+      font-size: 28rpx;
+      color: #999999;
+      margin-top: 8rpx;
+    }
+  }
+  .view-switch-input {
+    position: relative;
+    padding: 0 30rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    margin-top: 88rpx;
+    .m-search-input {
+      border-radius: 44rpx;
+      &:after {
+        border-radius: 88rpx;
+      }
+    }
+  }
+}
+.m-search-input {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  line-height: inherit;
+  &:after {
+    content: "";
+    @include retina-one-px-border($direction: all, $color: #E5E5E6);
+  }
+  .iconfont2 {
+    flex-shrink: 0;
+    line-height: 1;
+    font-size: 48rpx;
+    color: #CCCCCC;
+    margin-left: 30rpx;
+    margin-right: 20rpx;
+  }
+  .search__input {
+    flex: 1;
+    position: relative;
+    line-height: inherit;
+    font-size: 32rpx;
+  }
+}
+.change-center {
+  position: relative;
+  padding: 0rpx 24rpx;
+  margin-top: 30rpx;
+  display: flex;
+  .item {
+    position: relative;
+    width: calc( (100% / 3) - 12rpx);
+    margin: 0rpx 6rpx;
+    height: 224rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 8rpx;
+    &:after {
+      content: "";
+      @include retina-one-px-border($direction: all, $color: #E5E5E6);
+      border-radius: 16rpx;
+    }
+  }
+  .item__icon {
+    width: 72rpx;
+    height: 72rpx;
+  }
+  .item__text {
+    font-size: 28rpx;
+    color: #333333;
+    margin-top: 16rpx;
+  }
+}
+
+

@@ -1,0 +1,200 @@
+@import "../../base/mixin.scss";
+.personal-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 318rpx;
+  background: #265CF0;
+
+  .personal__avatar {
+    position: relative;
+    width: 120rpx;
+    height: 120rpx;
+    margin-top: 48rpx;
+
+    &::before {
+      content: "";
+      @include retina-one-px-border($direction: all, $color: #E5E5E6);
+      border-radius: 50%;
+    }
+    .weapp-image {
+      border-radius: 50%;
+    }
+  }
+  .personal__name {
+    font-size: 32rpx;
+    color: #fff;
+    margin-top: 16rpx;
+  }
+  .personal__desc {
+    font-size: 24rpx;
+    color : rgba($color: #fff, $alpha: .5);
+    margin-top: 8rpx;
+  }
+}
+
+// 个人中心的icon按钮入口
+.function-entry--panel {
+  position: relative;
+  margin: 0rpx 16rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  &.-noBg {
+    background: transparent;
+  }
+}
+.function-entry--list {
+  position: relative;
+  display: flex;
+  .function-entry--item {
+    flex: 1;
+  }
+  &.-layoutCol-3 {
+    flex-wrap: wrap;
+    .function-entry--item {
+      flex: 0 0 33.33%;
+    }
+  }
+  &.-layoutCol-4 {
+    flex-wrap: wrap;
+    .function-entry--item {
+      flex: 0 0 25%;
+    }
+  }
+}
+// 功能入口描述文字
+.function-entry--label {
+  position: relative;
+  width: 100%;
+  padding: 16rpx 0rpx;
+  box-sizing: border-box;
+  .label-text {
+    font-size: 24rpx;
+    line-height: 33rpx;
+    color: #666666;
+  }
+}
+.function-entry--item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 32rpx 0;
+  // 里面元素呈横向水平排列(默认纵向排列)
+  &.-horizontal {
+    flex-direction: row;
+    .function-entry--text {
+      margin-left: 24rpx;
+      margin-top: 0rpx;
+    }
+  }
+  // 右侧分隔线
+  &.-rightLine:after {
+    @include setRightLine($c: #E5E5E6);
+    height: 64rpx;
+    top: auto;
+    bottom: auto;
+  }
+  // 小尺寸(图标和元素内边距)
+  &.-smallSize {
+    padding: 16rpx 0;
+    .function-entry--icon {
+      width: 64rpx;
+      height: 64rpx;
+    }
+  }
+  // 不可选
+  &.-disabled {
+    .function-entry--text {
+      color: #999999;
+    }
+  }
+  .function-entry--icon {
+    position: relative;
+    width: 72rpx;
+    height: 72rpx;
+  }
+  .function-entry--dot {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 32rpx;
+    transform: translateX(50%);
+    background: #ED4343;
+    min-width: 34rpx;
+    text-align: center;
+    border:2rpx solid #fff;
+    .dot-text {
+      padding: 3rpx 10rpx;
+      font-size: 20rpx;
+      vertical-align: top;
+      color: #fff;
+    }
+    &.-smalldot {
+      width: 18rpx;
+      height: 18rpx;
+      border-radius: 50%;
+      padding: 0;
+      min-width: auto;
+    }
+  }
+  .function-entry--text {
+    position: relative;
+    font-size: 30rpx;
+    color: #222222;
+    line-height: 42rpx;
+    margin-top: 8rpx;
+  }
+
+  // 空-待添加样式
+  .function-entry--waitToAdd {
+    width: 72rpx;
+    height: 72rpx;
+    background: #EEEEEE;
+    border: 2rpx dashed #CCCCCC;
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin: 21rpx 0rpx;
+  }
+}
+
+// 关于云智服
+.about-yzf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80rpx 0;
+  .about-yzf__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160rpx;
+    height: 160rpx;
+    background: #FFFFFF;
+    box-shadow: 0 4rpx 12rpx 0 rgba(38,92,240,0.10);
+    border-radius: 24rpx;
+    .icon-140 {
+      font-size: 70rpx;
+      color: #265CF0;
+    }
+  }
+  .logo-imageWrap {
+    width: 128rpx;
+    height: 128rpx;
+  }
+  .about-yzf__name {
+    font-size: 32rpx;
+    color: #000000;
+    font-weight: 500;
+    margin-top: 40rpx;
+  }
+  .about-yzf__info {
+    padding: 0 54rpx;
+    font-size: 28rpx;
+    color: #999999;
+    margin-top: 16rpx;
+  }
+}

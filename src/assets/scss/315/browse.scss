@@ -1,0 +1,81 @@
+// 浏览记录
+.page-browse {
+    height: 100%;
+    background-color: #F1F3F7;
+    .browse {
+        background-color: #fff;
+        padding: 15px 15px 0px;
+        .member-list {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            .member-list-item {
+                display: block;
+                width: 82px;
+                margin-bottom: 15px;
+                .icon {
+                    display: block;
+                    margin: 0 auto;
+                    width: 48px;
+                    height: 48px;
+                    .image {
+                        position: relative;
+                        box-sizing: border-box;
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        &:after {
+                            border-radius: 50%;
+                            content: "";
+                            box-sizing: border-box;
+                            width: 200%;
+                            height: 200%;
+                            border: 2rpx solid #c3c3c3;
+                            position: absolute;
+                            left: 0rpx;
+                            top: 0rpx;
+                            transform-origin: left top;
+                            transform: scale(0.5);
+                        }
+                    }
+                }
+                .name {
+                    display: block;
+                    width: 100%;
+                    margin-top: 5px;
+                    font-size: 13px;
+                    line-height: 18px;
+                    color: #222222;
+                    text-align: center;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    word-break: break-all;
+                    word-wrap: normal;
+                }
+            }
+            .null-list-item {
+                width: 25%;
+                margin-bottom: 15px;
+            }
+        }
+    }
+    
+    .no-more-txt {
+        background-color: #F1F3F7;
+        padding: 15px 0px;
+        line-height: 18px;
+        font-size: 11px;
+        color: #A1A5B3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .loading-circle {
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            margin-right: 2px;
+        }
+    }
+}

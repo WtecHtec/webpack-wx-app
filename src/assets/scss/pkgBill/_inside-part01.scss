@@ -1,0 +1,677 @@
+.page-inside01--bgcolor {
+  background-image: linear-gradient(180deg, #032644 0%, #000000 100%);
+}
+.page-inside02--bgcolor {
+  background-image: linear-gradient(0deg, #00c3ff 0%, #003c9c 100%);
+}
+.page-inside03--bgcolor {
+  background-image: linear-gradient(180deg, #7e55ff 0%, #ff7979 100%);
+}
+
+image {
+  width: 100%;
+}
+//********* 文字模块 **********
+.page-inside__text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.page-inside__text {
+  .inside-text__bottom {
+    margin-top: 60rpx;
+  }
+  .inside-text__content {
+    font-size: 32rpx;
+    color: #fff;
+    letter-spacing: 0;
+    text-align: right;
+    line-height: 64rpx;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    .inside-text__txt {
+      // 左右都有间距
+      display: inline;
+      margin: 0 10rpx;
+      // 左右没有间距
+      &.margin-none {
+        margin: 0;
+      }
+      //  只有左边有间距
+      &.margin-left {
+        margin: 0 0 0 10rpx;
+      }
+      //   只有右边有间距
+      &.margin-right {
+        margin: 0 10rpx 0 0;
+      }
+      &.-highlight {
+        color: #fff200;
+        font-weight: 600;
+      }
+      &.-small {
+        font-size: 26rpx;
+      }
+    }
+  }
+}
+
+// 弹幕
+.bullet-chat {
+  // width: 100%;
+  position: fixed;
+  left: 40rpx;
+  bottom: 100rpx;
+  .buttet-chat__list {
+    height: 220rpx;
+    overflow: hidden;
+  }
+  .bullet-chat__item {
+    display: inline-flex;
+    flex-direction: column;
+    margin-bottom: 8rpx;
+    box-sizing: border-box;
+    .bullet-chat__txt {
+      min-width: 100rpx;
+      max-width: 440rpx;
+      position: relative;
+      padding: 4rpx 20rpx;
+      box-sizing: border-box;
+      font-size: 28rpx;
+      line-height: 40rpx;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 8rpx;
+      color: #fff;
+      letter-spacing: 0;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+    }
+  }
+  .bullet-chat__send {
+    width: 300rpx;
+    margin-top: 8rpx;
+    padding: 16rpx 24rpx;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 36rpx;
+    .bullet-chat__input {
+      color: #fff;
+      font-size: 28rpx;
+    }
+    .bullet-chat__placeholder {
+      font-size: 28rpx;
+      color: #fff;
+      opacity: 0.5;
+      letter-spacing: 0;
+    }
+  }
+}
+
+// **********************内页01************************
+.page-inside01--bgcolor {
+  .bg-top {
+    width: 749rpx;
+    position: fixed;
+    left: 1;
+    top: 0;
+  }
+  .bg-bottom {
+    width: 749rpx;
+    height: 914rpx;
+    position: fixed;
+    left: 1;
+    bottom: 0;
+  }
+
+  .bg-whale {
+    width: 740rpx;
+    position: fixed;
+    left: -414rpx;
+    top: -35rpx;
+    animation: whaleFloat 2s linear infinite;
+  }
+  .bg-boat {
+    width: 456rpx;
+    height: 644rpx;
+    position: fixed;
+    right: 0;
+    bottom: -162rpx;
+    animation: boatFloat 4s linear infinite;
+    .bg-boat__image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .page-inside__text {
+    height: 48%;
+    padding: 130rpx 60rpx 0;
+    position: relative;
+  }
+}
+// *******************  内页01动画 **********************************
+.page-inside01--bgcolor {
+  // animationIn加载动画
+  &.animationIn {
+    .bg-boat {
+      animation: boatMove 2s linear, boatFloat 4s 2s linear infinite;
+    }
+    .bg-whale {
+      animation: whale 2s linear, whaleFloat 2s 2s linear infinite;
+    }
+    .page-inside__text {
+      animation: dataMove 1.4s linear both;
+    }
+  }
+  // 小船移动
+  @keyframes boatMove {
+    0% {
+      opacity: 0;
+      bottom: -202rpx;
+    }
+    // 300ms
+    // 15% {
+    //   opacity: 0;
+    // }
+    // 1000ms
+    50% {
+      opacity: 1;
+      bottom: -202rpx;
+    }
+    // 1500ms
+    75% {
+      opacity: 1;
+      bottom: -170rpx;
+    }
+    // 2000ms
+    100% {
+      bottom: -162rpx;
+    }
+  }
+  //小船摇摆
+  @keyframes boatFloat {
+    0% {
+      transform: rotate(0);
+    }
+    25% {
+      transform: rotate(2deg);
+    }
+    75% {
+      transform: rotate(-2deg);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+  // 鲸鱼动画
+  @keyframes whale {
+    0% {
+      opacity: 0;
+      left: -444rpx;
+      top: -75rpx;
+    }
+    // 300ms
+    15% {
+      opacity: 0;
+      left: -444rpx;
+      top: -75rpx;
+    }
+    // 500ms
+    25% {
+      transform: rotate(-4deg);
+    }
+    // 600ms
+    30% {
+      opacity: 1;
+    }
+    // 2000ms
+    100% {
+      left: -414rpx;
+      top: -35rpx;
+    }
+  }
+  // 鲸鱼闪烁
+  @keyframes whaleFloat {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  // 数据文本动画
+  @keyframes dataMove {
+    0% {
+      transform: translateY(30rpx);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  // 文案动画
+  @keyframes txtMove {
+    0% {
+      bottom: 197rpx;
+      opacity: 0;
+    }
+    83% {
+      bottom: 197rpx;
+      opacity: 0;
+    }
+    100% {
+      bottom: 227rpx;
+      opacity: 1;
+    }
+  }
+}
+
+// *****************************内页02*********************************
+.page-inside02--bgcolor {
+  // 底部背景
+  .bg-bottom {
+    width: 750rpx;
+    height: 990rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  // 船
+  .bg-boat {
+    width: 380rpx;
+    position: fixed;
+    right: 20rpx;
+    bottom: 148rpx;
+  }
+  // 公式图片
+  .formula1 {
+    width: 278rpx;
+    height: 46rpx;
+    position: fixed;
+    left: 160rpx;
+    top: 188rpx;
+    animation: formulaScale 3s linear infinite;
+  }
+  .formula2 {
+    width: 180rpx;
+    height: 176rpx;
+    position: fixed;
+    right: 7rpx;
+    bottom: 659rpx;
+    animation: formulaIn 0.5s linear, formulaScale 3s 0.5s linear infinite;
+  }
+  .formula3 {
+    width: 175rpx;
+    height: 146rpx;
+    position: fixed;
+    right: 183rpx;
+    bottom: 94rpx;
+    animation: formulaIn 1s linear, formulaScale 3s 1s linear infinite;
+  }
+  .page-inside__text {
+    height: 50%;
+    padding: 160rpx 60rpx 0;
+    position: relative;
+    .inside-text__content {
+      text-align: left;
+      line-height: 60rpx;
+    }
+  }
+}
+
+// *********** 内页02动画 *************
+.page-inside02--bgcolor {
+  // animationIn加载动画
+  &.animationIn {
+    .bg-boat {
+      animation: boat2 2s linear;
+    }
+    .formula1 {
+      animation: formulaIn 3s linear, formulaScale 3s 3s linear infinite;
+    }
+    .formula2 {
+      animation: formulaIn 3.5s linear, formulaScale 3s 3.5s linear infinite;
+    }
+    .formula3 {
+      animation: formulaIn 4s linear, formulaScale 3s 4s linear infinite;
+    }
+    .page-inside__text {
+      animation: dataMove2 1.2s linear;
+    }
+  }
+
+  // 船动画
+  @keyframes boat2 {
+    0% {
+      opacity: 0;
+      right: -30rpx;
+      bottom: 98rpx;
+    }
+    50% {
+      opacity: 0;
+      right: -30rpx;
+      bottom: 98rpx;
+    }
+    100% {
+      opacity: 1;
+      right: 20rpx;
+      bottom: 148rpx;
+    }
+  }
+  //数据文本动画
+  @keyframes dataMove2 {
+    0% {
+      opacity: 0;
+      transform: translateY(30rpx);
+    }
+    80% {
+      opacity: 0;
+      transform: translateY(30rpx);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  // 公式动画
+  @keyframes formulaIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  // 公式缩放
+  @keyframes formulaScale {
+    0% {
+      opacity: 0;
+    }
+    33% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  // 文案动画
+  @keyframes txtMove2 {
+    0% {
+      transform: translateY(30rpx);
+      opacity: 0;
+    }
+    86% {
+      transform: translateY(30rpx);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+// **************内页03**************************
+.page-inside03--bgcolor {
+  .bg-bottpm {
+    width: 750rpx;
+    height: 800rpx;
+    position: fixed;
+    bottom: 0;
+  }
+  .bg-middle {
+    width: 530rpx;
+    height: 146rpx;
+    position: fixed;
+    left: 101rpx;
+    top: 251rpx;
+  }
+  .inside03-hand1 {
+    width: 116rpx;
+    height: 121rpx;
+    position: fixed;
+    left: 58rpx;
+    bottom: 657rpx;
+    animation: handsScale 2s infinite;
+  }
+  .inside03-hand2 {
+    width: 83rpx;
+    height: 73rpx;
+    position: fixed;
+    right: 65rpx;
+    bottom: 871rpx;
+    animation: handsScale 2s 1s infinite;
+  }
+  .page-inside__text {
+    height: 43%;
+    padding: 100rpx 60rpx 0;
+    .inside-text__content {
+      text-align: center;
+    }
+  }
+}
+// *********** 内页03动画 *************
+.page-inside03--bgcolor {
+  // animationIn加载动画
+  &.animationIn {
+    .page-inside__text {
+      animation: dataMove3 1.2s linear;
+    }
+    .inside03-hand1 {
+      animation: hands1Move 2s linear, handsScale 2s 2s infinite;
+    }
+    // 后一秒出现
+    .inside03-hand2 {
+      animation: hands2Move 3s linear, handsScale 2s 3s infinite;
+    }
+  }
+
+  // 数据文本
+  @keyframes dataMove3 {
+    0% {
+      transform: translateY(30rpx);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(30rpx);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  // 赞手势出现
+  @keyframes hands1Move {
+    0% {
+      transform: scale(0.6) rotate(-20deg);
+      opacity: 0;
+    }
+    // 3500ms
+    78% {
+      transform: scale(0.6) rotate(-20deg);
+      opacity: 0;
+    }
+    // 4500ms
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+  @keyframes hands2Move {
+    0% {
+      transform: scale(0.6) rotate(-20deg);
+      opacity: 0;
+    }
+    // 4500ms
+    82% {
+      transform: scale(0.6) rotate(-20deg);
+      opacity: 0;
+    }
+    // 5500ms
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+  // 赞手势缩放
+  @keyframes handsScale {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  // 文案
+  @keyframes textMove3 {
+    0% {
+      transform: translateY(30rpx);
+      opacity: 0;
+    }
+    83% {
+      transform: translateY(30rpx);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/******************* 年度报告 *****************/
+
+.page-report {
+  background-color: #011f70;
+  min-height: 100%;
+  position: relative;
+  .page-bill__nav {
+    background-color: #265CF0;
+  }
+  .page-report__top {
+    width: 750rpx;
+    height: 624rpx;
+    margin-bottom: 36rpx;
+  }
+  .report-center__item {
+    display: flex;
+    padding: 30rpx 50rpx 30rpx 40rpx;
+    .center-item__left {
+      width: 160rpx;
+      height: 160rpx;
+      margin-right: 20rpx;
+    }
+    .center-item__right {
+      display: flex;
+      flex-direction: column;
+      .center-item__hd {
+        width: 160rpx;
+        height: 53rpx;
+        margin-bottom: 12rpx;
+        &.-h60 {
+          height: 60rpx;
+        }
+      }
+      .center-item__bd {
+        max-width: 480rpx;
+        font-size: 28rpx;
+        color: #4187ff;
+        letter-spacing: 0;
+        text-align: justify;
+      }
+    }
+  }
+  .report-center__panel {
+    margin: 30rpx;
+    padding: 30rpx;
+    background: rgba($color: #000000, $alpha: 0.2);
+    font-size: 28rpx;
+    color: #D4DEFC;
+    text-align: justify;
+    word-break: break-all;
+    word-wrap: normal;
+    border-radius: 16rpx;
+  }
+  .page-report__customer {
+    margin: 30rpx 37rpx;
+    border-radius: 8rpx;
+    background-color: rgba($color: #fff, $alpha: 0.05);
+    position: relative;
+    .customer-title-image {
+      width: 280rpx;
+      height: 53rpx;
+      padding: 40rpx 0;
+      margin: 0 auto;
+      position: relative;
+    }
+    .report-customer__content {
+      padding: 0 18rpx;
+      .customer-content__list {
+        display: flex;
+        padding-bottom: 40rpx;
+        .customer-content__item {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .customer-content__image {
+            width: 96rpx;
+            height: 96rpx;
+          }
+          .customer-content__txt {
+            margin-top: 12rpx;
+            font-size: 24rpx;
+            color: #8db7ff;
+            letter-spacing: 0;
+            text-align: center;
+            &.-second {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+    .report-customer__footer {
+      padding-bottom: 40rpx;
+      .report-customer__more {
+        font-size: 24rpx;
+        color: #4767bd;
+        text-align: center;
+        .report-customer__more-w{
+          padding: 0 10rpx;
+          color:#ffffff;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .page-report__more {
+    position: relative;
+    padding: 10rpx 0 267rpx;
+    z-index: 1;
+    .report-more__image {
+      width: 424rpx;
+      height: 238rpx;
+      margin: 0 auto;
+    }
+  }
+  .page-report-bg {
+    position: absolute;
+    bottom: 0;
+    width: 750rpx;
+    height: 330rpx;
+    .weapp-image {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}

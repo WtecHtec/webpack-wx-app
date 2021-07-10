@@ -1,0 +1,222 @@
+/*** 动画函数文件 ***/
+
+// 【animationNameSpace】命名空间。 添加动画class names的前缀
+$animationNameSpace: ani !default; // 不启用将 ani 改为 false
+$animationNameSpace: if($animationNameSpace, #{$animationNameSpace}-, ''); // 动态添加命名空间 'ani-'
+// 使用方法:  .#{$animationNameSpace}fade  =>  .ani-fade
+
+
+// swing__horizontal  水平摆动动画
+// 动画帧内容
+@keyframes swing__horizontal1 {
+  0% {
+	  transform: rotate(0deg);
+	}
+	50% {
+	  transform: rotate(6deg);
+	}
+	100% {
+	  transform: rotate(0deg);
+	}
+}
+@keyframes swing__horizontal2 {
+  0% {
+	  transform: rotate(0deg);
+	}
+	50% {
+	  transform: rotate(-5deg);
+	}
+	100% {
+	  transform: rotate(0deg);
+	}
+}
+// 动画属性样式
+@mixin swing__horizontal($index) {
+  transform-origin: center 0;
+  animation: swing__horizontal#{$index} 1.2s ease-in-out infinite;
+}
+// 动画类名
+.#{$animationNameSpace}swing__horizontal1 {
+  @include swing__horizontal(1);
+}
+.#{$animationNameSpace}swing__horizontal2 {
+  @include swing__horizontal(2);
+}
+
+
+// move__horizontal  水平移动动画
+// 动画帧内容
+@keyframes move__horizontal {
+  0% {
+	  transform: translateX(0rpx);
+	}
+	33% {
+	  transform: translateX(-15rpx);
+  }
+  66% {
+	  transform: translateX(15rpx);
+	}
+	100% {
+	  transform: translateX(0rpx);
+	}
+}
+// 动画属性样式
+@mixin move__horizontal {
+  animation: move__horizontal 3s linear infinite;
+}
+// 动画类名
+.#{$animationNameSpace}move__horizontal {
+  @include move__horizontal;
+}
+
+
+// move__vertical  垂直移动动画
+// 动画帧内容
+@keyframes move__vertical {
+  0% {
+	  transform: translateY(0rpx);
+	}
+	33% {
+	  transform: translateY(-10rpx);
+  }
+  66% {
+	  transform: translateY(10rpx);
+	}
+	100% {
+	  transform: translateY(0rpx);
+  }
+}
+// 动画属性样式
+@mixin move__vertical {
+  animation: move__vertical 3s linear infinite;
+}
+// 动画类名
+.#{$animationNameSpace}move__vertical {
+  @include move__vertical;
+}
+
+
+// move__slanted-toRightBottom 从 左上方 向 右下方 倾斜移动
+@keyframes move__slanted-toRightBottom {
+  0% {
+	  transform: translateX(0rpx) translateY(0rpx);
+	}
+	33% {
+	  transform: translateX(-8rpx) translateY(-8rpx);
+  }
+  66% {
+	  transform: translateX(8rpx) translateY(8rpx);
+	}
+	100% {
+	  transform: translateX(0rpx) translateY(0rpx);
+  }
+}
+// 动画属性样式
+@mixin move__slanted-toRightBottom {
+  animation: move__slanted-toRightBottom 3s linear infinite;
+}
+// 动画类名
+.#{$animationNameSpace}move__slanted-toRightBottom {
+  @include move__slanted-toRightBottom;
+}
+
+
+// slideIn__vertical / slideOut__vertical  垂直淡入/淡出动画
+// 动画帧内容
+@keyframes slideIn__vertical {
+  0% {
+    top: 10px;
+    opacity: 0;
+	}
+	100% {
+	  top: 0px;
+    opacity: 1;
+	}
+}
+@keyframes slideOut__vertical {
+  0% {
+    top: 0px;
+    opacity: 1;
+	}
+	100% {
+	  top: -10px;
+    opacity: 0;
+	}
+}
+// 动画属性样式
+@mixin slideIn__vertical {
+  animation: slideIn__vertical 0.3s ease-in forwards;
+}
+@mixin slideOut__vertical {
+  animation: slideOut__vertical 0.3s ease-out forwards;
+}
+// 动画类名
+.#{$animationNameSpace}slideIn__vertical {
+  @include slideIn__vertical;
+}
+.#{$animationNameSpace}slideOut__vertical {
+  @include slideOut__vertical;
+}
+@mixin animation__delay($delayTime) {
+  animation-delay: #{$delayTime}s;
+}
+.animation__delay1000 {
+  @include animation__delay(1);
+}
+.animation__delay1500 {
+  @include animation__delay(1.5);
+}
+.animation__delay2000 {
+  @include animation__delay(2);
+}
+
+
+// rotate__center 围绕中心旋转(小幅度)
+@keyframes rotate__center {
+  0% {
+	  transform: rotate(0deg);
+	}
+	33% {
+	  transform: rotate(-2deg);
+  }
+  66% {
+	  transform: rotate(2deg);
+	}
+	100% {
+	  transform: rotate(0deg);
+  }
+}
+// 动画属性样式
+@mixin rotate__center {
+  transform-origin: center center;
+  animation: rotate__center 3s linear infinite;
+}
+// 动画类名
+.#{$animationNameSpace}rotate__center {
+  @include rotate__center;
+}
+
+// rotate__center 围绕中心旋转搭配上下移动(小幅度)
+@keyframes rotate-move__center {
+  0% {
+	  transform: rotate(0deg) translateY(0rpx);
+	}
+	33% {
+	  transform: rotate(-2deg) translateY(-10rpx);
+  }
+  66% {
+	  transform: rotate(2deg) translateY(10rpx);
+	}
+	100% {
+	  transform: rotate(0deg) translateY(0rpx);
+  }
+}
+// 动画属性样式
+@mixin rotate-move__center {
+  transform-origin: center center;
+  animation: rotate-move__center 3s linear infinite;
+}
+// 动画类名
+.#{$animationNameSpace}rotate-move__center {
+  @include rotate-move__center;
+}

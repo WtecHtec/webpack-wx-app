@@ -1,0 +1,73 @@
+@import '../../base/mixin.scss';
+.m-card--quality {
+  position: relative;
+  padding: 16rpx 30rpx;
+  .card__items {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    padding: 30rpx 30rpx 29rpx 30rpx;
+    box-sizing: border-box;
+    border-radius: 8rpx;
+    &.bottom-spac {
+      margin-bottom: 16rpx;
+    }
+  }
+  .card__iconImage {
+    display: flex;
+    flex-shrink: 0;
+    width: 96rpx;
+    height: 96rpx;
+    margin-right: 24rpx;
+  }
+  .card__content {
+    flex: 1;
+  }
+  .card__title {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #000000;
+    line-height: 48rpx;
+  }
+  .card__desc {
+    font-size: 26rpx;
+    color: #999999;
+    line-height: 39rpx;
+    margin-top: 8rpx;
+  }
+  .card__right {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    margin-left: 53rpx;
+    .num {
+      font-size: 40rpx;
+      font-weight: bold;
+      color: #000000;
+    }
+    .unit {
+      font-size: 26rpx;
+      font-weight: bold;
+      color: #000000;
+      margin-left: 4rpx;
+      margin-top: 4rpx;
+    }
+    .desc-text {
+      font-size: 28rpx;
+      color: #999999;
+    }
+  }
+  .card__tips {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0rpx 10rpx 0rpx 22rpx;
+    font-size: 22rpx;
+    color: #8A97B8;
+    line-height: 33rpx;
+    background: rgba($color: #265CF0, $alpha: 0.1);
+    border-radius: 0 8rpx 0 100rpx;
+  }
+}

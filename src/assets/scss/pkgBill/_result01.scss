@@ -1,0 +1,164 @@
+@import "../base/mixin.scss";
+
+.flipperContainer {
+  perspective: 1000px;
+  width: 670rpx;
+  height: 1100rpx;
+  margin: 0 auto;
+}
+
+.flipper {
+  transition: 1s;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.cardfront,
+.cardback {
+  position: relative;
+  width: 670rpx;
+  height: 1100rpx;
+  background: #fff;
+  margin-top: 90rpx;
+  box-shadow: 0 6rpx 20rpx 0 rgba(0, 0, 0, 0.10);
+  border-radius: 24rpx;
+  @include clearfix();
+  background: rgb(255, 255, 255);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.cardback {
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.cardfront {
+  z-index: 99;
+  transform: rotateY(0deg);
+}
+
+.cardback {
+  transform: rotateY(180deg);
+}
+
+
+.cardfront-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -90rpx;
+  position: relative;
+  z-index: 10;
+
+  .cardfront-bg01 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 670rpx;
+    height: 1100rpx;
+    background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/result/1/card1-b.png");
+    background-size: 100%;
+    border-radius: 24rpx;
+  }
+
+  .cardfront-img {
+    width: 520rpx;
+    height: 532rpx;
+    background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/result/7/content.png");
+    background-size: 100%;
+  }
+
+  .cardfront-name {
+    text-align: center;
+    position: relative;
+    margin-top: 30rpx;
+    z-index: 10;
+    font-size: 40rpx;
+    color: #333333;
+  }
+
+  .cardfront-hot {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    margin-top: 10rpx;
+    font-size: 32rpx;
+    color: #666666;
+  }
+}
+
+.cardback-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 400rpx;
+  z-index: 10;
+
+  .cardback-title {
+    font-size: 40rpx;
+    color: #333333;
+  }
+
+  .cardback-inputarea {
+    margin-top: 30rpx;
+    display: flex;
+    align-items: center;
+  }
+
+  .input {
+    background: #f5f5f5;
+    border-radius: 9rpx;
+    padding: 20rpx 30rpx;
+  }
+
+  .btn {
+    margin-left: 30rpx;
+  }
+}
+
+.cardback-bg01 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-radius: 24rpx;
+  width: 670rpx;
+  height: 1100rpx;
+  background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/result/5/card2-b.png");
+  background-size: 100%;
+}
+
+.flipperContainer,
+.cardfront,
+.cardback {
+  perspective: 1000px;
+  margin: 0 auto;
+}
+
+.flipper {
+  transition: 1s;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+//翻转类
+.-active-flipper {
+  transform: rotateY(180deg);
+}

@@ -1,0 +1,230 @@
+// 待合并汇总样式
+@import '../../base/mixin.scss';
+
+// 质检页面级样式文件
+
+.has-bottom-btnbar {
+  padding-bottom: calc(120rpx + env(safe-area-inset-bottom));
+}
+.quality-learn-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  .page__bd {
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-y: overlay;
+  }
+  .m-empty--status {
+    padding: 40rpx 30rpx;
+  }
+}
+.quality-details-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+  .page__bd {
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-y: overlay;
+  }
+  .workOrder-details--infoList {
+    padding: 30rpx;
+    .infoList__item {
+      &:not(:last-child) {
+        margin-bottom: 30rpx;
+      }
+    }
+  }
+
+  &.-no-flex {
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    .page__bd {
+      flex: none;
+      overflow: unset;
+    }
+    .page__ft {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      // background: #fff;
+      z-index: 1;
+    }
+  }
+  &.-paddBot386 {
+    .page__bd {
+      padding-bottom: 386rpx;
+    }
+  }
+  &.-paddBot516 {
+    .page__bd {
+      padding-bottom: 516rpx;
+    }
+  }
+}
+
+// 质检学习详情页面添加 推荐学习列表
+.recommend-wrap {
+  padding: 30rpx 0rpx;
+  .recommend-title {
+    font-size: 28rpx;
+    color: #666666;
+    line-height: 42rpx;
+    margin-bottom: 16rpx;
+    padding: 0rpx 30rpx;
+  }
+  .list__push {
+    font-size: 24rpx;
+    color: #CCCCCC;
+    text-align: center;
+    margin-top: 30rpx;
+  }
+  &.-error{
+    background-color: #F5F6FA;
+    padding-bottom: 150rpx;
+  }
+}
+
+
+// 个人申诉页
+.person-quality-page {
+  display: flex;
+  min-height: inherit;
+  padding-bottom: env(safe-area-inset-bottom);
+  flex-direction: column;
+  box-sizing: border-box;
+  .page__bd {
+    flex: 1;
+  }
+}
+
+// 申诉历史记录页
+.appeal-history {
+  padding-top: 16rpx;
+}
+
+// 质检数据页
+.quality-data-page {
+  overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
+  .m-tabBarScroll {
+    .m-tabBarScroll--list {
+      width: 100%;
+    }
+    .m-tabBarScroll__item {
+      flex: 1;
+      text-align: center;
+    }
+  }
+}
+
+
+// 领导点评单页面
+.leader-reviewlist-page,.quality-error-list {
+  overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+// 实时监控-预警通知详情页面
+.warning-details-page {
+  &.has-bottom-toolbar {
+    padding-bottom: calc(100rpx + env(safe-area-inset-bottom));
+  }
+  .workOrder-details--infoList {
+    margin-top: 32rpx;
+    .infoList__item {
+      &:not(:last-child) {
+        margin-bottom: 24rpx;
+      }
+    }
+  }
+}
+
+// 实时监控-预警补登输入页面
+.warning-input-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  .page_bd {
+    flex: 1;
+  }
+  .page_ft {
+    flex-shrink: 0;
+    padding-bottom: env(safe-area-inset-bottom);
+    .m-btn-wrap {
+      padding: 30rpx;
+    }
+  }
+}
+
+
+// 实时监控-预警升级页面
+.warning-upgrade-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+  &.has-top-toolbar {
+    padding-top: 96rpx;
+    .m-empty--status {
+      height: calc(100vh - 96rpx);
+      .m-empty__imageWrap {
+        padding-top: 311rpx;
+      }
+      .m-empty__image {
+        width: 210rpx;
+        height: 210rpx;
+      }
+      .m-empty__desc {
+        font-size: 28rpx;
+      }
+    }
+  }
+  .page_bd {
+    display: flex;
+    flex: 1;
+  }
+
+  // 预警升级内容
+  .upgrade-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    .upgrade_bd {
+      flex: 1;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overflow-y: overlay;
+    }
+    .upgrade_ft {
+      flex-shrink: 0;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .m-tag--list {
+      padding: 18rpx 30rpx;
+      .m-tag--options {
+        margin-top: 10rpx;
+        margin-bottom: 10rpx;
+        &.-primary {
+          background-color: rgba(38,92,240,0.08);
+        }
+      }
+    }
+    .m-btn-wrap {
+      padding: 30rpx;
+    }
+  }
+
+
+  // 搜索人员列表内容
+  .search-list-content {
+    flex: 1;
+  }
+}

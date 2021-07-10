@@ -1,0 +1,91 @@
+// tip提示组件
+.m-tips--top{
+  display: flex;
+  align-items: center;
+  padding: 0rpx 30rpx;
+  background-color: #FEF1E5;
+  &.-gray {
+    background-color: #F7F9FF;
+    .m-tips__txt {
+      color: #666;
+    }
+  }
+  .m-tips__content {
+    flex: 1;
+    padding: 16rpx 0;
+    &.-pull {
+      .icon-28 {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .m-tips__left {
+    flex-shrink: 0;
+    position: relative;
+    margin-right: 16rpx;
+  }
+  .m-tips__right {
+    flex-shrink: 0;
+    position: relative;
+  }
+  .m-tips__txt {
+    font-size: 28rpx;
+    color: #FA9128;
+    &.-fontSize24 {
+      font-size: 24rpx;
+    }
+  }
+  .m-tips__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #FA9128;
+    }
+  }
+  .m-tips__closeBtn {
+    height: 22rpx 24rpx 22rpx 0rpx;
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #FA9128;
+    }
+  }
+  // 文字居中
+  &.-textCenter {
+    .m-tips__txt {
+      text-align: center;
+    }
+  }
+  &.-hide {
+    animation: hideTips 0.3s forwards;
+  }
+  &.-blue {
+    height: 60rpx;
+    justify-content: center;
+    background-color: #F5F6FA;
+    transition: all 0.2s ease-out;
+    .m-tips__content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .m-tips__txt,
+    .iconfont2 {
+      font-size: 24rpx;
+      color: #265CF0;
+    }
+    .iconfont2 {
+      margin-left: 10rpx;
+    }
+  }
+  &.-fold {
+    height: 0;
+  }
+}
+
+@keyframes hideTips{
+  0% { opacity: 1; }
+  100% { opacity: 0;}
+}

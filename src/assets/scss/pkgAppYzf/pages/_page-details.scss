@@ -1,0 +1,343 @@
+@import "../../base/mixin.scss";
+// 详情页面样式
+
+
+// 处理进展模块
+.page-details--progress {
+  background: #fff;
+  .m-article {
+    padding-bottom: 0rpx;
+  }
+}
+
+
+// 评论信息
+.page-details--comments {
+    position: relative;
+    background: #fff;
+    .m-empty--status {
+      padding: 60rpx 30rpx;
+    }
+    .comments-list-wrap {
+        .list-item {
+            &:not(:last-of-type) {
+                position: relative;
+                &:after {
+                    content: "";
+                    box-sizing: border-box;
+                    width: calc( 100% - 60rpx );
+                    height: 2rpx;
+                    margin: 0 auto;
+                    border-bottom: 2rpx solid #D8D8D8;
+                    position: absolute;
+                    bottom: 0rpx;
+                    left: 30rpx;
+                    transform-origin: 0 100%;
+                    transform: scaleY(0.5);
+                }
+            }
+            .comments-content {
+                padding: 30rpx;
+            }
+            // 有二级评论的样式
+            .comments-content:not(:last-child) {
+                padding-bottom: 20rpx;
+            }
+            .comments-top {
+                display: flex;
+                align-items: flex-start;
+                font-size: 28rpx;
+                color: #999;
+                margin-bottom: 24rpx;
+                position: relative;
+                .icon {
+                    width: 80rpx;
+                    height: 80rpx;
+                    margin-right: 20rpx;
+                    flex-shrink:0;
+                    .image {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        position: relative;
+                        &:after {
+                            border-radius: 50%;
+                            content: "";
+                            box-sizing: border-box;
+                            width: 200%;
+                            height: 200%;
+                            border: 2rpx solid #DBDDE6;
+                            position: absolute;
+                            left: 0rpx;
+                            top: 0rpx;
+                            transform-origin: left top;
+                            transform: scale(0.5);
+                        }
+                    }
+                }
+                .info {
+                    flex-grow: 1;
+                    line-height: 40rpx;
+                    overflow:hidden;
+                    white-space:nowrap;
+                    text-overflow:ellipsis;
+                    word-break:break-all;
+                    word-wrap:normal;
+                    .name {
+                        display: block;
+                        width: 100%;
+                        box-sizing: border-box;
+                        padding-right: 250rpx;
+                        color: #000;
+                        overflow:hidden;
+                        white-space:nowrap;
+                        text-overflow:ellipsis;
+                        word-break:break-all;
+                        word-wrap:normal;
+                    }
+                    .identity {
+                        width: 100%;
+                        display: block;
+                        overflow:hidden;
+                        white-space:nowrap;
+                        text-overflow:ellipsis;
+                        word-break:break-all;
+                        word-wrap:normal;
+                        margin-top: 4rpx;
+                    }
+                }
+                .time {
+                    width: 230rpx;
+                    text-align: right;
+                    position:absolute;
+                    right:0px;
+                }
+            }
+            .comments-txt {
+                font-size: 32rpx;
+                color: #000;
+                line-height: 1.6;
+                padding-left: 0rpx;
+                word-break: break-all;
+            }
+            // 评论删除按钮
+            .delete-btn {
+                display: block;
+                font-size: 28rpx;
+                font-weight: bold;
+                color: #265CF0;
+                margin-top: 24rpx;
+            }
+            // 回复
+            .reply {
+                margin-left: 30rpx;
+                margin-right: 30rpx;
+                padding-bottom: 30rpx;
+                border-radius: 8rpx;
+                .list-item {
+                    &:after {
+                        width: calc( 100% - 40rpx );
+                        left: 20rpx;
+                    }
+                }
+                .comments-top .info .name {
+                    padding-right: 140rpx;
+                }
+                .comments-content {
+                    background: #F5F7FD;
+                    padding: 24rpx;
+                    margin-bottom: 0rpx;
+                }
+                .comments-txt {
+                    font-size: 32rpx;
+                    color: #666;
+                }
+            }
+        }
+    }
+}
+
+// 浏览
+.page-details--browse {
+  position: relative;
+  padding: 20rpx 30rpx;
+  background: #F1F3F7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #000;
+  margin-top: 0px!important;
+  .txt {
+    padding-right: 70rpx;
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    word-wrap: normal;
+  }
+  .iconfont-315 {
+    position: absolute;
+    right: 30rpx;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28rpx;
+    color: #888;
+  }
+}
+
+// 悬浮评论按钮
+.comment-fixbtn {
+    width: 100rpx;
+    height: 100rpx;
+    background: rgba(0,0,0,0.60);
+    border-radius: 16rpx 0 0 16rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .comment-fixbtn__icon {
+        // margin: 0 24rpx 0 40rpx;
+        position: relative;
+        .iconfont2 {
+            font-size: 48rpx;
+            color: #fff;
+        }
+        .dot {
+            position: absolute;
+            width: 12rpx;
+            height: 12rpx;
+            border-radius: 50%;
+            background: #ED4343;
+            right: 0rpx;
+            top:0;
+        }
+        .fixbtn__avatar {
+            position: relative;
+            width: 48rpx;
+            height: 48rpx;
+            .weapp-image {
+                border-radius: 50%;
+            }
+            &:after {
+                content: "";
+                @include retina-one-px-border($direction: all, $color: #E5E5E6);
+                border-radius: 50%;
+            }
+        }
+    }
+    .comment-fixbtn__txt {
+        font-size: 24rpx;
+        color: #FFFFFF;
+        text-align: center;
+    }
+}
+
+
+// 后台配置图表 带文字展开 模块
+.txt-chart {
+    padding: 24rpx 0;
+    background: #fff;
+    .txt-chart__hd {
+        position: relative;
+        padding: 0 30rpx;
+    }
+    .txt-chart__desc {
+        font-size: 30rpx;
+        color: #333333;
+        &.-bottomspace {
+            margin-bottom: 24rpx;
+        }
+    }
+    .txt-chart__btn {
+        display: inline-flex;
+        align-items: center;
+        background: #F5F6FA;
+        border-radius: 24rpx;
+        font-size: 24rpx;
+        color: #265CF0;
+        padding: 4rpx 16rpx;
+        margin-top: 4rpx;
+        .iconfont2 {
+            font-size: 24rpx;
+            margin-left: 4rpx;
+            transition: transform .3s ease;
+        }
+        &.-close {
+            .iconfont2 {
+                transform:rotate(180deg);
+            }
+        }
+    }
+
+    // 整体的一个收展
+    &.-whole {
+        text-align: center;
+        padding: 32rpx 0;
+        .txt-char__area {
+            &.-isshow {
+                .txt-chart__btn {
+                  display: none;
+                }
+            }
+
+            &.-ishiddle {
+                .txt-char__block {
+                    max-height: 276rpx;
+                    overflow: hidden;
+                }
+            }
+        }
+        .txt-chart__desc {
+            text-align: left;
+        }
+        .txt-chart__btn {
+            margin-top: 26rpx;
+            font-size: 28rpx;
+            background: transparent;
+            .icon-28 {
+                font-size: 28rpx;
+                margin-left: 16rpx;
+            }
+        }
+
+    }
+}
+
+
+
+.m-flod {
+    // margin-top: -96rpx;
+    .m-flod__content {
+        display: none;
+    }
+    .m-more {
+
+        display: flex;
+        align-items: flex-end;
+        height: 90rpx;
+        background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%,rgba(255,255,255,1) 100%);
+        justify-content: center;
+        font-size: 28rpx;
+        color: #265CF0;
+        .m-more__arow {
+            margin-bottom: 6rpx;
+            display: inline-block;
+        }
+
+    }
+    &.-isshow {
+        .m-flod__content {
+            display: block;
+        }
+        .m-more {
+            display: none;
+        }
+    }
+    &.-bottomspace {
+        margin-bottom: 16rpx;
+    }
+ }

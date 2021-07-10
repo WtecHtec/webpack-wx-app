@@ -1,0 +1,94 @@
+.page-bill__container {
+  height: 100vh;
+  .swiper-bill {
+    height: 100%;
+
+    .swiper-item {
+      height: 100%;
+      box-sizing: border-box;
+    }
+  }
+  .page-index,.page-inside,.page-result {
+    height: 100%;
+    box-sizing: border-box;
+  }
+}
+
+.page-index--bgcolor {
+  background: red;
+}
+
+.page-inside--bgcolor {
+  background: orange;
+}
+
+.page-result--bgcolor {
+  background: palegreen;
+}
+
+.page-bill__nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.page-bill__musice {
+  position: fixed;
+  
+  right: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+  background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/music.png");
+  background-size: 100% 100%;
+  z-index: 100;
+
+  &.-animation {
+    animation: 5s linear infinite rotate;
+    // animation-play-state: running;
+    transform-origin: center center;
+  }
+
+  &.-close {
+    opacity: 0.5;
+    // animation-play-state: paused;
+    animation: none;
+    background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/music-disabled.png");
+    background-size: 100% 100%;
+    // &:after {
+    //   content: "";
+    //   position: absolute;
+    //   left: 50%;
+    //   top: 50%;
+    //   transform: translate(-50%,-50%);
+    //   width: 50rpx;
+    //   height: 3rpx;
+    //   border-radius: 3rpx;
+    //   background: #fff;
+    // }
+  }
+}
+
+
+@-webkit-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+    transform-origin: center center;
+  }
+  to {
+    transform: rotate(360deg);
+    transform-origin: center center;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+    transform-origin: center center;
+  }
+  to {
+    transform: rotate(360deg);
+    transform-origin: center center;
+  }
+}

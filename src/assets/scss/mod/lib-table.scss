@@ -1,0 +1,476 @@
+@import '../base/mixin.scss';
+.m-table {
+  .m-table__thead {
+    position: relative;
+    color: #999999;
+    background: #fff;
+    &::before{
+      @include setTopLine($c: #e5e5e5);
+    }
+    &::after{
+      @include setBottomLine($c: #e5e5e5);
+    }
+    .m-table__row {
+      padding: 16rpx 30rpx;
+      &.borderTop {
+        &::after{
+          @include setTopLine($c: #e5e5e5);
+        }
+      }
+    }
+  }
+  .m-table__body {
+    position: relative;
+    &::after{
+      @include setBottomLine($c: #e5e5e5);
+    }
+  }
+  .m-table__row {
+    display: flex;
+    padding:  24rpx 30rpx;
+    align-items: center;
+    font-size: 28rpx;
+
+    &.bgcoler {
+      background: #F7F9FF;
+    }
+    &.subrow {
+      background: #F7F9FF;
+      color: #666;
+      position: relative;
+      font-weight: normal;
+      // &::before{
+      //   @include setBottomLine($c: #e5e5e5);
+      //   left: 30rpx;
+      // }
+    }
+    .m-table__col {
+      .icon-71 {
+        font-size: 28rpx;
+        color: #999;
+      }
+      .m-table__colInner {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+      }
+      &.-reverse {
+        .m-table__colInner {
+          transform: rotate(180deg);
+        }
+      }
+      &.-hasIcon {
+        display: flex;
+        align-items: center;
+      }
+      &:first-child{
+        flex: 0 0 204rpx;
+      }
+      &.flex-1 {
+        flex: 1!important;
+      }
+      &.-w34 {
+        flex: 0 0 34rpx;
+      }
+      &.-w114 {
+        flex: 0 0 114rpx;
+      }
+      &.-w140 {
+        flex: 0 0 140rpx;
+      }
+      &.-w168 {
+        flex: 0 0 168rpx;
+      }
+      &.-w190 {
+        flex: 0 0 190rpx;
+      }
+      &.-w80 {
+        flex: 0 0 80rpx;
+      }
+      &.-w85 {
+        flex: 0 0 85rpx;
+      }
+      &.-w200 {
+        flex: 0 0 200rpx;
+      }
+      &.-w240 {
+        flex: 0 0 240rpx;
+      }
+      &.-w256 {
+        flex: 0 0 256rpx;
+      }
+      &.-w245 {
+        flex: 0 0 245rpx;
+      }
+      &.-w280 {
+        flex: 0 0 280rpx;
+      }
+      &.-w120 {
+        flex: 0 0 120rpx!important;
+      }
+      &.-w86 {
+        flex: 0 0 86rpx!important;
+      }
+
+      &.-blue {
+        color: #265CF0;
+      }
+      &.-gray {
+        color: #666;
+      }
+
+      &.-paddingR114 {
+        padding-right: 114rpx;
+      }
+
+      &.-col2 {
+        flex: 0 0 370rpx;
+      }
+
+      &.-col3 {
+        flex: 0 0 240rpx;
+      }
+      &.-col4 {
+        flex: 0 0 180rpx;
+      }
+    }
+    .m-table__colIcon {
+      width: 8rpx;
+      // height: 40rpx;
+      margin-right: 6px;
+      &.-s1 {
+        color: #FC9C00;
+      }
+      &.-s2 {
+        color: #8D8D8D;
+      }
+      &.-s3 {
+        color: #C66302;
+      }
+    }
+    .m-table__barWarp {
+      position: relative;
+      width: 100%;
+      height: 16rpx;
+      .m-table__barBg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #F5F6FA;
+        border-radius: 2rpx;
+      }
+      .m-table__bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 9;
+      }
+    }
+    .m-table__bar {
+      display: inline-block;
+      min-width: 8rpx;
+      height: 16rpx;
+      background: #265CF0;
+      border-radius: 2rpx;
+    }
+    .m-table__wave {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      .iconfont2 {
+        font-size: 24rpx;
+        margin-right: 8rpx;
+      }
+      .txt {
+        @include ellipsis-lines($lines: 1);
+        font-size: 24rpx;
+        font-weight: 500;
+      }
+
+      &.-rise {
+        color: #ED4343;
+      }
+      &.-fall {
+        color: #FA9128;
+      }
+      &.-gray {
+        color: #999;
+      }
+    }
+    .m-table__map {
+      width: 100%;
+      height: 80rpx;
+      background: #F5F6FA;
+      .empty {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        font-size: 24rpx;
+        color: #999999;
+        background: #F5F6FA;
+      }
+    }
+  }
+  .m-table__item {
+    &.-noLine {
+      .m-table__row::after {
+        display: none;
+      }
+    }
+    .m-table__row {
+      position: relative;
+      &::after{
+        @include setBottomLine($c: #e5e5e5);
+      }
+      &.subrow {
+
+        &:not(:last-child):after {
+          left: 30rpx;
+        }
+      }
+    }
+  }
+  .m-table__col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    margin-right: 24rpx;
+    word-break: break-all;
+    @include ellipsis-lines($lines: 1);
+    &.-ellipsis-two-lines {
+      -webkit-line-clamp: 2;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &.red {
+      color: #ED4343;
+    }
+    &.align-right {
+      text-align: right;
+      .m-table__value {
+        align-items: flex-end;
+        justify-content: flex-end;
+      }
+    }
+    &.align-center {
+      text-align: center;
+      .m-table__value {
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    &.five-word {
+      flex:  0 0 146rpx;
+    }
+  }
+  .m-table__value {
+    position: relative;
+    display: flex;
+    .num {
+      font-size: 28rpx;
+      color: #000000;
+      @include ellipsis-lines($lines: 1);
+    }
+    .unit {
+      font-size: 28rpx;
+      color: #000000;
+    }
+  }
+  .m-table__ratio {
+    position: absolute;
+    right: 0rpx;
+    transform: translateX(100%);
+    vertical-align: middle;
+    font-size: 24rpx;
+    color: #999999;
+    display: flex;
+    align-items: center;
+    &.orange {
+      .iconfont2 {
+        color: #FA9128;
+      }
+      .num {
+        color: #FA9128;
+      }
+    }
+    &.red {
+      .iconfont2 {
+        color: #ED4343;
+      }
+      .num {
+        color: #ED4343;
+      }
+    }
+    .iconfont2 {
+      font-size: 20rpx;
+      margin: 0rpx 4rpx;
+    }
+    .num {
+      font-size: 24rpx;
+    }
+  }
+  .m-table__more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 72rpx;
+    font-size: 28rpx;
+    color: #265CF0;
+    .iconfont2 {
+      font-size: 24rpx;
+      margin-left: 8rpx;
+      transform:rotate(-90deg);
+    }
+  }
+  // 表格内容带头像样式
+  .m-table__avatarWrap {
+    display: flex;
+    flex: 1;
+  }
+  .m-table__avatar {
+    flex-shrink: 0;
+    position: relative;
+    width: 48rpx;
+    height: 48rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border: 1px solid #E5E5E6;
+    }
+  }
+  .m-table__avatarName {
+    margin-left: 12rpx;
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    word-break: break-all;
+    @include ellipsis-lines($lines: 1);
+  }
+
+
+  &.m-table__fixed {
+    .m-table__thead {
+      position: fixed;
+      z-index: 99;
+      width: 100%;
+      background-color: #fff;
+      top: 0;
+    }
+  }
+  // 自定义首页 表格 样式1
+  &.-custom-mod1 {
+    background: #fff;
+    .m-table__thead::before {
+      display: none;
+    }
+    .m-table__item .m-table__row {
+      &::after {
+        display: none;
+      }
+    }
+    .m-table__body::after {
+      display: none;
+    }
+
+    .m-table__row {
+      .m-table__col:nth-child(2) {
+        flex: 2;
+      }
+      .m-table__col:nth-child(3),.m-table__col:nth-child(4) {
+        flex: 1;
+      }
+    }
+
+  }
+
+  // 自定义首页 表格 样式2
+  &.-custom-mod2 {
+    background: #fff;
+    .m-table__thead::before {
+      display: none;
+    }
+
+    .m-table__item .m-table__row {
+      &::after {
+        left: 30rpx;
+        right: 30rpx;
+      }
+      &:last-child::after {
+        display: none;
+      }
+    }
+    .m-table__body::after {
+      display: none;
+    }
+    .m-table__row {
+      .m-table__col:nth-child(2) {
+        flex: 2;
+      }
+      .m-table__col:nth-child(3),.m-table__col:nth-child(4) {
+        flex: 1;
+      }
+    }
+  }
+
+
+  // 配置台推送 表格样式，整体缩小了
+  &.-custom-mod3 {
+    background: #fff;
+    .m-table__thead::before {
+      display: none;
+    }
+    .m-table__thead .m-table__row {
+      padding: 10rpx 16rpx;
+    }
+    .m-table__body .m-table__row {
+      padding: 14rpx 16rpx;
+    }
+    .m-table__thead .m-table__row .m-table__col  {
+      @include ellipsis-lines($lines: 2);
+    }
+  }
+
+  // 表格头部椭圆标签列表（正常情况下一行超出换行，加 -overScroll 超出滚动）
+  .m-table__tagWrap {
+    padding: 14rpx 30rpx;
+    .m-tag--options.-primary {
+      margin-top: 6rpx;
+      margin-bottom: 6rpx;
+    }
+    &.-overScroll {
+      width: 100%;
+      overflow-x: auto;
+      overflow-x: overlay;
+      overflow-y: hidden;
+      box-sizing: border-box;
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+        color: transparent;
+      }
+      .m-tag--list {
+        display: inline-block;
+        font-size: 0rpx;
+        white-space: nowrap;
+      }
+      .m-tag--options.-primary {
+        display: inline-block;
+      }
+    }
+  }
+}

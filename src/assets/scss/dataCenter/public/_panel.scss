@@ -1,0 +1,580 @@
+@import '../../base/mixin.scss';
+
+// 动态模块
+.m-list--dynamic {
+  .m-dynamic__hd {
+    width: 48rpx;
+    height: 48rpx;
+    margin-right: 16rpx;
+    &.-widthAuto {
+      width: auto;
+      height: auto;
+      display: flex;
+    }
+  }
+  .m-dynamic__bd {
+    font-size: 30rpx;
+    color: #000000;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    @include ellipsis-lines($lines: 1); 
+  }
+  .m-dynamic__icon {
+    width: 48rpx;
+    height: 48rpx;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.bgcolor1 {
+      background: rgba($color: #FA9128, $alpha: .12);
+    }
+    &.bgcolor2 {
+      background: rgba($color: #265CF0, $alpha: .12);
+    }
+    &.bgcolor3 {
+      background: rgba($color: #F0BA26, $alpha: .12);
+    }
+    .iconfont2 {
+      font-size: 24rpx;
+    }
+    .icon-61 {
+      color: #FA9128;
+    }
+    .icon-113 {
+      color: #F0BA26;
+      font-size: 28rpx;
+    }
+    .icon-62 {
+      color: #265CF0;
+    }
+    .icon-114 {
+      color: #265CF0;
+    }
+  }
+  .m-dynamic__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20rpx 30rpx;
+    &::after {
+      @include setBottomLine($c: #E5E5E6) ;
+      left: 30rpx;
+    }
+    &:last-child::after{
+      display: none;
+    }
+    &.-noBottomLine::after{
+      display: none;
+    }
+  }
+  .m-dynamic__ft {
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #999;
+    }
+    .date {
+      width: 72rpx;
+      font-size: 24rpx;
+      color: #999999;
+      text-align: right;
+      margin-left: 16rpx;
+    }
+  }
+}
+// 数据展示list
+.m-list--access {
+  // 列表的标题
+  .list-access__title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 17rpx 30rpx;
+    &.bottomline::before {
+      @include setBottomLine($c: #E5E5E6);
+    }
+  }
+  // 列表的标题列
+  .list-access__titleCol {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    margin-right: 30rpx;
+    &:last-child {
+      margin-right: 0rpx;
+    }
+    &.-w40 {
+      flex: 0 0 40rpx;
+    }
+    &.-w56 {
+      flex: 0 0 56rpx;
+    }
+    &.-w224 {
+      flex: 0 0 224rpx;
+    }
+    &.-w300 {
+      flex: 0 0 300rpx;
+    }
+    &.-align-right {
+      text-align: right;
+    }
+    .titleCol-txt {
+      font-size: 28rpx;
+      color: #999999;
+      flex: 1;
+      word-break: break-all;
+      @include ellipsis-lines($lines: 1);
+    }
+    .type__tips {
+      transform: translateX(12rpx);
+    }
+  }
+  .list-access__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 19rpx 30rpx  ;
+    position: relative;
+    &.bottomline {
+      position: relative;
+      &::before {
+        @include setBottomLine($c: #E5E5E6);
+        left: 30rpx;
+      }
+    }
+    &::after {
+      @include setBottomLine($c: #E5E5E6);
+      left: 30rpx;
+    }
+    &:last-child::after{
+      display: none;
+    }
+    &.l-line64::after {
+      left: 64rpx;
+    }
+    &.l-line100::after {
+      left: 100rpx;
+    }
+    &.l-line130::after {
+      left: 130rpx;
+    }
+    &.bottom-line {
+      &::after {
+        @include setBottomLine($c: #E5E5E6);
+        left: 30rpx;
+      }
+      &:last-child::after{
+        display: block;
+      }
+    }
+    &.-bgcoler {
+      background: #F7F9FF;
+    }
+  }
+  .list-access__top {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 30rpx;
+    .top-img {
+      width: 100%;
+      height: 100%;
+    }
+    // -badgeIcon 徽章图标样式，图标尺寸偏大，排名数字悬浮在图片上
+    &.-badgeIcon {
+      position: relative;
+      .list-access__vt {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: -4rpx;
+        font-size: 24rpx;
+        font-weight: normal;
+        color: #fff;
+      }
+    }
+  }
+  .list-access__vt  {
+    color: #666;
+    font-size: 32rpx;
+    font-weight: bold;
+    text-align: center;
+    &.highlight{
+      color:#265CF0;
+    }
+  }
+  .list-access__hd {
+    width: 80rpx;
+    height: 80rpx;
+    margin-right: 23rpx;
+  }
+  .list-access__bd {
+    flex: 1;
+  }
+  .list-access__ft {
+    width: 170rpx;
+  }
+  .list-access__avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 100%;
+    box-sizing: border-box;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border: 1px solid #E5E5E6;
+    }
+    image {
+      border-radius: 100%;
+    }
+  }
+  .list-access__jb {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 32rpx;
+    height: 32rpx;
+  }
+  .list-access__info {
+    display: flex;
+    align-items: center;
+    &.-layout--vertical {
+      flex-direction: column;
+      align-items: flex-start;
+      .list-access__groups {
+        padding: 0rpx;
+        font-size: 24rpx;
+        margin-top: 4rpx;
+      }
+    }
+    .list-access__desc {
+      margin-left: auto;
+    }
+    .list-access__arrow {
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+  }
+  .list-access__infoWrap {
+    display: flex;
+    align-items: center;
+    .list-access__arrow {
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+  }
+  .list-access__name {
+    font-size: 30rpx;
+    color: #000000;
+  }
+  .list-access__groups {
+    display: flex;
+    @include ellipsis-lines($lines: 1);
+    font-size: 22rpx;
+    color: #999999;
+    padding: 0 8rpx;
+  }
+  .list-access__group{
+    
+    font-size: 22rpx;
+    color: #999999;
+    padding: 0 8rpx;
+    position: relative;
+    white-space: nowrap;
+    
+    &::after {
+      @include setRightLine($c: #999) ;
+      top:6rpx;
+      bottom: 6rpx;
+    }
+    &:last-child::after {
+      display: none;
+    }
+  }
+  .list-access__tags {
+    display: flex;
+    margin-top: 8rpx;
+  }
+  .list-access__tag {
+    font-size: 22rpx;
+    color: #8A97B8;
+    background: #EFF2F7;
+    border-radius: 4rpx;
+    padding: 5rpx 9rpx;
+    margin-right: 12rpx;
+    min-width: 108rpx;
+    text-align: center;
+    box-sizing: border-box;
+    white-space: nowrap;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .list-access__mark {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #000000;
+  }
+  .list-access__first {
+    margin-right: 4rpx;
+    font-size: 26rpx;
+    color: #000000;
+    margin-top: 6rpx;
+  }
+  .list-access__num {
+    font-size: 40rpx;
+    font-weight: bolder;
+  }
+  .list-access__unit {
+    font-size: 26rpx;
+    margin-left: 4rpx;
+    margin-top: 6rpx;
+  }
+  .list-access__arow {
+    margin-left: 8rpx;
+    .icon-26 {
+      font-size: 28rpx;
+      color: #999;
+    }
+  }
+  .list-access__average {
+    font-size: 28rpx;
+    color: #999;
+  }
+  .list-access__desc {
+    font-size: 28rpx;
+    color: #666;
+  }
+  .list-access__arrow {
+    font-size: 40rpx;
+    color: #265CF0;
+  }
+  .list-access__linkTxt {
+    color: #265CF0;
+    font-size: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .list-access__progress {
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    color: rgba($color: #265CF0, $alpha: 0.4);
+    .iconfont2 {
+      font-size: 28rpx;
+      color: rgba($color: #265CF0, $alpha: 0.4);
+      margin-right: 8rpx;
+    }
+    &.completed {
+      color: #265CF0;
+      .iconfont2 {
+        color: #265CF0;
+      }
+    }
+  }
+  .list-access__ratio {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 4rpx;
+    .iconfont2{
+      font-size: 20rpx;
+      margin: 0 4rpx;
+    }
+    
+    &.orange {
+      .iconfont2,.list-access__per {
+        color: #FA9128;
+      }
+    }
+    &.red {
+      .iconfont2,.list-access__per {
+        color: #ED4343;
+      }
+    }
+  }
+  .list-access__chain{
+    font-size: 24rpx;
+    color: #999999;
+  }
+  .list-access__per {
+    font-size: 24rpx;
+  }
+  .list-access__more {
+    position: relative;
+    padding: 16rpx 30rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .more-text {
+      font-size: 28rpx;
+      color: #265cf0;
+      letter-spacing: 0;
+      text-align: right;
+      line-height: 40rpx;
+    }
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #265cf0;
+      margin-left: 8rpx;
+    }
+  }
+
+  // -bgWhite 白色背景
+  &.-bgWhite {
+    background: #fff;
+  }
+  // -smallSize 小型排名数据展示list，每一项高度92rpx左右
+  &.-smallSize {
+    .list-access__item {
+      padding: 21rpx 30rpx;
+    }
+    .list-access__top {
+      position: relative;
+      width: 50rpx;
+      height: 50rpx;
+      margin-right: 36rpx;
+    }
+    .list-access__vt {
+      font-size: 24rpx;
+      font-weight: normal;
+    }
+    .list-access__hd {
+      width: 48rpx;
+      height: 48rpx;
+      margin-right: 12rpx;
+    }
+    .list-access__avatar {
+      width: 48rpx;
+      height: 48rpx;
+    }
+    .list-access__name {
+      font-size: 28rpx;
+    }
+    .list-access__num {
+      font-size: 28rpx;
+      font-weight: normal;
+    }
+    .list-access__unit {
+      font-size: 28rpx;
+      margin: 0;
+    }
+  }
+  // -bigSize 大型排名数据展示list，无间隔线，每一项高度128rpx左右
+  &.-bigSize {
+    .list-access__item {
+      padding: 24rpx 30rpx;
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+// 风控list
+.m-list--cro {
+  .cro__item {
+    display: flex;
+    align-items: center;
+    padding: 30rpx;
+  }
+  .cro__title {
+    font-size: 32rpx;
+    color: #000000;
+    font-weight: bold;
+    line-height: 48rpx;
+  }
+  .cro__hd {
+    margin-right: 24rpx;
+  }
+  .cro__img {
+    width: 100rpx;
+    height: 100rpx;
+    position: relative;
+    .weapp-image {
+      border-radius: 20rpx;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top:0;
+      width: 200%;
+      height: 200%;
+      border: 1px solid #DBDDE6;
+      border-radius: 40rpx;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+    }
+  }
+  .cro__pronname {
+    font-size: 20rpx;
+    color: #888888;
+    text-align: center;
+    margin-top: 10rpx;
+  }
+  .cro__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8rpx;
+  }
+  .cro__tags {
+    .tag {
+      padding: 5rpx 8rpx;
+      font-size: 22rpx;
+      color: #265CF0;
+      text-align: center;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        box-sizing: border-box;
+        border: 1px solid #265CF0;
+        border-radius: 8rpx;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+      }
+    }
+  }
+  .cro__state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .txt {
+      font-size: 26rpx;
+    }
+    .iconfont2 {
+      font-size: 28rpx;
+      margin-left: 8rpx;
+    }
+    &.blue {
+      color: #265CF0;
+    }
+    &.grey  {
+      color: #999;
+    }
+  }
+}

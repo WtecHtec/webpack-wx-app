@@ -1,0 +1,826 @@
+// 公用的一些弹窗
+@import "../base/mixin.scss";
+
+// 弹窗隐藏状态
+.modal-is-hide {
+  // 通用的弹窗
+  .modal-common {
+    transform: translateY(100%);
+  }
+  // modal-dialog  通用 dialog 弹窗
+  .modal-dialog  {
+    transform: translateX(-50%) translateY(-50rpx);
+  }
+  .modal-content-slideCard {
+    transform: translateY(-50rpx);
+    opacity: 0;
+  }
+  .modal-content-riskFlow {
+    opacity: 0;
+  }
+}
+
+
+// 通用的弹窗列表(带列表：选择框列，输入框列，底部按钮组)
+.modal-common {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-height: 850rpx;
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  background: #fff;
+  border-radius: 32rpx 32rpx 0 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(0%);
+  padding-bottom: env(safe-area-inset-bottom);
+  // 弹窗最大高度为页面高度的75%
+  &.-height75 {
+    max-height: 75vh;
+  }
+  &.-height960 {
+    max-height: 1416rpx;
+  }
+  
+  // 顶部区域
+  .modal-common__top {
+    flex-shrink: 0;
+    padding: 0rpx 30rpx;
+    background: #fff;
+    height: 100rpx;
+    line-height: 100rpx;
+    position: relative;
+    border-radius: 10px 10px 0 0;
+    &:after {
+      @include setBottomLine($c: #e5e5e6);
+    }
+    &.-noBottomLine {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  // 内容区域
+  .modal-common__content {
+    flex: 1;
+    position: relative;
+    // max-height: calc(850rpx - 100rpx);
+    transition: all 0.3s ease;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-y: overlay;
+  }
+  .modal-common__text {
+    display: inline-block;
+    padding: 30rpx;
+    font-size: 28rpx;
+    color: #000000;
+    text-align: justify;
+    line-height: 42rpx;
+    white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+  .modal-common__btnWrap {
+    position: relative;
+    background: #F5F6FA;
+    &.-bottomSpc {
+      padding-bottom: 16rpx;
+    }
+    .modal-common__btnItem {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100rpx;
+      font-size: 32rpx;
+      color: #000000;
+      line-height: 48rpx;
+      background: #fff;
+      &.-colorRed {
+        color: #ED4343;
+      }
+    }
+  }
+  // 底部操作按钮区域
+  .modal-common__ft {
+    position: relative;
+    width: 100%;
+    &:after {
+      @include setTopLine($c: #e5e5e6);
+    }
+    // 底部无上分隔线
+    &.-noTopLine {
+      &:after {
+        display: none;
+      }
+    }
+    .ft__btnWrap {
+      display: flex;
+    }
+    .ft__btnItem {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      height: 100rpx;
+      font-size: 32rpx;
+      color: #000000;
+      line-height: 48rpx;
+    }
+  }
+
+  // 带图标和描述文字的选项
+  .modal-common__optionWrap {
+    display: flex;
+    align-items: center;
+  }
+  .modal-common__optionItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    padding: 60rpx 0rpx;
+    &.-disabled {
+      .icon__btn {
+        opacity: 0.4;
+        &:active {
+          opacity: 0.4;
+        }
+      }
+      .item__desc {
+        color: #ccc;
+      }
+    }
+    .icon__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 120rpx;
+      height: 120rpx;
+      &:active {
+        opacity: 0.6;
+      }
+    }
+    .item__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 96rpx;
+      height: 96rpx;
+      border-radius: 50%;
+      &.bgColor01 {
+        background: rgba(38,92,240,0.08);
+        .iconfont2 {
+          color: #265CF0;
+        }
+      }
+      &.bgColor02 {
+        background: rgba(40,202,42,0.08);
+        .iconfont2 {
+          color: #28CA2A;
+        }
+      }
+      .iconfont2 {
+        font-size: 48rpx;
+      }
+    }
+    .item__desc {
+      font-size: 28rpx;
+      color: #666666;
+      text-align: center;
+      line-height: 42rpx;
+      margin-top: 16rpx;
+    }
+  }
+
+  // 头部标题
+  .modal-common__title {
+    font-size: 32rpx;
+    color: #000000;
+    font-weight: bold;
+    &.title-center {
+      text-align: center;
+    }
+    // -desc-font 描述性标题文字
+    &.-desc-font {
+      color: #8A97B8;
+      font-weight: normal;
+    }
+    // 多层列表返回按钮
+    .goback-btn {
+      position: absolute;
+      left: 30rpx;
+      top: 0rpx;
+      font-size: 0rpx;
+      font-weight: normal;
+      .txt {
+        font-size: 32rpx;
+        display: inline-block;
+        vertical-align: middle;
+        color: #999;
+      }
+      .iconfont2 {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 28rpx;
+        color: #999;
+        transform: rotate(180deg);
+        margin-right: 8rpx;
+      }
+    }
+  }
+  // 头部关闭按钮
+  .modal-common__closeBtn {
+    position: absolute;
+    right: 0rpx;
+    top: 0rpx;
+    width: 100rpx;
+    height: 100rpx;
+    text-align: center;
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #999;
+      line-height: 100rpx;
+    }
+  }
+  .modal-common__closeText {
+    position: absolute;
+    right: 0rpx;
+    top: 0rpx;
+    padding: 28rpx 30rpx;
+    text-align: center;
+    font-size: 32rpx;
+    line-height: 48rpx;
+    color: #999999;
+  }
+  // 头部返回按钮
+  .modal-common__backBtn {
+    position: absolute;
+    left: 0rpx;
+    top: 0rpx;
+    width: 100rpx;
+    height: 100rpx;
+    text-align: center;
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #999;
+      line-height: 100rpx;
+    }
+  }
+}
+
+// 通用的弹窗列表 (带列表：选择框列，输入框列，底部按钮组)
+.modal-option {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  // 列表
+  .option-list {
+    position: relative;
+    background: #fff;
+  }
+  // 列表项
+  .list-item {
+    position: relative;
+    padding: 0rpx 30rpx;
+    display: flex;
+    align-items: center;
+    &:not(:last-child):after {
+      @include setBottomLine($c: #f3f3f3);
+      left: 15px;
+    }
+  }
+  // label类型的列表左侧
+  .left-label {
+    width: 194rpx;
+    flex-shrink: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    word-wrap: normal;
+    height: 100rpx;
+    line-height: 100rpx;
+    .txt {
+      font-size: 32rpx;
+      color: #666;
+    }
+    &.long {
+      flex: 1;
+      width: auto;
+      .txt {
+        color: #000;
+      }
+    }
+  }
+  // 列表左侧内容
+  .left-content {
+    position: relative;
+    flex-grow: 1;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    word-wrap: normal;
+    .txt {
+      font-size: 32rpx;
+      line-height: 100rpx;
+      color: #000000;
+    }
+  }
+  // 列表右侧内容
+  .right-content {
+    position: relative;
+    flex-grow: 1;
+    text-align: right;
+    padding-left: 40rpx;
+    display: flex;
+    overflow: hidden;
+    justify-content: flex-end;
+    .txt {
+      font-size: 32rpx;
+      line-height: 100rpx;
+      color: #000000;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      word-break: break-all;
+      word-wrap: normal;
+      &.null-value {
+        color: #cccccc;
+      }
+    }
+    .input {
+      font-size: 32rpx;
+      line-height: 100rpx;
+      height: 100rpx;
+      color: #000000;
+    }
+    .copybtn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0rpx 12rpx;
+      line-height: 40rpx;
+      .iconfont2 {
+        font-size: 28rpx;
+        color: #265CF0;
+        line-height: 1;
+      }
+    }
+  }
+  // 箭头
+  .arrow-icon {
+    flex-shrink: 0;
+    right: 0rpx;
+    display: inline-block;
+    width: 28rpx;
+    height: 28rpx;
+    margin-left: 8rpx;
+    font-size: 28rpx;
+    color: #999;
+  }
+
+  // textarea 输入框
+  .option-textarea-wrap {
+    padding: 30rpx;
+    height: 240rpx;
+    box-sizing: border-box;
+    background: #fff;
+    &:not(:last-child) {
+      margin-bottom: 20rpx;
+    }
+    .option-textarea {
+      display: block;
+      width: 100%;
+      height: 100%;
+      font-size: 32rpx;
+      color: #000000;
+    }
+  }
+  // 按钮
+  .option-btn-wrap {
+    position: relative;
+    display: flex;
+    padding: 30rpx;
+    padding-bottom: calc(env(safe-area-inset-bottom) + 30rpx);
+    .btn-item {
+      flex-grow: 1;
+      background: #265cf0;
+      line-height: 90rpx;
+      font-size: 36rpx;
+      border-radius: 8rpx;
+      color: #ffffff;
+      text-align: center;
+      &.disabled {
+        background: #ccdaff;
+      }
+    }
+    &:after {
+      @include setTopLine($c: #f3f3f3);
+    }
+  }
+  // 小型列表：文字字号为28rpx，右侧内容文字贴近左侧标题文字；每一项高度缩小，无下划线。
+  &.-smallType {
+    padding: 40rpx 0rpx;
+    .list-item {
+      align-items: flex-start;
+      &:after {
+        display: none;
+      }
+      &.-bottomspace {
+        margin-bottom: 20rpx;
+      }
+    }
+    .left-label {
+      width: 127rpx;
+      height: 40rpx;
+      line-height: 40rpx;
+      color: #999999;
+      .txt {
+        font-size: 28rpx;
+        color: #999999;
+      }
+    }
+    .right-content {
+      padding-left: 16rpx;
+      text-align: left;
+      justify-content: flex-start;
+      .txt {
+        font-size: 28rpx;
+        line-height: 40rpx;
+        word-break: break-all;
+        word-wrap: break-word;
+        white-space: normal;
+      }
+    }
+  }
+}
+
+// 会话弹窗 快捷消息部分
+.modal-quick-msg {
+  position: relative;
+  width: 100%;
+  height: 716rpx;
+  background: #f5f5f7;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  &:after {
+    @include setTopLine($c: #e5e5e6);
+  }
+  .quick-msg-tab {
+    display: flex;
+    flex-shrink: 0;
+    .tab-btn {
+      position: relative;
+      flex: 1;
+      height: 100rpx;
+      line-height: 100rpx;
+      font-size: 30rpx;
+      font-weight: bolder;
+      color: #666666;
+      text-align: center;
+      &.current {
+        color: #265BED;
+        &:before {
+          display: block;
+        }
+      }
+      &:before {
+        display: none;
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0rpx;
+        transform: translateX(-50%);
+        width:0;
+        height:0;
+        border: 10rpx solid transparent;
+        border-bottom:10rpx solid #fff;
+      }
+    }
+  }
+  .quick-msg-wrap {
+    position: relative;
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-y: overlay;
+    background: #fff;
+  }
+  .quick-msg-content {
+    position: relative;
+    .quick-msg-list {
+      background: #fff;
+      padding-left: 30rpx;
+      .list-item {
+        position: relative;
+        display: flex;
+        height: 88rpx;
+        line-height: 88rpx;
+        &:after {
+          @include setBottomLine($c: #F3F3F3);
+        }
+        .left {
+          flex-shrink: 0;
+          width: 168rpx;
+          text-align: left;
+          font-size: 28rpx;
+          color: #000000;
+          padding: 0rpx 20rpx 0rpx 0rpx;
+          @include text-overflow();
+          white-space: nowrap;
+        }
+        .right {
+          flex-grow: 1;
+          padding-right: 30rpx;
+          font-size: 28rpx;
+          color: #999999;
+          text-align: left;
+          @include text-overflow();
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+
+// 工单详情信息弹窗(转译文本)
+.modal-workOrder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .modal-workOrder__info {
+    position: relative;
+    padding: 30rpx;
+    &.-bottomline {
+      &:after {
+        @include setBottomLine($c: #F3F3F3);
+        left: 30rpx;
+        right: 30rpx;
+      }
+    }
+    .info__item {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      &.-bottomspace {
+        margin-bottom: 20rpx;
+      }
+    }
+    .info__content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+    .m-tag--normal {
+      margin-right: 12rpx;
+    }
+    .info__txt {
+      font-size: 28rpx;
+      line-height: 40rpx;
+      color: #000000;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      word-break: break-all;
+      word-wrap: normal;
+    }
+    .info__copybtn {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      line-height: 1;
+      padding-left: 12rpx;
+      padding-right: 12rpx;
+      height: 40rpx;
+      .iconfont2 {
+        font-size: 28rpx;
+        color: #265CF0;
+      }
+    }
+  }
+  .modal-workOrder__chat {
+    padding: 0rpx 30rpx;
+    .chat-data .conversation {
+      .info-txt {
+        background: #F5F6FA;
+      }
+      .right-info .info-txt {
+        background: #e6ecff;
+      }
+    }
+  }
+}
+
+// 通用 dialog 弹窗
+.modal-dialog {
+  position: relative;
+  width: 560rpx;
+  height: auto;
+  max-height: 850rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease;
+}
+
+.modal-dialog__wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+// 关闭按钮
+.modal-dialog__closeBtnWrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 32rpx;
+}
+.modal-dialog__closeBtn {
+  position: relative;
+  .iconfont2 {
+    line-height: 1;
+    font-size: 72rpx;
+    color: #fff;
+  }
+}
+.modal-dialog__bd {
+  padding: 0 30rpx 30rpx;
+}
+.modal-dialog__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .modal-dialog__image {
+    margin-top: 16rpx;
+  }
+  .modal-dialog__text {
+    margin-top: 16rpx;
+  }
+}
+.modal-dialog__image {
+  position: relative;
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  &.-sizeSmall {
+    width: 400rpx;
+  }
+}
+.modal-dialog__text {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 46rpx;
+  color: #666666;
+  // 标题文本
+  &.-title {
+    font-size: 36rpx;
+    line-height: 54rpx;
+    color: #000000;
+  }
+}
+
+// 滑动卡片弹窗包裹层
+.modal-content-slideCard {
+  position: relative;
+  width: 100%;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+// 任务节点流程弹窗包裹层
+.modal-content-riskFlow {
+  position: relative;
+  width: 560rpx;
+  height: auto;
+  background-color: #fff;
+  border-radius: 8rpx;
+  transition: all 0.2s ease;
+  .modal-content__close-btn {
+    bottom: -100rpx;
+  }
+}
+
+.modal-risk-flow__header {
+  position: relative;
+  width: calc(100% - 64rpx);
+  height: auto;
+  padding: 24rpx 32rpx;
+  color: #8A97B8;
+  &::after {
+    @include setBottomLine($c: #e5e5e6);
+  }
+  .modal-risk-flow-txt {
+    font-size: 28rpx;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+}
+
+.modal-risk-flow__content {
+  width: 100%;
+  // height: calc(514rpx - 48rpx);
+  color: #999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24rpx 0;
+  // overflow-y: overlay;
+  .iconfont2 {
+    font-size: 32rpx;
+    margin-right: 24rpx;
+  }
+  .modal-risk-flow-txt {
+    font-size: 30rpx;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+}
+
+.modal-risk-flow-item {
+  position: relative;
+  width: calc(100% - 64rpx - 24rpx - 32rpx);
+  height: 74rpx;
+  min-height: 74rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24rpx 0 32rpx;
+  border-radius: 8rpx;
+  &::after {
+    content: '';
+    border-radius: 16rpx;
+    @include retina-one-px-border($direction: all, $color: #ccc);
+    border-style: dashed;
+  }
+  .modal-risk-flow-itemTag {
+    display: none;
+  }
+  &.-bottomspace {
+    margin-bottom: 24rpx;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 47rpx;
+      bottom: -24rpx;
+      width: 2rpx;
+      height: 24rpx;
+      background-color: #E5E5E6;
+    }
+  }
+  &.-current,
+  &.-active {
+    color: #265CF0;
+    background-color: rgba(38,92,240,0.04);
+    .modal-risk-flow-itemTag {
+      display: flex;
+    }
+    &::before {
+      background-color: #265CF0;
+    }
+    &::after {
+      @include retina-one-px-border($direction: all, $color: #D4DEFC);
+    }
+  }
+  &.-active {
+    .modal-risk-flow-itemTag {
+      display: none;
+    }
+    .modal-risk-flow-txt {
+      color: #000;
+    }
+  }
+}
+
+.modal-risk-flow-itemLeft,
+.modal-risk-flow-itemRight {
+  display: flex;
+  align-items: center;
+}
+
+.modal-risk-flow-itemTag {
+  width: 60rpx;
+  height: 40rpx;
+  border-radius: 4rpx;
+  font-size: 22rpx;
+  color: #265CF0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(35, 85, 222, 0.1);
+}

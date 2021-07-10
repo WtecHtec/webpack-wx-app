@@ -1,0 +1,32 @@
+// 年度账单活动页通用组件样式
+
+// 轮播文字的组件
+.m-slide--txt {
+  position: relative;
+  width: 100%;
+  &.-alignCenter {
+    text-align: center;
+  }
+  .m-slide__item {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: 1;
+    &.-hide {
+      opacity: 0;
+    }
+  }
+  .m-slide__txt {
+    font-size: 72rpx;
+    line-height: 1.3;
+    color: #FFFFFF;
+    text-shadow: 0 0 60px #FFA388;
+    &.-largeFont {
+      font-size: 112rpx;
+    }
+    &.-smallFont {
+      font-size: 48rpx;
+    }
+  }
+}

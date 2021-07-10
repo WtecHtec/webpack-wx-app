@@ -1,0 +1,90 @@
+// 提示信息
+.prompt-info {
+  position: fixed;
+  left: 50%;
+  top: 340rpx;
+  transform: translateX(-50%);
+  padding: 30rpx;
+  border-radius: 4rpx;
+  text-align: center;
+  overflow: hidden;
+  min-width: 320rpx;
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    opacity: 0.75;
+    background: #000000;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  .txt {
+    display: block;
+    position: relative;
+    font-size: 28rpx;
+    line-height: 52rpx;
+    color: #FFFFFF;
+    white-space: nowrap;
+  }
+
+  &.animation-to-hide{
+    animation: animation-to-hide 3s ease-in 1 forwards;
+  }
+
+  @keyframes animation-to-hide {
+    0% {
+    opacity: 1;
+    visibility: visible;
+    }
+
+    80% {
+    opacity: 1;
+    visibility: visible;
+    }
+
+    100% {
+    opacity: 0;
+    visibility: hidden;
+    }
+  }
+}
+
+
+// 小标签类型的提示信息
+.prompt-info--tips {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 101;
+  &.-alignBottom {
+    top: unset;
+    bottom: calc(30rpx + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+  }
+  &.-alignBottom546 {
+    top: unset;
+    bottom: calc(546rpx + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+  }
+  .tips__wrap {
+    display: flex;
+    align-items: center;
+    padding: 12rpx 24rpx 11rpx 24rpx;
+    background: #fff;
+    box-shadow: 0 0 8rpx 0 rgba(168,168,168,0.50);
+    border-radius: 35rpx;
+  }
+  .tips__icon {
+    margin-right: 8rpx;
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #265CF0;
+    }
+  }
+  .tips__txt {
+    font-size: 24rpx;
+    color: #333333;
+  }
+}

@@ -1,0 +1,99 @@
+// 预警页面样式
+
+// 浏览记录页面
+.page-browse {
+  height: 100%;
+  min-height: 100vh;
+  background-color: #f1f3f7;
+  .browse {
+    background-color: #fff;
+    padding: 30rpx 30rpx 0rpx;
+    .member-list {
+      display: flex;
+      flex-flow: row wrap;
+      .member-list-item {
+        max-width: 25%;
+        height: 190rpx;
+        display: block;
+        flex: 0 0 25%;
+        margin-bottom: 30rpx;
+        .icon {
+          display: block;
+          margin: 0 auto;
+          width: 96rpx;
+          height: 96rpx;
+          .image {
+            position: relative;
+            box-sizing: border-box;
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            &:after {
+              border-radius: 50%;
+              content: "";
+              box-sizing: border-box;
+              width: 200%;
+              height: 200%;
+              border: 2rpx solid #c3c3c3;
+              position: absolute;
+              left: 0rpx;
+              top: 0rpx;
+              transform-origin: left top;
+              transform: scale(0.5);
+            }
+          }
+        }
+        .name {
+          width: 100%;
+          margin-top: 6rpx;
+          font-size: 26rpx;
+          // line-height: 72rpx;
+          color: #222222;
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+      }
+      .null-list-item {
+        width: 25%;
+        margin-bottom: 30rpx;
+      }
+    }
+    .member-btnarea {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .btn {
+        padding: 8rpx 32rpx;
+        font-size: 28rpx;
+        color: #265cf0;
+        position: relative;
+        &::after {
+          content: "";
+          border-radius: 45px;
+          @include retina-one-px-border($direction: all, $color: #265cf0);
+        }
+      }
+    }
+  }
+  .no-more-txt {
+    background-color: #f1f3f7;
+    padding: 30rpx 0rpx;
+    line-height: 72rpx;
+    font-size: 22rpx;
+    color: #a1a5b3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .loading-circle {
+      width: 36rpx;
+      height: 36rpx;
+      line-height: 36rpx;
+      margin-right: 4rpx;
+    }
+  }
+}

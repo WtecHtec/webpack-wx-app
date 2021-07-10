@@ -1,0 +1,56 @@
+/* 正式 */
+.pickerTimeContent{
+    display: flex;
+    flex-direction: column;
+    width: 750rpx;
+    background-color: #FFFFFF;
+    border-radius: 16rpx 16rpx 0 0;
+    .pickerTimeTitle{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30rpx;
+      height:96rpx;
+      .close{
+        font-size: 32rpx;
+        color: rgba(0,0,0,0.85);
+        line-height: 48rpx;
+      }
+      .sumbit{
+        font-size: 32rpx;
+        color: #265CF0;
+        letter-spacing: 0;
+        line-height: 48rpx;
+      }
+      &::before{
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        border-bottom: 1px solid #E5E5E6;
+        transform-origin: 0 100%;
+        transform: scaleY(0.5);
+      }
+    }
+  }
+  
+  // 总体高度
+  .pickerTime-content{
+      height: 500rpx;
+      width: 100%;
+  }
+  // 项目高度
+  .pickerTime{
+      height: 88rpx;
+      font-size: 32rpx;
+      color: #999999;
+      text-align: center;
+      line-height: 48rpx;
+  }
+  .pickTimeItem{
+      line-height: 88rpx;
+      text-align: center;
+  }

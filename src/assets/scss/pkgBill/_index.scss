@@ -1,0 +1,230 @@
+@import "../base/mixin.scss";
+.page-bill__wipeup {
+  position: absolute;
+  left: 50%;
+  bottom: 40rpx;
+  padding: 20rpx;
+  transform: translateX(-50%);
+  z-index: 100;
+  &:after {
+    content: "\e702";
+    display: block;
+    font-family: "iconfont2" !important;
+    font-style: normal;
+    font-size: 42rpx;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1;
+    color: #FFFFFF;
+    animation: move__wipeup 1s linear infinite;
+  }
+}
+@keyframes move__wipeup {
+  0% {
+	  transform: translateY(0rpx);
+	}
+	50% {
+	  transform: translateY(10rpx);
+  }
+	100% {
+	  transform: translateY(0rpx);
+	}
+}
+.page-bill__wxcode {
+  position: absolute;
+  right: 40rpx;
+  bottom: 40rpx;
+  width: 123rpx;
+  height: 123rpx;
+  border-radius: 12rpx;
+  border: 6rpx solid rgba($color: #fff, $alpha: 0.2);
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+  z-index: 100;
+  .weapp-img {
+      border-radius: 12rpx;
+  }
+  &.-fallIn {
+      opacity: 1;
+  }
+}
+
+.page-index--bgcolor {
+  background-image: linear-gradient(180deg, #FF6946 0%, #CC52FF 100%)!important;
+}
+.page-index__bd {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+// 页面放置的背景图片元素
+.page-index__bg {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 367rpx;
+  bottom: 0;
+}
+.page-index__contain {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+// 左右灯笼
+.page-index__leftLantern {
+  position: absolute;
+  top: 189rpx;
+  left: -23rpx;
+  width: 138rpx;
+  height: 203rpx;
+}
+.page-index__rightLantern {
+  position: absolute;
+  top: 80rpx;
+  right: -85rpx;
+  width: 232rpx;
+  height: 292rpx;
+}
+// 左右烟花
+.page-index__leftFireworks {
+  position: absolute;
+  left: 118rpx;
+  top: 97rpx;
+  width: 79rpx;
+  height: 107rpx;
+}
+.page-index__rightFireworks {
+  position: absolute;
+  right: -8rpx;
+  top: -22rpx;
+  width: 415rpx;
+  height: 354rpx;
+}
+// 页面星星
+.page-index__star {
+  position: absolute;
+  left: 50%;
+  top: 46rpx;
+  width: 671rpx;
+  transform: translateX(-50%);
+}
+// 背景海浪
+.page-index__bgWaves {
+  position: absolute;
+  left: 69rpx;
+  top: 842rpx;
+  width: 560rpx;
+  height: 181rpx;
+  // transform: translateX(-50%);
+}
+// 海船
+.page-index__seaBoat {
+  position: absolute;
+  left: 103rpx;
+  top: 520rpx;
+  width: 620rpx;
+  height: 820rpx;
+  // margin-left: -225rpx;
+  // transform: translateX(-50%);
+}
+// 海浪
+.page-index__waves {
+  position: absolute;
+  left: 50%;
+  top: 749rpx;
+  width: 836rpx;
+  // height: 502rpx;
+  margin-left: -418rpx;
+  // transform: translateX(-50%);
+}
+
+// 首页文字内容区域
+.page-index__txt {
+  position: absolute;
+  left: 0;
+  top: 260rpx;
+  width: 100%;
+}
+
+// 首页底部指引文字:查看云智服年度帐单
+.page-index__guideTxt {
+  position: absolute;
+  left: 0;
+  bottom: 124rpx;
+  width: 100%;
+  font-size: 32rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  color: #FFFFFF;
+  text-align: center;
+  text-shadow: 0 0 10rpx rgba(0,0,0,0.50);
+  z-index: 100;
+}
+
+
+// 许愿
+.wish-container {
+  position: fixed;
+  left: 40rpx;
+  bottom: 100rpx;
+  width: 440rpx;
+  .wish-swiper__overflow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 227rpx;
+    transform: translateY(-100%);
+    overflow: hidden;
+  }
+  .wish-swiper {
+    position: relative;
+    width: 100%;
+    height: 228rpx;
+    pointer-events: none;
+  }
+  .wish-swiper__itemWrap {
+    display: flex;
+  }
+  .wish-swiper__content {
+    min-width: 100rpx;
+    max-width: 440rpx;
+    position: relative;
+    padding: 4rpx 20rpx;
+    font-size: 28rpx;
+    color: #fff;
+    line-height: 40rpx;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8rpx;
+    box-sizing: border-box;
+    @include text-overflow();
+  }
+
+  // 输入框
+  .wish-container__send {
+    width: 300rpx;
+    margin-top: 8rpx;
+    padding: 0rpx 24rpx;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 36rpx;
+  }
+  .wish-container__input {
+    padding: 16rpx 0;
+    color: #fff;
+    font-size: 28rpx;
+  }
+  .swiper__slideOut {
+    animation: swiper__slideOut 0.4s ease-out forwards;
+  }
+}
+@keyframes swiper__slideOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "word-text": "../components/word-text/word-text"
+  }
+}

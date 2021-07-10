@@ -1,0 +1,105 @@
+// 进度条组件样式
+@import "../base/mixin.scss";
+
+
+
+// 按钮进度条总体属性： 进度条区域 218rpx * 80rpx ; 绘制线条粗细4rpx  ; 里面内容区域 210rpx * 72rpx
+// 构成部分：分为两条直线(长度 138rpx，距离左右边40rpx ) 和 两个半圆环(直径 80rpx，初始旋转角度是45deg，终点角度是225deg)
+.btn-canvas-progress {
+  position: absolute;
+  z-index: 0;
+  left: -4rpx;
+  top: -4rpx;
+  width: 100%;
+  height: 100%;
+  padding: 4rpx;
+  box-sizing: content-box;
+}
+.m-progress--btn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  .progress-circle1 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80rpx;
+    height: 100%;
+    border: 4rpx solid transparent;
+    border-bottom-color: #265CF0;
+    border-left-color: #265CF0;
+    border-radius: 50%;
+    box-sizing: border-box;
+    // transition: transform 0.1s linear;
+    transform: rotate(45deg);
+  }
+  .progress-circle2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80rpx;
+    height: 100%;
+    border: 4rpx solid transparent;
+    border-top-color: #265CF0;
+    border-right-color: #265CF0;
+    border-radius: 50%;
+    box-sizing: border-box;
+    // transition: transform 0.1s linear;
+    transform: rotate(45deg);
+  }
+  .progress-line1 {
+    position: absolute;
+    left: 40rpx;
+    top: 0;
+    width: 0rpx;
+    height: 4rpx;
+    z-index: 11;
+    &:before {
+      content: "";
+      display: block;
+      width: 138rpx;
+      height: 100%;
+      background: #fff;
+    }
+    &:after  {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #265CF0;
+      z-index: 1;
+    }
+  }
+  .progress-line2 {
+    position: absolute;
+    right: 40rpx;
+    bottom: 0;
+    width: 0rpx;
+    height: 4rpx;
+    transform: rotate(180deg);
+    z-index: 11;
+    &:before {
+      content: "";
+      display: block;
+      width: 138rpx;
+      height: 100%;
+      background: #fff;
+    }
+    &:after  {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #265CF0;
+      z-index: 1;
+    }
+  }
+}

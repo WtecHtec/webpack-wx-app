@@ -1,0 +1,1028 @@
+@import "../../base/mixin.scss";
+// 员工自己排名状态模块
+.m-staff-rank--status {
+  padding: 0rpx 30rpx;
+  .m-staff-rank__top {
+    display: flex;
+    padding: 21rpx 0rpx 22rpx 0rpx;
+  }
+  .m-staff-rank__title {
+    flex: 1;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #000000;
+    line-height: 45rpx;
+    @include ellipsis-lines($lines: 1);
+  }
+  .m-staff-rank__rank {
+    flex-shrink: 0;
+    font-size: 28rpx;
+    color: #666666;
+    line-height: 45rpx;
+    display: flex;
+    align-items: center;
+    .txt {
+      line-height: 40rpx;
+    }
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #999999;
+      margin-left: 8rpx;
+    }
+  }
+  .m-staff-rank__desc {
+    font-size: 26rpx;
+    color: #999999;
+    line-height: 40rpx;
+    padding-bottom: 30rpx;
+    @include ellipsis-lines($lines: 1);
+  }
+}
+
+
+.task-listWrap {
+  width: 100%;
+  // height: calc(100vh - 88rpx);
+  // overflow-y: overlay;
+}
+
+// 任务文章模块
+.task-list {
+  background: #F5F6FA;
+  .m-task__item {
+    background: #fff;
+    &:not(:last-child) {
+      margin-bottom: 16rpx;
+    }
+    &.bottom-line {
+      margin-bottom: unset;
+    }
+  }
+  .m-empty--status .m-empty__txtWrap {
+    padding: 0rpx 95rpx;
+  }
+
+  // 刷新
+  .list__push {
+    text-align: center;
+    background: #fff;
+    padding: 20rpx 0 12rpx 0;
+    .txt {
+      display: inline-block;
+      font-size: 26rpx;
+      color: #333333;
+      padding: 10rpx 24rpx;
+      background: #F5F6FA;
+      border-radius: 28rpx;
+    }
+  }
+  // 加载
+  .list__loading {
+    background: #fff;
+    padding: 24rpx 0;
+    height: 40rpx;
+    text-align: center;
+    .weapp-image {
+      width: 40rpx;
+      height: 40rpx;
+      vertical-align: top;
+      animation: loading 1s infinite linear;
+      @keyframes loading {
+        from {transform: rotate(0deg)}
+        to {transform: rotate(360deg)}
+			}
+    }
+  }
+
+  // 卡片类型的列表
+  &.-card {
+    padding: 0rpx 30rpx;
+    .m-task__item {
+      border-radius: 8rpx;
+    }
+  }
+}
+// 任务文章模块
+.m-task__item {
+  position: relative;
+  padding: 30rpx;
+  // 同个区域里 多个任务文章模块 形成列表线条
+  &.bottom-line:after {
+    @include setBottomLine($c: #E5E5E6);
+    left: 30rpx;
+  }
+  &.-leftRightLine-30:after {
+    left: 30rpx;
+    right: 30rpx;
+  }
+  &.top-spac {
+    margin-top: 16rpx;
+  }
+  &.bottom-spac {
+    margin-bottom: 16rpx;
+  }
+  &.-disabled {
+    .m-task__title {
+      color: #999999;
+    }
+  }
+  &.push__bottom{
+    position: relative;
+    padding-bottom: 32rpx;
+    margin-bottom: 0;
+    &:last-child{
+      &::after{
+        content: none;
+      }
+    }
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+    &::after{
+      box-sizing: border-box;
+      margin: 0 30rpx;
+      @include setBottomLine($c: #E5E5E6);
+    }
+  }
+  // 当左侧出现 图片 布局的时候
+  &.-row {
+    display: flex;
+    .m-task__bd  {
+      flex: 1;
+    }
+    .m-task__bottom {
+      margin-top: 16rpx;
+    }
+    .m-task__hd {
+      margin-right: 24rpx;
+      .m-task__img {
+        position: relative;
+        width: 100rpx;
+        height: 100rpx;
+        &::before {
+          content: "";
+          @include retina-one-px-border($direction: all, $color: #E5E5E6);
+          border-radius: 16rpx;
+        }
+        .weapp-image {
+          border-radius: 16rpx;
+        }
+      }
+      .m-task__name {
+        text-align: center;
+        font-size: 22rpx;
+        color: #333333;
+        margin-top: 8rpx;
+      }
+    }
+    .m-task__titleWrap {
+      display: flex;
+      align-items: center;
+    }
+    .m-task__title {
+      flex: 1;
+      @include ellipsis-lines($lines: 1);
+    }
+  }
+  .m-task__top {
+    position: relative;
+    &.-flex {
+      display: flex;
+      .m-task__titleWrap {
+        flex: 1;
+      }
+    }
+  }
+  .m-task__topRight {
+    flex-shrink: 0;
+    margin-left: 24rpx;
+    // 标题里的状态栏 默认为未开始
+    .title-state {
+      flex-shrink: 0;
+      font-size: 28rpx;
+      color: #666666;
+      line-height: 48rpx;
+      // 进行中
+      &.-progressing {
+        color: #265CF0;
+      }
+      // 已结束
+      &.-finished {
+        color: #CCCCCC;
+      }
+      // 待评分
+      &.-waiting {
+        color: #FA9128;
+      }
+    }
+    .desc {
+      font-size: 28rpx;
+      color: #8E9ABA;
+      line-height: 42rpx;
+      margin-top: 6rpx;
+    }
+  }
+  .m-task__center{
+    margin-top: 16rpx;
+    .m-task__publishTime {
+      margin-bottom: 16rpx;
+    }
+    &.-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  .m-task__audio {
+    margin-top: 24rpx;
+  }
+  .m-task__bottom {
+    margin-top: 20rpx;
+    display: flex;
+    align-items: center;
+  }
+  .m-task__under {
+    margin-top: 20rpx;
+    display: flex;
+    align-items: center;
+    .m-task__publishTime {
+      margin-left: 0rpx;
+    }
+    .m-task__underTxt {
+      font-size: 24rpx;
+      color: #999;
+      line-height: 36rpx;
+    }
+  }
+
+  // 头部标题部分
+  .m-task__titleWrap {
+    @include ellipsis-lines($lines: 2);
+    &.ellipsis-one-lines {
+      -webkit-line-clamp: 1;
+    }
+    &.ellipsis-two-lines {
+      display: block;
+      .m-task__title {
+        -webkit-line-clamp: 2;
+      }
+    }
+    // 两行文本的高度，内容只有一行的时候需要固定占有两行的高度
+    &.-height-line2 {
+        height: 88rpx;
+    }
+    // 不显示省略号
+    &.-no-ellipsis {
+      display: inline-block;
+      overflow: unset;
+      text-overflow: unset;
+      word-wrap: normal;
+      word-break: break-all;
+    }
+    // 标题里的右侧内容
+    .m-task__titleRight {
+      flex-shrink: 0;
+    }
+    .icon-26 {
+      font-size: 28rpx;
+      color: #999;
+      vertical-align: middle;
+    }
+  }
+  // 分数
+  .m-task__fraction {
+    display: flex;
+    align-items: center;
+    .desc {
+      font-size: 26rpx;
+      color: #999999;
+      margin-right: 4rpx;
+    }
+    .num {
+      font-size: 40rpx;
+      font-weight: bold;
+      color: #000000;
+    }
+    .unit {
+      font-size: 26rpx;
+      font-weight: bold;
+      color: #000000;
+      margin-left: 4rpx;
+    }
+  }
+  // 标签：蓝色为常态，橙色加类名 orange，灰色加 grey
+  .m-task__tag {
+    position: relative;
+    display: inline-flex;
+    align-self: center;
+    padding: 7rpx 11rpx 7rpx 8rpx;
+    // line-height: 1;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: 5rpx;
+    margin-right: 8rpx;
+
+
+    padding-top: 0rpx;
+    padding-bottom: 0rpx;
+    line-height: 34rpx;
+    &.-radius4 {
+      border-radius: 4rpx;
+    }
+    .tag-txt {
+      position: relative;
+      font-family: 'TencentSans W7';
+      font-size: 20rpx;
+      color: #265CF0;
+      z-index: 1;
+    }
+    &.-defaultTxt {
+      padding-left: 10rpx;
+      padding-right: 10rpx;
+      .tag-txt {
+        font-family: unset;
+      }
+      &:after {
+        left: 0;
+        top: 0;
+        transform: unset;
+        margin-left: 0rpx;
+      }
+    }
+    &:after {
+      position: absolute;
+      // left: 0rpx;
+      // top: 0rpx;
+      content: "";
+      width: 100%;
+      // height: 34rpx;
+      background: rgba($color: #265CF0, $alpha: 0.1);
+      // transform: skew(-8deg);
+      border-radius: 2rpx;
+
+      height: 100%;
+      left: 50%;
+      top: 50%;
+      transform: skew(-8deg) translate(-50%,-50%);
+      margin-left: -4rpx;
+    }
+    &.orange {
+      .tag-txt {
+        color: #FA9128;
+      }
+      &:after {
+        background: rgba($color: #FA9128, $alpha: 0.1);
+      }
+    }
+    &.grey {
+      .tag-txt {
+        color: #999999;
+      }
+      &:after {
+        background: rgba($color: #999999, $alpha: 0.1);
+      }
+    }
+    &.red {
+      .tag-txt {
+        color: #fff;
+      }
+      &:after {
+        background: #ED4343;
+      }
+    }
+    &.softBlue {
+      .tag-txt {
+        color: #8A97B8;
+      }
+      &:after {
+        background: rgba($color: rgba(38, 92, 240, 0.08), $alpha: 0.1);
+      }
+    }
+  }
+  .m-task__schedule,
+  .m-task__scheduleItem {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  .m-task__schedule {
+    &.orange {
+      .m-task__scheduleItem {
+        &.-active {
+          .m-task__scheduleBar,
+          .m-task__scheduleDot::after {
+            background: #FA9128;
+          }
+        }
+      }
+      .m-task__scheduleDot {
+        &.-active::after {
+          background: #FA9128;
+        }
+      }
+    }
+  }
+  .m-task__scheduleItem {
+    &.-active {
+      .m-task__scheduleBar,
+      .m-task__scheduleDot::after {
+        background: #265CF0;
+      }
+    }
+  }
+  .m-task__scheduleBar {
+    width: auto;
+    height: 8rpx;
+    flex: 1;
+    background: #E5E5E6;
+  }
+  .m-task__scheduleDot {
+    position: relative;
+    // width: 24rpx;
+    // height: 24rpx;
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 12rpx;
+    // background: #E5E5E6;
+    background: #fff;
+    z-index: 1;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 24rpx;
+      height: 24rpx;
+      background: #fff;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      width: 16rpx;
+      height: 16rpx;
+      background: #E5E5E6;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-sizing: border-box;
+      // @include retina-one-px-border($direction: all, $color: #fff);
+      // border-radius: 24rpx;
+      // border-width: 8rpx;
+    }
+    &.-active::after {
+      background: #265CF0;
+    }
+  }
+  .m-task-handleItem {
+    display: flex;
+    align-items: center;
+    margin-right: 48rpx;
+    font-size: 24rpx;
+    color: #8A97B8;
+    .iconfont2 {
+      font-size: 28rpx;
+      margin-right: 8rpx;
+    }
+  }
+  .m-task__logo {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 12rpx;
+    .iconfont2 {
+      font-size: 36rpx;
+      &.icon-58 {
+        color: #F03E3E;
+      }
+      &.icon-97,
+      &.icon-209,
+      &.icon-210,
+      &.icon-211,
+      &.icon-98 {
+        color: #265CF0;
+      }
+    }
+    .dot {
+      display: inline-block;
+      width: 12rpx;
+      height: 12rpx;
+      border-radius: 50%;
+      background: #ED4343;
+    }
+  }
+  .m-task__title {
+    display: inline;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #000000;
+    vertical-align: middle;
+    &.-normalFont {
+      font-size: 32rpx;
+      font-weight: normal;
+      color: #000000;
+    }
+    &.-ftSize-28 {
+      font-size: 28rpx;
+      font-weight: normal;
+    }
+    &.ellipsis-one-lines {
+      @include ellipsis-lines($lines: 1);
+    }
+  }
+
+  // 中间信息部分
+  .m-task__infoTitleWrap {
+    @include ellipsis-lines($lines: 1);
+  }
+  .m-task__infoTitle {
+    font-size: 28rpx;
+    line-height: 1.5;
+    font-weight: bold;
+    color: #8A97B8;
+    vertical-align: middle;
+  }
+  .m-task__infoWrap {
+    display: flex;
+    align-items: center;
+  }
+  .m-task__infoTxtWrap {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    .info-txt {
+      font-size: 28rpx;
+      color: #999999;
+      vertical-align: middle;
+      line-height: 36rpx;
+      word-break: break-all;
+      word-wrap: normal;
+      &:not(:first-child) {
+        margin-left: 24rpx;
+      }
+      &.ellipsis-one-lines {
+        @include ellipsis-lines($lines: 1);
+      }
+      &.ellipsis-two-lines {
+        @include ellipsis-lines($lines: 2);
+      }
+      &.no-shrink {
+        flex-shrink: 0;
+      }
+      &.-height-line2 {
+        height: 72rpx;
+      }
+      &.-font-size24 {
+        font-size: 24rpx;
+        line-height: unset;
+      }
+      .m-task__date {
+        margin-left: 6rpx;
+      }
+      .color-red {
+        display: inline;
+        color: #ED4343;
+      }
+    }
+    &.ellipsis-two-lines {
+      .info-txt {
+        @include ellipsis-lines($lines: 2);
+      }
+    }
+  }
+  .m-task__infoRight {
+    flex-shrink: 0;
+  }
+  // 工单信息
+  .m-task__workOrderWrap {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin-top: 24rpx;
+  }
+  .m-task__workOrderTimeWrap {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #265CF0;
+      margin-right: 8rpx;
+    }
+    .workOrderTime {
+      font-size: 26rpx;
+      color: #666666;
+    }
+    .separate {
+      position: relative;
+      margin: 0rpx 16rpx;
+      width: 1rpx;
+      height: 19rpx;
+      &:after {
+        @include setLeftLine($c: #E5E5E6);
+      }
+    }
+    .workOrderType {
+      font-size: 24rpx;
+      color: #999999;
+    }
+  }
+  // 工单日期
+  .m-task__workOrderDate {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    margin-top: 24rpx;
+    .m-task__publishTime {
+      margin-left: 0rpx;
+    }
+    .workOrderType {
+      font-size: 24rpx;
+      color: #999999;
+    }
+    .separate {
+      position: relative;
+      margin: 0rpx 16rpx;
+      width: 1rpx;
+      height: 19rpx;
+      &:after {
+        @include setLeftLine($c: #E5E5E6);
+      }
+    }
+    .m-task__workOrdeDelete {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      width: 48rpx;
+      height: 48rpx;
+      &:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: rgba($color: #999999, $alpha: 0.1);
+        position: absolute;
+        left: 0rpx;
+        top: 0rpx;
+        border-radius: 50%;
+      }
+      .iconfont2 {
+        position: relative;
+        color: #999;
+        font-size: 28rpx;
+      }
+    }
+  }
+  .m-task__date {
+    display: inline-flex;
+    align-self: center;
+    color: #FA9128;
+    font-size: 24rpx;
+    margin-bottom: -1rpx;
+    .hour,.min,.sec {
+      width: 40rpx;
+      box-sizing: border-box;
+      text-align: center;
+      background: rgba($color: #FA9128, $alpha: 0.1);
+      border-radius: 4rpx;
+      letter-spacing: 0rpx;
+      vertical-align: middle;
+      margin: 0rpx 4rpx;
+    }
+  }
+  .m-btn--round {
+    flex-shrink: 0;
+    &.-disabled {
+      opacity: 0.2;
+    }
+  }
+
+  // 作者信息
+  .m-task__authorWrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16rpx;
+    .m-btn--round {
+      margin-left: 20rpx;
+    }
+  }
+  .m-task__author {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    font-size: 26rpx;
+    color: #666666;
+    .author-icon {
+      position: relative;
+      flex-shrink: 0;
+      width: 48rpx;
+      height: 48rpx;
+      border-radius: 50%;
+      overflow: hidden;
+      box-sizing: border-box;
+      &:after {
+        // @include retina-one-px-border($direction: all, $color: #000);
+        border-radius: 50%;
+        content: "";
+        box-sizing: border-box;
+        width: 200%;
+        height: 200%;
+        border: 2rpx solid #E5E5E6;
+        position: absolute;
+        left: 0rpx;
+        top: 0rpx;
+        transform-origin: left top;
+        transform: scale(0.5);
+      }
+    }
+    .author-avatar {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+    .author-name {
+      margin-left: 24rpx;
+      font-size: 24rpx;
+      color: #999;
+      line-height: 36rpx;
+    }
+    .author-publish-desc {
+      margin-left: 24rpx;
+      flex: 1;
+      @include ellipsis-lines($lines: 1);
+    }
+  }
+  // 意见
+  .m-task__opinionWrap {
+    background: #F5F6FA;
+    border-radius: 8rpx;
+    padding: 16rpx;
+    &.-clean {
+      background: unset;
+      padding: unset;
+      border-radius: unset;
+    }
+  }
+  .m-task__opinion {
+    font-size: 28rpx;
+    color: #999999;
+    @include ellipsis-lines($lines: 1);
+  }
+
+  // 底部标识
+  .m-task__identWrap {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    .m-tag--default {
+      flex-shrink: 0;
+      &:not(:last-child) {
+        margin-right: 12rpx;
+      }
+    }
+  }
+  .m-task__ident {
+    flex-shrink: 0;
+    padding: 5rpx 8rpx;
+    font-size: 22rpx;
+    color: #8E9ABA;
+    text-align: center;
+    background: #F0F2F8;
+    border-radius: 4rpx;
+    &.-blue {
+      background: rgba($color: #265CF0, $alpha: 0.08);
+      color: #265CF0;
+    }
+    &.-yellow{
+      background: rgba($color: #FA9128, $alpha: 0.08);
+      color: #FA9128;
+    }
+    &:not(:last-child) {
+      margin-right: 12rpx;
+    }
+  }
+  .m-task__icon {
+    margin-right: 12rpx;
+    display: flex;
+    align-items: center;
+    padding: 5rpx 8rpx;
+    background: #fce8e8;
+    border-radius: 4rpx;
+    &.-orange {
+      background: #fef1e5;
+      .txt {
+        color: #fa9128;
+      }
+    }
+    .img {
+      margin-right: 2rpx;
+      width: 24rpx;
+      height: 24rpx;
+    }
+    .txt {
+      font-size: 22rpx;
+      color: #ed4343;
+    }
+  }
+  .m-task__publishTime {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: auto;
+    font-size: 24rpx;
+    color: #999;
+    .iconfont2 {
+      font-size: 22rpx;
+      color: #8E9ABA;
+      margin-right: 8rpx;
+    }
+    &.-margin-bottom0 {
+      margin-bottom: 0rpx!important;
+    }
+  }
+  // 高亮文字
+  .high-light {
+    color: #265CF0;
+  }
+
+  // 增加收藏时间结构
+  &.-favlist {
+    padding-top: 94rpx;
+  }
+  //收藏时间box
+  .m-task__fav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12rpx 30rpx;
+    &::after {
+      @include setBottomLine($c: #E5E5E6);
+      left: 30rpx;
+      right: 30rpx;
+    }
+    .txt {
+      font-size: 24rpx;
+      color: #999999;
+    }
+    .iconfont2 {
+      font-size: 48rpx;
+      color:#999;
+    }
+  }
+
+  // -complex 复杂型任务模块
+  &.-complex {
+    .m-task__hd {
+      margin-bottom: 24rpx;
+    }
+    .m-task__bd {
+      display: flex;
+      align-items: flex-start;
+    }
+    .m-task__bdLeft {
+      flex-shrink: 0;
+      margin-right: 24rpx;
+      .m-task__img {
+        position: relative;
+        width: 100rpx;
+        height: 100rpx;
+        border-radius: 8rpx;
+        overflow: hidden;
+        &:after {
+          content: "";
+          @include retina-one-px-border($direction: all, $color: #E5E5E6);
+          border-radius: 16rpx;
+          pointer-events: none;
+        }
+      }
+    }
+    .m-task__bdRight {
+      display: flex;
+      // align-items: center;
+      flex-direction: column;
+      flex: 1;
+    }
+    .m-task__ft {
+      margin-top: 18rpx;
+      display: flex;
+      align-items: center;
+    }
+  }
+  // -hasSubscript 左上角有角标标签元素,需要增加任务模块向上的填充高度
+  &.-hasSubscript {
+    padding-top: 60rpx;
+  }
+}
+.push__noMore{
+  margin-top: 32rpx;
+  padding-bottom: 32rpx;
+  font-size: 24rpx;
+  color: #999999;
+  text-align: center;
+  line-height: 36rpx;
+}
+.m-task__favover {
+  font-size: 24rpx;
+  color: #999999;
+  text-align: center;
+  padding: 32rpx 0;
+}
+
+// 空状态模块
+.m-empty--status {
+  text-align: center;
+  background: #fff;
+  // -cardSize 卡片型的小型空状态模块
+  &.-cardSize {
+    padding: 40rpx 30rpx 56rpx;
+    background: unset;
+    .m-empty__txtWrap {
+      margin-top: 8rpx;
+    }
+  }
+  // -noBg 无背景色
+  &.-noBg {
+    background: transparent;
+  }
+  .m-empty__txtWrap {
+    margin-top: 16rpx;
+    padding: 0rpx 76rpx;
+  }
+  .m-empty__btnWrap {
+    margin-top: 16rpx;
+  }
+  .m-empty__imageWrap {
+    display: flex;
+    justify-content: center;
+  }
+  .m-empty__image {
+    display: inline-block;
+    width: 128rpx;
+    height: 128rpx;
+  }
+  .m-empty__txt {
+    font-size: 28rpx;
+    color: #000000;
+    &:not(:last-child) {
+      margin-bottom: 8rpx;
+    }
+  }
+  .m-empty__desc {
+    font-size: 24rpx;
+    color: #939393;
+    &:not(:last-child) {
+      margin-bottom: 10rpx;
+    }
+  }
+  // 高亮文字
+  .high-light {
+    color: #265CF0;
+  }
+}
+
+// 标签条组件
+.m-label-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .m-label-item {
+    margin-right: 24rpx;
+    margin-bottom: 24rpx;
+    padding: 16rpx 24rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #333333;
+    text-align: center;
+    background: #F5F6FA;
+    border-radius: 8rpx;
+    &.current {
+      background: #E7EDFF;
+      color: #265CF0;
+      font-weight: bold;
+    }
+  }
+}
+
+// 任务为空
+.task-empty {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  .m-empty--status {
+    background: transparent;
+  }
+  .m-empty__image {
+    width: 210rpx;
+    height: 210rpx;
+  }
+}

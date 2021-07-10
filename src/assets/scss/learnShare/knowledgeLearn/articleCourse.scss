@@ -1,0 +1,32 @@
+// 教程文章页面样式
+.course {
+  position: relative;
+  margin-bottom: 30rpx;
+}
+.course--paragraph {
+  &.bottom-spac {
+    margin-bottom: 60rpx;
+  }
+}
+.course--txtWrap {
+  position: relative;
+  margin-bottom: 10rpx;
+}
+.course--title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #000;
+  line-height: 1.7;
+}
+.course--p {
+  font-size: 34rpx;
+  color: #333;
+  line-height: 1.7;
+}
+.course--image {
+  width: 100%;
+  height: auto;
+  .weapp-image {
+    display: block;
+  }
+}

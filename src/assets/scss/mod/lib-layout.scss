@@ -1,0 +1,26 @@
+// 页面包裹层
+.page-wrap {
+  min-height: 100vh;
+  background: #F5F6FA;
+  position: relative;
+
+  &.bgcolor-white {
+    background: #fff;
+  } 
+
+  &.bgcolor-01 {
+    background: #FDFDFE;
+  }
+
+ // 如需其它背景色在此另外加类名控制
+}
+// 设定所有的图片为100% ，替换默认设置，具体图片大小🈶️外div决定
+.weapp-image {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.weapp-video {
+  width: 100%;
+}

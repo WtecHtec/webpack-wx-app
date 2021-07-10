@@ -1,0 +1,160 @@
+// 左侧是固定的标题文字，右侧内容的组件
+.m-infoList {
+  position: relative;
+  z-index: 1;
+  .m-infoList__item {
+    position: relative;
+    display: flex;
+    &.-bottomspace {
+      margin-bottom: 20rpx;
+    }
+  }
+  .item-label {
+    flex-shrink: 0;
+    width: 112rpx;
+    margin-right: 28rpx;
+  }
+  .item-label__txt {
+    font-size: 28rpx;
+    color: #666666;
+    line-height: 40rpx;
+  }
+  .item-content {
+    flex: 1;
+    position: relative;
+  }
+  .item-content__txt {
+    font-size: 28rpx;
+    color: #666666;
+    text-align: justify;
+    word-wrap: break-word;
+    word-break: break-all;
+    line-height: 40rpx;
+  }
+  .item-content__imgList {
+    position: relative;
+    display: flex;
+    // justify-content: space-between;
+    .img-item {
+      flex-shrink: 0;
+      position: relative;
+      width: 150rpx;
+      height: 150rpx;
+      border-radius: 6rpx;
+      overflow: hidden;
+      cursor: pointer;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        box-sizing: border-box;
+        width: 200%;
+        height: 200%;
+        transform-origin: left top;
+        transform: scale(0.5);
+        border: 1px solid #e5e5e6;
+        border-radius: 12rpx;
+      }
+      &.-rightspace {
+        margin-right: calc(50% - 225rpx);
+      }
+    }
+    .img-item__mask {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      opacity: 0.4;
+      background: #000000;
+    }
+    .img-item__num {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      display: inline-block;
+      font-size: 32rpx;
+      line-height: 45rpx;
+      color: #FFFFFF;
+    }
+  }
+}
+
+
+// 左侧是tag标签，右侧内容的组件，超出一行显示省略  m-article__tag -blue
+.m-tagList {
+  position: relative;
+  z-index: 1;
+  // 因为需要设置间隔线条，所以间距用padding控制
+  &.-topspace {
+    padding-top: 24rpx;
+  }
+  &.-bottomspace {
+    padding-bottom: 24rpx;
+  }
+  // 需要上划分线
+  &.-topline {
+    &::before {
+      @include setTopLine($c: #E5E5E6);
+    }
+  }
+  // 下划分线
+  &.-bottomline {
+    &::after {
+      @include setBottomLine($c: #E5E5E6);
+    }
+  }
+  .m-tagList__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    &.-bottomspace {
+      margin-bottom: 12rpx;
+    }
+  }
+  .item-hd {
+    position: relative;
+    display: flex;
+  }
+  .item-bd {
+    position: relative;
+    font-size: 0;
+    margin-top: 12rpx;
+  }
+  .m-article__tag {
+    flex-shrink: 0;
+    margin-right: 12rpx;
+  }
+  .item-content {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  .item-content__txt {
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #333;
+    line-height: 40rpx;
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .item-desc__txt {
+    display: inline;
+    font-size: 28rpx;
+    color: #333333;
+    text-align: justify;
+    line-height: 42rpx;
+  }
+  // 展开全文按钮
+  .shrink-details-btn {
+    display: inline;
+    font-size: 28rpx;
+    color: #265CF0;
+    line-height: 42rpx;
+  }
+}

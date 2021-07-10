@@ -1,0 +1,224 @@
+// 底部栏样式
+@import "../base/mixin.scss";
+
+
+// 通用的底部悬浮条组件
+.m-bottomBar--default {
+  position: relative;
+  width: 100%;
+  padding: 0rpx 30rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  // box-shadow: 0 4rpx 8rpx 0 rgba(0,0,0,0.08);
+  box-sizing: border-box;
+  // 上划分线
+  &:before {
+    @include setTopLine($c: #E5E5E6);
+  }
+  .m-bottomBar__content {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    background: #F5F6FA;
+    border-radius: 36rpx;
+    padding: 0rpx 20rpx;
+    margin: 16rpx 0rpx;
+    .iconfont2 {
+      font-size: 48rpx;
+      margin-right: 16rpx;
+      color: #666;
+    }
+    &:last-child{
+      margin-right: 26rpx;
+    }
+  }
+  .m-bottomBar__input {
+    flex: 1;
+    height: 72rpx;
+    line-height: 72rpx;
+    font-size: 30rpx;
+  }
+  .m-bottomBar__right {
+    flex-shrink: 0;
+  }
+  .btn-wrap {
+    display: flex;
+    align-items: center;
+    .btn-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0rpx 26rpx;
+      min-height: 104rpx;
+      border: none;
+      background:none;
+      outline:none;
+      border-style:none;
+      &:after {
+        border: none;
+      }
+      &:active {
+        opacity: 0.4;
+      }
+      &.-disabled {
+        opacity: 0.3;
+        user-select: none;
+      }
+      &.-rightPadding {
+        padding-right: 40rpx;
+      }
+      .iconfont2 {
+        position: relative;
+        font-size: 48rpx;
+        color: #666;
+        &.icon-75 {
+          color: #FFCA7A;
+        }
+        &.icon-74 {
+          color: #4F7BF6;
+        }
+      }
+    }
+    .btn-txt {
+      font-size: 20rpx;
+      line-height: 28rpx;
+      color: #666666;
+    }
+    .dot {
+      position: absolute;
+      top: -10rpx;
+      left: 45rpx;
+      transform: translateX(-50%);
+      // right: -20rpx;
+      background: #ED4343;
+      border-radius: 14rpx;
+      min-width: 28rpx;
+      height: 28rpx;
+      padding: 0rpx 8rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18rpx;
+      color: #FFFFFF;
+      box-sizing: border-box;
+    }
+  }
+  &.-rightIcon {
+    padding-right: 0rpx;
+  }
+}
+
+// 工单听音的底部悬浮条组件
+.m-bottomBar--workOrderListen {
+  position: relative;
+  width: 100%;
+  padding: 0rpx 32rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  // box-shadow: 0 4rpx 8rpx 0 rgba(0,0,0,0.08);
+  box-sizing: border-box;
+  // 上划分线
+  &.-topline:before {
+    @include setTopLine($c: #E5E5E6);
+  }
+  &.-height138 {
+    height: 138rpx;
+  }
+  .m-bottomBar__left {
+    flex: 1;
+    height: 104rpx;
+    &.-center {
+      display: flex;
+      align-self: center;
+    }
+  }
+  .m-bottomBar__right {
+    flex-shrink: 0;
+  }
+  .btn-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    .btn-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 104rpx;
+      padding: 14rpx 0 8rpx 0;
+      margin: 0;
+      border: none;
+      background:none;
+      outline:none;
+      border-style:none;
+      &:not(:last-child) {
+        margin-right: 16rpx;
+      }
+      &:after {
+        border: none;
+      }
+      &:active {
+        opacity: 0.4;
+      }
+      &.-disabled {
+        opacity: 0.3;
+        user-select: none;
+      }
+      .iconfont2 {
+        position: relative;
+        font-size: 48rpx;
+        color: #265CF0;
+      }
+    }
+    .btn-txt {
+      font-size: 20rpx;
+      line-height: 30rpx;
+      margin-top: 4rpx;
+      color: #666666;
+    }
+  }
+  &.-rightIcon {
+    padding-right: 0rpx;
+  }
+  .m-bottomBar__tip {
+    position: absolute;
+    top: -86rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 276rpx;
+    height: 56rpx;
+    background-color: #fff;
+    border-radius: 35px;
+    box-shadow: 0 0 8px 0 rgba(168,168,168,0.50);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #265CF0;
+      margin-right: 8rpx;
+    }
+    .m-bottomBar__tipTxt {
+      font-size: 24rpx;
+      color: #333;
+    }
+    &.-show {
+      display: flex;
+      animation: slowShow 0.5s ease-out;
+    }
+    @keyframes slowShow {
+      0% {
+        top: -56rpx;
+        opacity: 0;
+      }
+      100% {
+        top: -86rpx;
+        opacity: 1;
+      }
+    }
+  }
+}

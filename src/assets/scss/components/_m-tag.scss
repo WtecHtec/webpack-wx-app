@@ -1,0 +1,428 @@
+// tag标签组件
+
+
+// tag标签(倾斜的正方形实心标签)
+.m-tag {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-self: center;
+  padding: 7rpx 8rpx 7rpx 8rpx;
+  line-height: 1;
+  text-align: center;
+  vertical-align: middle;
+  .m-tag__text {
+    position: relative;
+    font-family: 'TencentSans W7';
+    font-size: 20rpx;
+    line-height: 1;
+    color: #265CF0;
+    z-index: 1;
+  }
+  &:after {
+    position: absolute;
+    left: 0rpx;
+    top: 0rpx;
+    content: "";
+    width: 100%;
+    height: 34rpx;
+    background: rgba($color: #265CF0, $alpha: 0.1);
+    transform: skew(-8deg);
+    border-radius: 2rpx;
+  }
+  &.-orange {
+    .m-tag__text {
+      color: #FA9128;
+    }
+    &:after {
+      background: rgba($color: #FA9128, $alpha: 0.1);
+    }
+  }
+  &.-grey {
+    .m-tag__text {
+      color: #999999;
+    }
+    &:after {
+      background: rgba($color: #999999, $alpha: 0.1);
+    }
+  }
+  &.red {
+    .tag-txt {
+      color: #F03E3E;
+    }
+    &:after {
+      background: rgba($color: #F03E3E, $alpha: 0.1);
+    }
+  }
+}
+
+
+.m-tag--normal {
+  font-size: 22rpx;
+  color: #8A97B8;
+  background: #EFF2F7;
+  border-radius: 4rpx;
+  padding: 5rpx 9rpx;
+  text-align: center;
+  box-sizing: border-box;
+  &.-blue {
+    background: rgba($color: #265CF0, $alpha: 0.08);
+    color: #265CF0;
+  }
+  &.-blueBg {
+    background: rgba($color: #265CF0, $alpha: 0.08);
+  }
+}
+
+
+// tag标签(正常的正方形空心带1像素边框的标签)
+.m-tag--default {
+  position: relative;
+  display: inline-block;
+  height: 40rpx;
+  line-height: 40rpx;
+  box-sizing: border-box;
+  padding: 0rpx 8rpx;
+  font-size: 22rpx;
+  color: #265CF0;
+  &:after {
+      border-radius: 8rpx;
+      content: "";
+      box-sizing: border-box;
+      width: 200%;
+      height: 200%;
+      border: 2rpx solid #265CF0;
+      position: absolute;
+      left: 0rpx;
+      top: 0rpx;
+      transform-origin: left top;
+      transform: scale(0.5);
+  }
+  &.-red {
+      color: #ED4343;
+      &:after {
+          border-color: #ED4343;
+      }
+  }
+}
+
+
+// tag标签(圆角选项标签)
+.m-tag--options {
+  position: relative;
+  padding: 0rpx 24rpx;
+  min-width: 100rpx;
+  height: 52rpx;
+  background: rgba($color: #265CF0, $alpha: 0.08);
+  border-radius: 26rpx;
+  box-sizing: border-box;
+  // -rightButton 右侧有操作按钮的选项标签
+  &.-rightButton {
+    padding-right: 0;
+    .delete-btn {
+      display: flex;
+      align-items: center;
+      padding: 0 24rpx 0 12rpx;
+      height: 52rpx;
+    }
+    .iconfont2 {
+      font-size: 16rpx;
+      color: #8A97B8;
+    }
+  }
+  &.-default {
+    background: unset;
+    border-radius: 26rpx;
+    &:after {
+      content: '';
+      position: absolute;   
+      left: 0;
+      top: 0;
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+      box-sizing: border-box;
+      border-radius: 52rpx;
+      border: 1px solid #cccccc;
+    }
+    &.current {
+      .m-tag__text {
+        color: #265CF0;
+      }
+      &:after {
+        border-color: #265CF0;
+      }
+    }
+    .m-tag__text {
+      color: #666;
+    }
+  }
+  .m-tag__content {
+    display: flex;
+    align-items: center;
+  }
+  .m-tag__text {
+    padding: 6rpx 0rpx;
+    font-size: 28rpx;
+    color: #000;
+  }
+  // 表格头部椭圆标签样式
+  &.-primary {
+    height: 56rpx;
+    padding: 0rpx 20rpx;
+    border-radius: 28rpx;
+    background: #F5F6FA;
+    &.-current {
+      background-color: rgba(38,92,240,0.08);
+      .m-tag__text {
+        color: #265CF0;
+      }
+      &:after {
+        border-color: #265CF0;
+      }
+    }
+    .m-tag__text {
+      padding: 12rpx 0rpx;
+      width: 100%;
+      text-align: center;
+      font-size: 24rpx;
+      line-height: 32rpx;
+      color: #999999;
+      box-sizing: border-box;
+    }
+  }
+}
+
+
+// m-tag--oval 小型椭圆标签(带右侧展开收缩图标;选中态;右上角小圆点提示)
+.m-tag--oval {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 12rpx 20rpx;
+  min-width: 88rpx;
+  background: #F5F6FA;
+  border-radius: 28rpx;
+  .m-tag--txt {
+    font-size: 24rpx;
+    color: #999999;
+    text-align: center;
+    line-height: 32rpx;
+    white-space: nowrap;
+  }
+  .m-tag--rightIcon {
+    margin-left: 8rpx;
+    color: #265CF0;
+    font-size: 24rpx;
+  }
+  .m-tag--dot {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 50%;
+    background: #ED4343;
+  }
+  &.-current {
+    background: rgba($color: #265CF0, $alpha: 0.08);
+    .m-tag--txt {
+      color: #265CF0;
+      font-weight: bold;
+    }
+  }
+  &.-open {
+    .m-tag--rightIcon {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+
+// tag标签(大号的圆角正方形标签 带前置图标)
+.m-tag--block {
+  position: relative;
+  min-width: 210rpx;
+  box-sizing: border-box;
+  .m-tag__content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 32rpx 15rpx;
+    background: #fff;
+    border-radius: 8rpx;
+    box-sizing: border-box;
+  }
+  .m-tag__leftIcon {
+    display: flex;
+    align-items: center;
+    margin-right: 16rpx;
+    .iconfont2 {
+      color: #265CF0;
+      font-size: 36rpx;
+    }
+    &.-png {
+      width: 36rpx;
+      height: 36rpx;
+    }
+  }
+  .m-tag__text {
+    font-size: 32rpx;
+    color: #000000;
+    line-height: 48rpx;
+    @include ellipsis-lines($lines: 1);
+  }
+  &.-disabled {
+    .m-tag__leftIcon {
+      opacity: 0.4;
+    }
+    .m-tag__text {
+      opacity: 0.4;
+    }
+  }
+}
+
+// 标签左侧的label文字
+.m-tag--label {
+  font-size: 32rpx;
+  color: #000;
+  line-height: 48rpx;
+}
+
+// 标签滚动组件
+
+.m-tag--scroll {
+  position: relative;
+  font-size: 0;
+  height: 340rpx;
+  background: #fff;
+  .m-tag__row {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-in;
+    opacity: 0.6;
+    &.-shrink {
+      transform: scale(0.8);
+      opacity: 0.3;
+    }
+    &.-zoom {
+      transform: scale(1.4);
+      opacity: 1;
+    }
+  }
+  .m-tag__item {
+    color: #000;
+    font-size: 20rpx;
+    &:after {
+      border-color: rgb(255, 144, 25);
+    }
+    &.-marginRt {
+      margin-right: 20rpx;
+    }
+  }
+}
+
+
+// m-tag--subscript 角标标签(淡蓝色背景,右下角为圆角,蓝色字体,左侧有一条竖线)
+.m-tag--subscript {
+  position: relative;
+  background: rgba(38,92,240,0.08);
+  border-radius: 0 0 18rpx 0;
+  &:before {
+    content: "";
+    @include retina-one-px-border($direction: all, $color: #D4DEFC);
+    border-radius: 0 0 36rpx 0;
+    pointer-events: none;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6rpx;
+    height: 100%;
+    background: #265CF0;
+  }
+  .m-tag__txt {
+    width: 100%;
+    padding: 4rpx 24rpx 4rpx 30rpx;
+    font-size: 20rpx;
+    color: #265CF0;
+    text-align: center;
+    line-height: 28rpx;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+  // -pos-leftTop 悬浮在左上角
+  &.-pos-leftTop {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  // -defalut 灰色，左侧没有竖线，没有边框的样式
+  &.-defalut {
+    background: rgba($color: #265CF0, $alpha: 0.08);
+    &:before {
+      display: none;
+    }
+    &:after {
+      display: none;
+    }
+    .m-tag__txt {
+      color: #8A97B8;
+      padding-left: 8rpx;
+      padding-right: 12rpx;
+    }
+  }
+}
+
+
+
+// 对标签列表中 所有标签元素 样式的处理
+.m-tag--list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .m-tag--normal {
+    margin-right: 12rpx;
+  }
+  .m-tag--label {
+    margin-right: 20rpx;
+  }
+  .m-tag--options {
+    flex-shrink: 0;
+    margin-right: 20rpx;
+    &.-primary {
+      margin-right: 12rpx;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .m-tag--block {
+    margin-bottom: 24rpx;
+    // 每个一半，每行布局：50%元素 间距 50%元素
+    &.-half {
+      padding-left: 12rpx;
+      padding-right: 12rpx;
+      width: 50%;
+      //odd单数的元素左边边padding去掉
+      &:nth-child(odd) {
+        padding-left: 0rpx;
+      }
+      // even双数的元素右边padding去掉
+      &:nth-child(even) {
+        padding-right: 0rpx;
+      }
+    }
+  }
+}

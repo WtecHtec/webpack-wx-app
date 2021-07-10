@@ -1,0 +1,67 @@
+@import "../base/mixin.scss";
+
+// 浏览记录
+.m-browse {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 24rpx 30rpx;
+  background: #fff;
+  &:after {
+    @include setBottomLine($c: #E5E5E6);
+  }
+  &.-hasBg {
+    margin: 24rpx 30rpx;
+    padding: 12rpx 16rpx;
+    background: rgba(38,92,240,0.04);
+    border-radius: 8rpx;
+    &:after {
+      width: 100vw;
+      left: 50%;
+      right: unset;
+      bottom: -24rpx;
+      transform: scaleY(0.5) translateX(-50%);
+    }
+  }
+  .m-browse__icon {
+    flex-shrink: 0;
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 16rpx;
+  }
+  .m-browse__arrow {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 16rpx;
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #999;
+    }
+  }
+  .m-browse__content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .m-browse__txt {
+    flex-shrink: 0;
+    font-size: 28rpx;
+    // color: #000000;
+    color: #8A97B8;
+  }
+  .m-browse__personList {
+    flex: 1;
+    color: #8A97B8;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .person-name {
+      font-size: 28rpx;
+      color: #8A97B8;
+    }
+  }
+}

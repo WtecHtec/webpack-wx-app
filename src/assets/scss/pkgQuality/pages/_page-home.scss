@@ -1,0 +1,654 @@
+// 质量透视首页
+@import "../../base/mixin.scss";
+
+// 项目质量面板项元素
+.m-quality__panelItem {
+  position: relative;
+  width: 50%;
+  padding: 24rpx 12rpx 0rpx;
+  box-sizing: border-box;
+  &:nth-child(1) {
+    padding-top: 0rpx;
+  }
+  &:nth-child(2) {
+    padding-top: 0rpx;
+  }
+  .m-quality__panelWrap {
+    position: relative;
+    width: 100%;
+    padding: 24rpx 30rpx;
+    background: rgba(245,246,250,0.60);
+    border-radius: 8rpx;
+    box-sizing: border-box;
+  }
+  .m-quality__hd {
+    display: flex;
+    align-items: center;
+  }
+  .m-quality__bd {
+    position: relative;
+  }
+  .m-quality__logo {
+    flex-shrink: 0;
+    width: 72rpx;
+    height: 72rpx;
+    border-radius: 50%;
+    background: #fff;
+    overflow: hidden;
+    &.-rightSpace {
+      margin-right: 16rpx;
+    }
+  }
+  .m-quality__title {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #000000;
+    line-height: 45rpx;
+    @include ellipsis-lines($lines: 1);
+  }
+  .m-quality__desc01 {
+    font-size: 24rpx;
+    color: #999999;
+    line-height: 33rpx;
+  }
+  .m-quality__desc02 {
+    font-size: 24rpx;
+    color: #8A97B8;
+    line-height: 33rpx;
+    &.-topSpace {
+      margin-top: 12rpx;
+    }
+  }
+  .m-quality__titleWrap {
+    display: flex;
+    flex-direction: column;
+  }
+  .m-quality__dataWrap {
+    display: flex;
+    flex-direction: column;
+    &.-topSpace {
+      margin-top: 16rpx;
+    }
+  }
+}
+// 项目质量面板项元素列表
+.m-quality__panelList {
+  position: relative;
+  padding: 24rpx 18rpx;
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  // -noPadding 去除模块边距
+  &.-noPadding {
+    padding: 0;
+    .m-quality__panelItem {
+      // 奇数
+      &:nth-child(odd) {
+        padding-left: 0rpx;
+      }
+      // 偶数
+      &:nth-child(even) {
+        padding-right: 0rpx;
+      }
+    }
+  }
+}
+
+// 质量排行榜模块
+.m-quality__cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0rpx 30rpx;
+  padding: 20rpx 12rpx 20rpx 20rpx;
+  width: calc(100vw - 60rpx);
+  background: #fff;
+  box-sizing: border-box;
+  &.-bottomSpace {
+    margin-bottom: 16rpx;
+  }
+  &.-removeMargin {
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    width: 100%;
+    margin: 0;
+  }
+  .cell__bd {
+    display: flex;
+    align-items: center;
+  }
+  .cell__ft {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  .quality-cell--titleIcon {
+    width: 70rpx;
+    height: 70rpx;
+    margin-right: 12rpx;
+  }
+  .quality-cell--title {
+    font-size: 32rpx;
+    font-weight: bold;
+    line-height: 45rpx;
+    color: #000000;
+  }
+  .quality-cell--desc {
+    font-size: 22rpx;
+    line-height: 30rpx;
+    color: #999;
+    margin-left: 12rpx;
+  }
+  .quality-cell--arrow {
+      font-size: 28rpx;
+      color: #999;
+  }
+  .quality-cell--avatarWrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+      margin-right: 12rpx;
+    }
+  }
+  .quality-cell--avatar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48rpx;
+    height: 48rpx;
+    margin-left: -10rpx;
+    background: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+    &:after {
+      content: "";
+      @include retina-one-px-border($direction: all, $color: #E5E5E6);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+  }
+  .quality-cell--avatarDot {
+    display: block;
+    width: 6rpx;
+    height: 6rpx;
+    line-height: 1;
+    border-radius: 50%;
+    background: #DDD;
+    margin-right: 5rpx;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.m-quality__tagWrap {
+  position: relative;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  &.-bottomSpace {
+    margin-bottom: 26rpx;
+  }
+}
+
+// 质检上线延期率 + 标签
+.quality-delay-rate {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 30rpx 0rpx;
+  &.-grey {
+    .quality-delay-rate--text {
+      color: #000;
+    }
+    .quality-tag .quality-tag--text {
+      color: #000;
+    }
+  }
+}
+.quality-delay-rate--text {
+  font-size: 46rpx;
+  font-weight: bold;
+  color: #ED4343;
+  line-height: 65rpx;
+  &.-rightSpace {
+    margin-right: 4rpx;
+  }
+}
+.quality-tag {
+  position: relative;
+  width: 176rpx;
+  height: 65rpx;
+  .quality-tag--text {
+    position: absolute;
+    left: 34rpx;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22rpx;
+    line-height: 30rpx;
+    color: #ED4343;
+  }
+}
+
+
+// 质检任务tab栏
+.m-quality--tabWrap {
+  position: relative;
+  margin: 20rpx 100rpx;
+  display: flex;
+  &:before {
+    content: "";
+    @include retina-one-px-border($direction: all, $color: #EEF2FE);
+    border-width: 4rpx;
+    border-radius: 2rpx;
+    pointer-events: none;
+  }
+}
+.quality-tab--btn {
+  flex: 1;
+  padding: 12rpx 0rpx;
+  font-size: 24rpx;
+  color: #999999;
+  line-height: 32rpx;
+  text-align: center;
+  background: #fff;
+  &.-current {
+    background: #EEF2FE;
+    color: #265CF0;
+    font-weight: bold;
+  }
+}
+
+
+// 质检任务列表
+.m-quality--taskList {
+  position: relative;
+}
+.m-quality--taskItem {
+  position: relative;
+  padding: 32rpx 30rpx;
+  background: #fff;
+  &.-topLine {
+    &:before {
+      @include setTopLine($c: #E5E5E6);
+    }
+  }
+  &.-bottomSpace {
+    margin-bottom: 16rpx;
+  }
+  .m-quality--taskTitleWrap {
+    position: relative;
+  }
+  .m-quality--taskTag {
+    display: inline-flex;
+    vertical-align: middle;
+    padding: 0rpx 8rpx;
+    font-size: 22rpx;
+    line-height: 40rpx;
+    color: #265CF0;
+    background: rgba($color: #2355DE, $alpha: 0.1);
+    border-radius: 4rpx;
+    &.-red {
+      color: #ED4343;
+      background: rgba($color: #ED4343, $alpha: 0.1);
+    }
+    &.-rightSpace {
+      margin-right: 12rpx;
+    }
+  }
+  .m-quality--taskTitle {
+    display: inline;
+    vertical-align: middle;
+    font-size: 32rpx;
+    font-weight: bold;
+    text-align: left;
+    color: #000000;
+    line-height: 48rpx;
+    white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+  // 时间轴元素
+  .m-quality--timeline {
+    margin-top: 24rpx;
+  }
+  // 超出省略显示更多按钮的信息元素
+  .m-quality--taskBlock {
+    margin-top: 24rpx;
+    position: relative;
+    // display: flex;
+    // flex-wrap: wrap;
+    // flex-direction: column;
+    padding: 16rpx;
+    background: #F7F7F7;
+    max-height: 98rpx;
+    overflow: hidden;
+    box-sizing: border-box;
+    .taskBlock--text {
+      height: 100%;
+      color: #999999;
+      font-size: 24rpx;
+      height: 100%;
+      line-height: 33rpx;
+      // white-space: normal;
+      // word-wrap: break-word;
+      // overflow: hidden;
+      @include ellipsis-lines($lines: 2);
+      word-break: break-all;
+    }
+    .taskBlock--moreWrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100rpx;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+    .taskBlock--moreBtn {
+      position: absolute;
+      // top: 33rpx;
+      // left: -82rpx;
+      top: -48rpx;
+      left: 0rpx;
+      padding-left: 6rpx;
+      padding-right: 6rpx;
+      color: #265CF0;
+      font-size: 24rpx;
+      line-height: 33rpx;
+      background: #F7F7F7;
+    }
+    .taskBlock--moreEllipsis {
+      color: #999999;
+      font-size: 24rpx;
+      line-height: 33rpx;
+    }
+  }
+  // 相关人员信息
+  .m-quality--taskPerson {
+    margin-top: 24rpx;
+    display: flex;
+    align-items: center;
+    .taskPerson--title {
+      font-size: 24rpx;
+      color: #333333;
+      line-height: 33rpx;
+    }
+    .taskPerson--content {
+      flex: 1;
+      font-size: 24rpx;
+      color: #999;
+      line-height: 33rpx;
+      white-space: nowrap;
+      word-break: break-all;
+      word-wrap: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .taskPerson--arrow {
+      flex-shrink: 0;
+      margin-left: 12rpx;
+      .iconfont2 {
+        font-size: 28rpx;
+        color: #979797;
+      }
+    }
+  }
+}
+
+
+// 时间轴元素
+.m-quality--timeline {
+  position: relative;
+  display: flex;
+  font-size: 0;
+  .timeline-item--tag {
+    position: relative;
+    display: inline-block;
+    line-height: 30rpx;
+    padding: 0rpx 11rpx;
+    min-width: 64rpx;
+    min-height: 30rpx;
+    font-size: 18rpx;
+    font-weight: bold;
+    color: #265CF0;
+    background: #fff;
+    border-radius: 15rpx;
+    z-index: 1;
+    box-sizing: border-box;
+    &:before {
+      content: "";
+      @include retina-one-px-border($direction: all, $color: #265CF0);
+      border-width: 4rpx;
+      border-radius: 30rpx;
+      pointer-events: none;
+    }
+  }
+  .timeline-item--text {
+    font-size: 24rpx;
+    line-height: 33rpx;
+    text-align: center;
+    color: #265CF0;
+    margin-top: 4rpx;
+  }
+  .timeline-item {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 15rpx;
+      left: -50%;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 6rpx;
+      background: #B1C3F4;
+      border-radius: 3rpx;
+    }
+    &:first-child {
+      &:before {
+        left: 0;
+        width: 50%;
+      }
+    }
+    &:last-child {
+      &:after {
+        content: "";
+        position: absolute;
+        top: 15rpx;
+        right: 0rpx;
+        transform: translateY(-50%);
+        width: 50%;
+        height: 6rpx;
+        background: #B1C3F4;
+        border-radius: 3rpx;
+      }
+    }
+    // 选中样式
+    &.-current {
+      .timeline-item--tag {
+        background: #265CF0;
+        color: #fff!important;
+      }
+    }
+    // 灰色进度
+    &.-grey {
+      .timeline-item--tag {
+        color: #999;
+        &:before {
+          border-color: #CCCCCC;
+        }
+      }
+      .timeline-item--text {
+        color: #999;
+      }
+      &:before,&:after {
+        background: #D8D8D8;
+      }
+    }
+    // 红色进度
+    &.-red {
+      .timeline-item--tag {
+        color: #ED4343;
+        &:before {
+          border-color: #ED4343;
+        }
+      }
+      .timeline-item--text {
+        color: #ED4343;
+      }
+      &.-current {
+        .timeline-item--tag {
+          background: #ED4343;
+        }
+      }
+      &:before,&:after {
+        background: #F1B6B6;
+      }
+    }
+  }
+}
+
+
+// 质检标签
+.m-quality-tag {
+  // 椭圆形标签
+  &.-options {
+    position: relative;
+    padding: 0rpx 24rpx;
+    min-width: 100rpx;
+    height: 40rpx;
+    background: #F6F6F6;
+    border-radius: 20rpx;
+    text-align: center;
+    box-sizing: border-box;
+    .m-tag__content {
+      display: flex;
+      align-items: center;
+    }
+    .m-tag__text {
+      font-size: 20rpx;
+      color: #999;
+      text-align: center;
+      line-height: 40rpx;
+    }
+  }
+}
+
+
+// 质量透视首页顶部panel
+.m-quality__panelCard {
+  position: relative;
+  margin: 16rpx 30rpx 0rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.08);
+  .m-quality__panelCardBg {
+    position: absolute;
+    top: -16rpx;
+    left: -30rpx;
+    width: 100vw;
+    height: 160rpx;
+  }
+  .panelCard__hd {
+    position: relative;
+    background: #fff;
+    border-radius: 8rpx 8rpx 0 0;
+    overflow: hidden;
+  }
+  .panelCard__bd {
+    position: relative;
+    background: #fff;
+    border-radius: 0 0 8rpx 8rpx;
+    overflow: hidden;
+  }
+}
+
+.panelCard-list {
+  padding: 20rpx 0rpx;
+  .list-item__hd {
+    display: flex;
+    margin-right: 16rpx;
+  }
+  .list-item__bd {
+    font-size: 28rpx;
+    color: #000000;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    @include ellipsis-lines($lines: 1); 
+  }
+  .panelCard-list-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 12rpx 30rpx;
+  }
+  .list-item__ft {
+    .iconfont2 {
+      font-size: 28rpx;
+      color: #999;
+    }
+    .date {
+      flex-shrink: 0;
+      font-size: 24rpx;
+      color: #999999;
+      text-align: right;
+      margin-left: 16rpx;
+    }
+  }
+}
+
+
+// 质量透视-头像列表
+.m-quality__avatarList {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  .m-quality__avatarItem {
+    width: 25%;
+  }
+}
+.m-quality__avatarItem {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+  .m-quality__avatarImage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 88rpx;
+    height: 88rpx;
+    background: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    &:after {
+      content: "";
+      @include retina-one-px-border($direction: all, $color: #E5E5E6);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+  }
+  .m-quality__avatarText {
+    margin-top: 16rpx;
+    font-size: 24rpx;
+    color: #000000;
+    @include ellipsis-lines($lines: 1);
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  .m-quality__avatarTag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8rpx;
+  }
+}

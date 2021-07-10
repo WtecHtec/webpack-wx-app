@@ -1,0 +1,1131 @@
+page {
+    height: 100%;
+}
+image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.txt-rt {
+    text-align: right;
+}
+.txt-lf {
+    text-align: left;
+}
+._space-mt10 {
+    margin-top: 10rpx;
+}
+._space-pt20 {
+    padding-top: 20rpx;
+}
+._space-mt60 {
+    margin-top: 60rpx;
+}
+.hide {
+    display: none;
+}
+.page-inside--bgcolor_04 {
+    background-image: linear-gradient(180deg, #00A3FF 0%, #1DEFFF 100%);
+}
+.page-inside--bgcolor_05{
+    background-image: linear-gradient(180deg, #F8808E 1%, #FFB35D 100%);
+}
+.page-inside--bgcolor_06{
+    background-image: linear-gradient(180deg, #79A3DF 0%, #3A57B4 99%);
+}
+.page-inside--bgcolor_07{
+    background-image: linear-gradient(180deg, #80BFFF 0%, #FFE599 33%, #FF9D9D 99%);
+}
+.page-inside-item {
+    position: relative;
+    height: 100%;
+}
+.page-inside__footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    .inside04__footer-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-top: 102.9333vw;
+    }
+    .inside05__footer-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-top: 100vw;
+    }
+    .inside07__footer-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-top: 105.33333vw;
+    }
+    .inside__footer-img {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.main-txt {
+    // padding-top: 160rpx;
+    padding-right: 100rpx;
+    padding-left: 60rpx;
+    color: #ffffff;
+    &._space-new {
+        padding-right: 36rpx;
+    }
+    .main-txt__item {
+        text-shadow: 0 0 10px rgba(0,0,0,0.50);
+        line-height: 60rpx;
+        font-size: 32rpx;
+        .yel-txt{
+            color: #FFF200;
+            font-weight: 600;
+            padding: 0 10rpx;
+            &._space-pl10 {
+                padding: 0 0 0 10rpx;
+            }
+            &._space-p0 {
+                padding: 0;
+            }
+        }
+    }
+}
+// **************************************** 内页04 *************************************
+.page-inside__main {
+    z-index: 2;
+    
+}
+.page-inside04__box {
+    .page-inside__main {
+        position: absolute;
+        top: 50rpx;
+        width: 100%;
+        right: 0;
+        height: calc(100vh - 734rpx);
+        display: flex;
+        align-items: center;
+        .icon-bubble-container {
+            position: absolute;
+            top: 81rpx;
+            left: 30rpx;
+            .bubble-img {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+            .icon-bubble-01 {
+                position: relative;
+                width: 234rpx;
+                height: 59rpx;
+                opacity: 0;
+            }
+            .icon-bubble-02 {
+                position: relative;
+                width: 184rpx;
+                height: 59rpx;
+                margin-left: 50rpx;
+                margin-top: -54rpx;
+            }
+        }
+    }
+}
+.inside04-txt-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 90rpx;
+    margin-right: 90rpx;
+    .inside04-txt {
+        width: 315rpx;
+        height: 131rpx;
+        .inside04-txt-img {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;   
+        }
+    }
+}
+.page-inside04-2__box {
+    display: none;
+}
+.main-txt {
+    width: 100%;
+}
+// **************************************** 内页05 *************************************
+.page-inside05__box {
+    .page-inside__main {
+        position: absolute;
+        top: 0rpx;
+        width: 100%;
+        right: 0;
+        height: calc(100vh - 610rpx);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+.icon-cloud-container {
+    position: absolute;
+    top: 236rpx;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .cloud-img {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .icon-cloud-01 {
+        width: 271rpx;
+        height: 127rpx;
+        animation: floating 5s linear infinite both;
+    }
+    .icon-cloud-02 {
+        width: 188rpx;
+        height: 109rpx;
+        margin-top: -64rpx;
+        animation: floating2 5s .5s linear infinite both;
+    }
+}
+.inside05-txt-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 90rpx;
+    margin-left: 50rpx;
+    .inside05-txt {
+        display: inline-block;
+        width: 436rpx;
+        height: 132rpx;
+        .inside05-txt-img {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;   
+        }
+    }
+}
+.icon-seabird-lf {
+    position: fixed;
+    bottom: 630rpx;
+    left: 84rpx;
+    width: 32rpx;
+    height: 10rpx;
+    z-index: 2;
+    animation: floatDown  3s linear infinite both;
+}
+.icon-seabird-rt {
+    position: fixed;
+    bottom: 645rpx;
+    left: 326rpx;
+    width: 54rpx;
+    height: 16rpx;
+    z-index: 2;
+    animation: floatUp3  3s linear infinite both;
+}
+.page-photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .page-photo__hd {
+        width: 387rpx;
+        height: 53rpx;
+        margin: 40rpx auto 36rpx;
+    }
+    .page-photo__bd {
+        position: relative;
+        width: 674rpx;
+        height: 310rpx;
+        border: 2rpx solid #FFFFFF;
+        border-radius: 16px;
+        margin-bottom: 30rpx;
+        box-sizing: border-box;
+        overflow: hidden;
+        .page-photo-item {
+            width: 670rpx;
+            height: 306rpx;
+            border-radius: 16rpx;
+            .weapp-img {
+                border-radius: 16rpx;
+                overflow: hidden;
+            }
+        }
+        .page-photo-mark {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            bottom: 20rpx;
+            width: 469rpx;
+            height: 48rpx;
+            line-height: 47rpx;
+            font-size: 28rpx;
+            color: #FFFFFF;
+            background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/inside/5/inside05-photo-mark1.png") no-repeat center top;
+            background-size: cover;  
+        }
+        .page-photo-mark2 {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            bottom: 20rpx;
+            width: 596rpx;
+            height: 48rpx;
+            line-height: 47rpx;
+            font-size: 28rpx;
+            color: #FFFFFF;
+            background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/inside/5/inside05-photo-mark2.png") no-repeat center top;
+            background-size: cover;  
+        }
+    }
+}
+.page-inside05-2__box {
+    display: none;
+}
+// **************************************** 内页06 *************************************
+._space-mt30 {
+    margin-top: 30rpx;
+}
+._space-mt20 {
+    margin-top: 20rpx;
+}
+.page-inside06-1__box {
+    margin-top: -50rpx !important;
+    .item-hd__btn {
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 30rpx;
+        border-radius: 40rpx;
+        width: 320rpx;
+        height: 80rpx;
+        background: #F07900;
+        background-image: linear-gradient(90deg,  #F07900 0%, #DD4400 100%); }
+       
+        .icon-gifts {
+            width: 30rpx;
+            height: 30rpx;
+            margin-right: 10rpx;
+        }
+    }
+    .item-hd__boss {
+        width: 240rpx;
+        height: 213rpx;
+        margin: auto;
+    }
+    .item-hd__user {
+        width: 607rpx;
+        height: 70rpx;
+        margin-bottom: 20rpx;
+    }
+    .item-hd__line {
+        width: 448rpx;
+        height: 15rpx;
+        margin: auto;
+        padding-bottom: 28rpx;
+        background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/inside/6/line-bk.png") no-repeat center top;
+        background-size: 100%;   
+    }
+    .item-hd__footer {
+        width: 400rpx;
+        font-size: 24rpx;
+        color: #999999;
+        text-align: center;
+        margin: auto;
+    }
+    .item-hd__tit {
+        width: 100%;
+        margin: auto;
+        font-weight: 600;
+        font-size: 36rpx;
+        color: #333333;
+        text-align: center;   
+    }
+    .item-hd__cont {
+        width: 400rpx;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 30rpx;
+        color: #333333;
+        text-align: center;
+    }
+    .user-name {
+        padding-top: 20rpx;
+        font-weight: 600;
+        font-size: 32rpx;
+        color: #333333;
+        text-align: center;
+    }
+
+.inside06__main {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin-top: -10rpx;
+    .inside__main-center {
+        position: relative;
+        width: 690rpx;
+        height: 1000rpx;
+        background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/inside/6/inside06-bk_new2.png") no-repeat center top;
+        background-size: cover;
+        margin: auto;
+        box-sizing: border-box;
+    }
+  
+    .inside06__main__txt {
+        width: 560rpx;
+        height: 328rpx;
+    }
+  
+    .main-center__box {
+        position: absolute;
+        top: -68rpx;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: calc(100vh - 610rpx);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        &.fitness-change {
+            ._space-item {
+                &:not(:first-of-type) {
+                    margin-top: 80rpx;
+                }
+            }
+        }
+    }
+    ._space-item {
+        &:not(:first-of-type) {
+            margin-top: 30rpx;
+        }
+    }
+    
+    .main-center__head {
+       .item-hd {
+        line-height: 42rpx;
+        font-weight: 500;
+        font-size: 30rpx;
+        color: #FFD8A0;
+        margin-top: 8rpx;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 32rpx;
+        color: #FFD8A0;
+        width: 561rpx;
+        height: 98rpx;
+        background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/inside/6/inside06-txt-bk.png") no-repeat center top;
+        background-size: cover;
+       }
+       .item-bd {
+        margin-top: 8rpx;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 24rpx;
+        color: #FFD8A0;
+        width: 561rpx;
+        height: 98rpx;
+        background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/inside/6/inside06-txt-bk.png") no-repeat center top;
+        background-size: cover;
+       }
+    }
+    .main-center__body {
+       font-size: 38rpx;
+       color: #FFFFFF;
+       .item-hd__name {
+        font-size: 50rpx;
+        text-shadow: 0 0 12rpx #7E000F;
+       }
+       .item-hd__reward {
+        font-size: 60rpx;
+        text-shadow: 0 0 12rpx #7E000F;
+       }
+       .item-hd__txt {
+        font-size: 38rpx;
+       }
+        .item-hd-tips {
+            font-size: 26rpx;
+            text-shadow: 0 0 12rpx #7E000F;
+            margin-top: 10rpx;
+        }
+        .item-bd-tips {
+            margin-top: 30rpx;
+            margin-bottom: -44rpx;
+            font-size: 24rpx;
+            width: 480rpx;
+            color: rgba(255, 255, 255, .6);
+        }
+        .item-bd {
+            width: 246rpx;
+            height: 146rpx;
+            margin: 60rpx auto 2rpx;
+            line-height: 138rpx;
+            font-weight: 600;
+            font-size: 48rpx;
+            background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/inside/6/card-jd.png?v=123456") no-repeat center top;
+            background-size: cover;
+            box-sizing: content-box;
+        }
+    }
+    .main-center__footer {
+        font-size: 24rpx;
+        color: #FFD8A0;
+       .line-top {
+           width: 268rpx;
+           height: 12rpx;
+           .line-img {
+               width: 100%;
+               height: 100%;
+               overflow: hidden;
+           }
+       }
+       .item-bd {
+           margin-top: 26rpx;
+       }
+        
+    }
+    .tit-star-container {
+        position: absolute;
+        top: -62rpx;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: 340rpx;
+        height: 240rpx;
+        z-index: 2;
+        .star-img {
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
+        }
+    }
+}
+.user-container {
+    margin: auto;
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 50%;
+    border: 6rpx solid #B9D6FA;
+    .weapp-img {
+        width: 140rpx;
+        height: 140rpx;
+        border-radius: 50%;
+    }
+}
+.icon-star {
+    width: 27rpx;
+    height: 47rpx;
+}
+.icon-star01 {
+    position: absolute;
+    top: 50rpx;
+    left: 80rpx;
+    z-index: 9;
+}
+.icon-star02 {
+    position: absolute;
+    top: 80rpx;
+    left: 124rpx;
+    z-index: 9;
+}
+.icon-star03 {
+    position: absolute;
+    top: 0;
+    right: 90rpx;
+    z-index: 9;
+}
+.icon-star04 {
+    position: absolute;
+    top: 300rpx;
+    right: 16rpx;
+    z-index: 9;
+}
+.page-inside06__box .inside06__main .inside__main-center.inside-boss {
+    position: relative;
+    width: 712rpx;
+    height: 1074rpx;
+    background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/inside/6/inside-lottery-bk4.png") no-repeat center top;
+    background-size: cover;
+    margin: auto;
+    box-sizing: border-box;
+}
+@media only screen and (max-height: 668px) {
+    .inside06__main {
+        ._space-item:not(:first-of-type) {
+            margin-top: 8rpx;
+        }
+        .tit-star-container {
+            top: -68rpx;
+        }
+    }
+}
+@media only screen and (min-height: 737px) {
+    .inside06__main {
+        margin-top: -30rpx;
+        .inside__main-center {
+            width: 690rpx;
+            height: 1100rpx;
+            background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/inside/6/inside06-bk_new2.png") no-repeat center top;
+            background-size: 690rpx 1100rpx;
+        }  
+    }
+    .page-inside06__box .inside06__main .inside__main-center.inside-boss { 
+            width: 712rpx;
+            height: 1174rpx;
+            background: url("https://kf-ui.cdn-go.cn/weapp-image/latest/weapp-workbench/images/bill/inside/6/inside-lottery-bk4.png") no-repeat center top;
+            background-size: 712rpx 1174rpx; 
+    }
+}
+// **************************************** 内页07 *************************************
+
+.main-center-txt {
+    position: absolute;
+    top: 100rpx;
+    left: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100vw - 120rpx);
+    margin: 0 60rpx;
+    height: calc(100vh - 650rpx);
+}
+.inside07-txt {
+    width: 630rpx;
+    height: 668rpx;
+    .inside07-txt-img {
+        width: 100%;
+        height: 100%;
+        overflow: hidden; 
+    }
+}
+.icon-moom-container {
+    position: absolute;
+    top: 30rpx;
+    left: 80rpx;
+    width: 128rpx;
+    height: 128rpx;
+}
+.icon-star-container {
+    position: absolute;
+    top: -40rpx;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 670rpx;
+    width: 670rpx;
+}
+.icon-cloud_lf {
+    position: absolute;
+    top: 360rpx;
+    left: 0;
+    width: 460rpx;
+    height: 210rpx;
+
+}
+.icon-cloud_rt {
+    position: absolute;
+    top: 527rpx;
+    right: 0;
+    width: 610rpx;
+    height: 190rpx;
+}
+.page-inside-tit {
+    position: absolute;
+    top: 130rpx;
+    left: 0;
+    right: 0;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    text-align: center;
+}
+.scene-box{
+    padding: 20rpx; 
+    position: 
+    relative; 
+    height:100%;
+    z-index: 9;
+}
+.scene-group {
+ height: 280rpx; 
+ position: relative; 
+ overflow: hidden;
+}
+.scene-track {
+    position: absolute; 
+    top:40rpx; 
+    left: 100%; 
+    z-index: 99; 
+    animation-timing-function: linear; 
+    animation-fill-mode: none; 
+    transform: translateZ(0); 
+    white-space: nowrap; 
+    height: 60rpx;
+    &:nth-child(2) {
+        top: 120rpx;
+    }
+    &:nth-child(3) {
+        top: 200rpx;
+    }
+    .track-item {
+        display: inline-flex; 
+        margin-right: 60rpx; 
+        white-space: nowrap; 
+        .track {
+            display: inline-flex; 
+            vertical-align: middle; 
+            align-items: center; 
+            position: relative; 
+            height: 50rpx; 
+            line-height: 50rpx; 
+            padding-right: 20rpx; 
+            overflow: hidden; 
+            font-size: 28rpx;
+            color: #fff;
+            background: rgba(255, 255, 255, .2);
+            border-radius: 30rpx;
+        }
+    }
+    // @for $i from 1 to 10 {
+    //     &:nth-child(#{$i}) {
+    //         .track-item {
+    //             animation-delay: -5s + 1s * $i;
+    //         }   
+    //      }
+    //  } 
+     .avatar {
+        display: inline-block;
+        position: relative; 
+        width: 52rpx;
+        height: 52rpx;
+        .portrait-img {
+            width: 52rpx;
+            height: 52rpx;
+            border-radius: 50%;
+            border: solid 4rpx rgba(255, 255, 255, .7);
+            overflow: hidden;
+            border: 0; 
+        }
+     }
+    .track-item-txt {
+        max-width: 588rpx;
+        white-space: nowrap;
+        word-break: break-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-left: 10rpx;
+        font-size: 28rpx;
+        color: #FFFFFF;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 10rpx 0;
+    }
+}
+.dimensional-code {
+    position: fixed;
+    bottom: 30rpx;
+    left: 60rpx;
+    width: 120rpx;
+    height: 120rpx;
+    background: red;
+}
+.btn-poster-container {
+    position: fixed;
+    bottom: 60rpx;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320rpx;
+    height: 80rpx;
+    text-align: center;
+    background: #FFFFFF;
+    box-shadow: 0 0 10rpx 0 rgba(0,0,0,0.10);
+    border-radius: 40rpx;
+    .icon-bill {
+        width: 30rpx;
+        height: 30rpx;
+    }
+    .btn-poster {
+        margin-left: 10rpx;
+        font-size: 30rpx;
+        color: #265CF0;
+    }
+}
+
+.scene-track:nth-child(1) {
+    animation: show .5s 4.5s linear both, scrollTo2  8s 4s linear infinite both; 
+}
+.scene-track:nth-child(2) {
+    animation: show .5s 4.5s linear both, scrollTo2  8s 3.5s linear infinite both; 
+}
+.scene-track:nth-child(3) {
+    animation: show .5s 4.5s linear both, scrollTo2  8s 4.5s linear infinite both; 
+}
+// **************************************** 内页04 动画 *************************************
+.page-inside04__box{
+    .page-inside04-1__box {
+        &.fallIn {
+            .main-txt {
+                animation: floatUp .5s 1s linear both;
+            }
+            .icon-bubble-01 {
+                animation: floatUp2 .5s 2s linear both, out_floatUp2 .5s 3.5s linear forwards;
+            }
+            .icon-bubble-02 {
+                animation: floatUp6 .5s 3s linear both, inner_floatUp4 1.2s 4s linear forwards;
+            }
+        }
+    }
+    .page-inside04-1__box {
+        &.fallOut {
+            .icon-bubble-01 {
+                animation: out_floatUp2 .5s 1s linear both;
+            }
+            .icon-bubble-02 {
+                animation: out_floatUp2 .5s 1.5s linear both;
+            }
+            .main-txt {
+                animation: out_floatUp .5s 2s linear  both;
+            }
+        }
+    }
+    .page-inside04-2__box {
+        &.fallIn {
+            display: block;
+            .main-txt {
+                animation: floatUp .5s .5s linear both;
+            }
+            .inside04-txt {
+                animation: floatUp .5s 1s linear both;
+            }
+        }
+    }   
+}
+// **************************************** 内页05 动画 *************************************
+.page-inside05-1__box {
+    &.fallIn{
+        .main-txt__item {
+            animation: floatUp4 1s 0.5s linear both;
+        }
+        .inside05-txt {
+            animation: floatUp .5s 2s linear both;
+        }
+    }
+}
+.page-inside05-1__box {
+    &.fallOut {
+        .main-txt {
+            animation: out_floatUp4 .5s 1s linear  both;
+        }
+        .inside05-txt-container {
+            animation: out_floatUp .5s 2.5s linear  both;
+        }
+    }
+}
+.page-inside05-2__box {
+    &.fallIn {
+        display: block;
+        z-index: 2; // ios手机中照片层级不够，被会底下的云层盖住
+        .page-photo {
+            animation: floatUp4 .5s .5s linear both;
+        }
+    }
+}
+// **************************************** 内页06 动画 *************************************
+.page-inside06__box {
+    .fallIn{
+        .inside__main-center {
+            animation: floatUp4  .5s .5s linear both;
+        }
+        .tit-star-container {
+            animation: scaling 1s 1s linear both ;
+        }
+        // .main-center__head {
+        //     animation: floatDown2 1s 1.6s linear both;
+        // }
+        // .main-center__body {
+        //     animation: show .5s 2s linear both;
+        // }
+        .main-center__head {
+          animation: floatDown2 1s 0.5s linear both;
+        }
+        .main-center__body {
+          animation: floatUp5 0.5s 1s linear both;
+        }
+        .main-center__footer {
+            animation: show .5s 2.5s linear both;
+        }
+        .icon-star01{
+            animation: show 1s 2s linear both, scaling2 1s -.5s linear infinite both;
+        }
+        .icon-star02{
+            animation: show 1s 2.5s linear both, scaling2 1s -.5s linear infinite both;
+        }
+        .icon-star03{
+            animation: show 1s 3s linear both, scaling2 1s -.5s linear infinite both;
+        }
+        .icon-star04 {
+            animation: show 1s 3.5s linear both, scaling2 1s -.5s linear infinite both;
+        }
+    }
+    .fallOut {
+        .inside__main-center {
+            animation: out_floatUp4 .5s linear  both;
+        }
+    }
+}
+// **************************************** 内页07 动画 *************************************
+.page-inside07__box {
+    &.fallIn{
+        .inside__main-center {
+            animation: floatUp4  .5s .5s linear both;
+        }
+        .main-center-txt {
+            animation: floatUp .5s 1s linear both;
+        }
+        .page-inside-tit {
+            animation: show 1s 2s linear both, scrollTo 4s 4s linear both;
+        } 
+    }
+}
+@keyframes floating {
+    0% {
+      transform: translateX(-40rpx); 
+    }
+    50% {
+      transform: translateX(0); 
+    } 
+    100% {
+        transform: translateX(-40rpx); 
+      } 
+}
+@keyframes floating2 {
+    0% {
+      transform: translateX(0); 
+    }
+  
+    50% {
+      transform: translateX(60rpx); 
+    } 
+    100% {
+        transform: translateX(0); 
+      } 
+}
+@keyframes floatUp {
+    0% {
+      transform: translateY(30rpx); 
+      opacity: 0;
+    }
+    100% {
+        transform: translateY(0); 
+        opacity: 1;
+    } 
+}
+@keyframes out_floatUp {
+    0% {
+      transform: translateY(0); 
+      opacity: 1;
+    }
+    100% {
+        transform: translateY(-30rpx); 
+        opacity: 0;
+    } 
+}
+@keyframes floatUp2 {
+    0% {
+      transform: translateY(20rpx); 
+      opacity: 0;
+    }
+    100% {
+        transform: translateY(0); 
+        opacity: 1;
+    } 
+}
+@keyframes out_floatUp2 {
+    0% {
+      transform: translateY(0); 
+      opacity: 1;
+    }
+    100% {
+        transform: translateY(-20rpx); 
+        opacity: 0;
+    } 
+}
+@keyframes inner_floatUp4 {
+    0% {
+      transform: translateY(88rpx); 
+      opacity: 1;
+    }
+    100% {
+        transform: translateY(0); 
+        opacity: 1;
+    } 
+}
+
+@keyframes floatUp3 {
+    0% {
+      transform: translateY(0); 
+      
+    }
+    50% {
+        transform: translateY(-10rpx); 
+        
+    } 
+    100% {
+        transform: translateY(0); 
+        
+    } 
+}
+@keyframes floatUp4 {
+    0% {
+      transform: translateY(40rpx); 
+      opacity: 0;
+    }
+    100% {
+        transform: translateY(0); 
+        opacity: 1;
+    } 
+}
+@keyframes floatUp5 {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes floatUp6 {
+    0% {
+      transform: translateY(108rpx); 
+      opacity: 0;
+    }
+    100% {
+        transform: translateY(88rpx); 
+        opacity: 1;
+    } 
+}
+@keyframes out_floatUp4 {
+    0% {
+      transform: translateY(0); 
+      opacity: 1;
+    }
+    100% {
+        transform: translateY(-40rpx); 
+        opacity: 0;
+    } 
+}
+@keyframes floatDown {
+    0% {
+      transform: translateY(0); 
+      
+    }
+    50% {
+        transform: translateY(10rpx); 
+        
+    } 
+    100% {
+        transform: translateY(0); 
+        
+    } 
+}
+@keyframes floatDown2 {
+    0% {
+      transform: translateY(-30rpx); 
+      opacity: 0;
+    }
+    100% {
+        transform: translateY(0); 
+        opacity: 1;
+    } 
+}
+@keyframes scaling {
+    0% {
+        transform: scale(0); 
+    }
+    50% {
+        transform: scale(1); 
+    } 
+   80% {
+        transform: scale(.9); 
+    } 
+    100% {
+        transform: scale(1); 
+    }
+}
+@keyframes scaling2 {
+    0% {
+        transform: scale(1); 
+    }
+    50% {
+        transform: scale(.5); 
+    }
+    100% {
+        transform: scale(1); 
+    }
+}
+
+@keyframes show {
+    0% {
+      opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    } 
+}
+@keyframes show2 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes scrollTo {
+    0%{
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-600px);
+    }
+}
+@keyframes scrollTo2 {      
+    0%{
+        transform: translateX(300rpx);  
+    }
+    100% {
+        transform: translateX(-150%); //  此为根据内容多少变速移动； 若匀速移动速度为150px/1s 动态获取每个轨道的宽度variable_width ，translateX(-variable_width)； animation-duration= variable_width / 150。
+    }
+}
+
+
+
+  
+  
+  

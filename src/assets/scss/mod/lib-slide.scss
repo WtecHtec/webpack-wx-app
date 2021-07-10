@@ -1,0 +1,58 @@
+// 1、右侧边栏弹窗滑入/滑出动画
+.dialog__slide {
+  left: auto;
+  top: auto;
+  bottom: 0;
+  right: 0;
+  transform: translateX(100%);
+}
+.dialog__slide-right-in {
+  animation: dialog__slide-right-in 0.5s forwards;
+}
+
+.dialog__slide-right-out {
+  animation: dialog__slide-right-out 0.5s forwards;
+}
+
+// 从右侧滑入滑出
+@keyframes dialog__slide-right-in {
+  100% { transform: translateX(0%); }
+}
+
+@keyframes dialog__slide-right-out {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+
+
+// 2、左侧边栏弹窗滑入/滑出动画 dialog__slide-left
+.dialog__slide-left {
+  right: auto;
+  top: auto;
+  left: 0;
+  bottom: 0;
+  transform: translateX(-100%);
+}
+
+.dialog__slide-left-in {
+  animation: dialog__slide-left-in 0.5s forwards;
+}
+
+.dialog__slide-left-out {
+  animation: dialog__slide-left-out 0.5s forwards;
+}
+
+.animationDuration300 {
+  animation-duration: 0.3s!important;
+}
+
+// 从左侧滑入滑出
+@keyframes dialog__slide-left-in {
+  100% { transform: translateX(0%); }
+}
+
+@keyframes dialog__slide-left-out {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}

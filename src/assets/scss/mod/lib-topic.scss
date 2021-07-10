@@ -1,0 +1,317 @@
+@import "../base/mixin.scss";
+
+// 考试模块的公用样式
+
+// 试题目录列表
+.m-topic--menu {
+  .m-topic__hd {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20rpx 30rpx;
+    &.-bottomLine {
+      &::after{
+        @include setBottomLine($c: #e5e5e6);
+        left: 30rpx;
+      }
+    }
+    .left {
+      font-size: 24rpx;
+      color: #666666;
+      line-height: 36rpx;
+    }
+    .right {
+      font-size: 24rpx;
+      color: #666666;
+      line-height: 36rpx;
+      margin-left: auto;
+    }
+  }
+}
+
+// 单条试题题目卡片
+.m-topic--card {
+  .m-topic__bd {
+    position: relative;
+  }
+  .radio-list {
+    position: relative;
+  }
+  .radio-item {
+    display: flex;
+    padding: 30rpx;
+  }
+  .radio-item__inputWrap {
+    flex-shrink: 0;
+    margin-top: -2rpx;
+    margin-right: 8rpx;
+  }
+  .radio-input {
+    flex-shrink: 0;
+    zoom: 0.8;
+  }
+  checkbox .wx-checkbox-input {
+    flex-shrink: 0;
+  }
+  .radio-item__txt {
+    font-size: 32rpx;
+    color: #333333;
+    line-height: 48rpx;
+    word-break: break-all;
+    word-wrap: normal;
+    &.-grey {
+      color: #999;
+    }
+    &.-red {
+      color: #F03E3E;
+    }
+    &.-blue {
+      color: #265CF0;
+    }
+  }
+  .radio-icon {
+    display: flex;
+    align-items: center;
+    margin-top: 8rpx;
+    margin-right: 10rpx;
+    .iconfont2 {
+      font-size: 40rpx;
+    }
+    .icon-122 {
+      color: #F03E3E;
+    }
+    .icon-121 {
+      color: #265CF0;
+    }
+    .icon-120 {
+      color: #E5E5E6;
+    }
+    .-colorccc {
+      color: #ccc;
+    }
+  }
+  // 填空题
+  .m-topic__fillWrap {
+    position: relative;
+  }
+  .fill-list {
+    position: relative;
+  }
+  .fill-item {
+    display: flex;
+    flex-direction: column;
+    padding: 30rpx;
+  }
+  .fill-item__title {
+    font-size: 28rpx;
+    color: #333333;
+    line-height: 40rpx;
+    margin-bottom: 10rpx;
+  }
+  .fill-item__inputWrap {
+    flex-shrink: 0;
+    background: #F5F6FA;
+    border-radius: 2px;
+    padding: 24rpx 20rpx;
+  }
+  .fill-item__input {
+    width: 100%;
+    font-size: 30rpx;
+    color: #000;
+    line-height: 42rpx;
+    max-height: 168rpx;
+    box-sizing: border-box;
+  }
+  // 简单题
+  .m-topic__shortanswerWrap {
+    position: relative;
+  }
+  .shortanswer-txt {
+    padding: 30rpx;
+    font-size: 30rpx;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: justify;
+    word-wrap: break-word;
+    word-break: normal;
+  }
+}
+
+
+// 本题解析
+.m-topic--analysis {
+  position: relative;
+  font-size: 0;
+  padding: 30rpx 30rpx 30rpx 30rpx;
+  .m-topic__tips {
+    position: relative;
+    display: inline-block;
+    font-size: 22rpx;
+    color: #8A97B8;
+    background: #EFF2F7;
+    border-radius: 4rpx;
+    padding: 5rpx 9rpx;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .m-topic__content {
+    font-size: 30rpx;
+    line-height: 44rpx;
+    margin-top: 20rpx;
+    color: #000000;
+    word-break: break-all;
+    word-wrap: normal;
+  }
+}
+
+// 题目人员记录
+.m-topic--browse {
+  position: relative;
+  font-size: 0;
+  padding: 30rpx 0rpx 0rpx 0rpx;
+  .m-topic__tips {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20rpx;
+    margin-left: 30rpx;
+    font-size: 22rpx;
+    color: #8A97B8;
+    background: #EFF2F7;
+    border-radius: 4rpx;
+    padding: 5rpx 9rpx;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .browse {
+    background-color: #fff;
+    padding: 0rpx 10rpx 0rpx;
+    .member-list {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      .member-list-item {
+        display: block;
+        width: 164rpx;
+        margin-bottom: 30rpx;
+        .icon {
+          display: block;
+          margin: 0 auto;
+          width: 80rpx;
+          height: 80rpx;
+          .image {
+            position: relative;
+            box-sizing: border-box;
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            &:after {
+              border-radius: 50%;
+              content: "";
+              box-sizing: border-box;
+              width: 200%;
+              height: 200%;
+              border: 2rpx solid #c3c3c3;
+              position: absolute;
+              left: 0rpx;
+              top: 0rpx;
+              transform-origin: left top;
+              transform: scale(0.5);
+            }
+          }
+        }
+        .name {
+          display: block;
+          width: 100%;
+          margin-top: 16rpx;
+          font-size: 26rpx;
+          line-height: 38rpx;
+          color: #000;
+          text-align: center;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          word-break: break-all;
+          word-wrap: normal;
+        }
+      }
+      .null-list-item {
+        width: 25%;
+        margin-bottom: 30rpx;
+      }
+    }
+  }
+}
+
+
+// 填空题的填空内容区域
+.m-point_fill {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  padding: 0rpx 10rpx;
+  min-height: 45rpx;
+  min-width: 56rpx;
+  font-size: 32rpx;
+  color: #000;
+  text-align: center;
+  box-sizing: border-box;
+  &:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid #000;
+    color: #000;
+  }
+}
+
+// 题目的评分状态栏
+.m-topic--score {
+  position: relative;
+  padding: 28rpx 30rpx 27rpx;
+  display: flex;
+  align-items: center;
+  &.-bottomLine {
+    &::after{
+      @include setBottomLine($c: #e5e5e6);
+      left: 30rpx;
+      right: 30rpx;
+    }
+  }
+  .score-icon {
+    flex-shrink: 0;
+    position: relative;
+    margin-right: 10rpx;
+    .iconfont2 {
+      font-size: 40rpx;
+      color: #265CF0;
+    }
+    &.-error .iconfont2 {
+      color: #F03E3E;
+    }
+  }
+  .score-content {
+    flex: 1;
+    font-size: 32rpx;
+    line-height: 45rpx;
+    color: #333333;
+  }
+  .score-tag {
+    flex-shrink: 0;
+    position: relative;
+    display: inline-block;
+    margin-left: 30rpx;
+    font-size: 22rpx;
+    line-height: 40rpx;
+    color: #8A97B8;
+    background: #EFF2F7;
+    border-radius: 40rpx;
+    min-width: 90rpx;
+    padding: 0rpx 14rpx;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}

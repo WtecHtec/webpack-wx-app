@@ -1,0 +1,33 @@
+// 分隔线样式     ---- *** ----
+.m-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 32rpx 30rpx;
+  background: transparent;
+  &:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    border-top: 1px solid #E5E5E6;
+    color: #E5E5E6;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+  }
+  &:after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    border-top: 1px solid #E5E5E6;
+    color: #E5E5E6;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+  }
+  .m-divider__text {
+    flex-shrink: 0;
+    padding: 0rpx 30rpx;
+    font-size: 24rpx;
+    color: #CCCCCC;
+    line-height: 36rpx;
+  }
+}

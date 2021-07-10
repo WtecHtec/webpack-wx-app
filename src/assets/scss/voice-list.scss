@@ -1,0 +1,218 @@
+@import "./base/mixin.scss";
+.voice-list {
+    background: #fafafb;
+    min-height: unset;
+    .voice-hd {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 88rpx;
+        background: #fff;
+        z-index: 9999;
+        .state2 .item .txt {
+            color: #333;
+        }
+        .state2 .item .icon-28 {
+            color: #999;
+        }
+        .voice::after {
+            border-color: #f0f0f0;
+        }
+        .voice {
+            font-size: 14px;
+            color: #666666;
+        }
+        .lineup {
+            font-size: 13px;
+            color: #666666;
+            flex: 1;
+        }
+        .state2 {
+            position: relative;
+            left: unset;
+            top: unset;
+            transform: unset;
+        }
+        .state2 .droplist {
+            background: rgba(0, 0, 0, 0.3);
+            top: 29px;
+            width: 92px;
+            right: -15px;
+            left: unset;
+            transform: unset;
+            z-index: 999999;
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+            &::before {
+                display: none;
+            }
+            .item:first-child.current,
+            .item:last-child.current {
+                border-radius: 0;
+            }
+            .item {
+                color: #333;
+                background: #fff;
+                &.current {
+                    background: #ebedf3;
+                }
+            }
+        }
+        &::after {
+            @include setBottomLine($c: #f0f0f0);
+        }
+    }
+}
+.mod-navtab {
+    padding-top: 176rpx;
+    // padding-bottom: 50px;
+    padding-bottom: calc(env(safe-area-inset-bottom));
+    min-height: calc( 100vh - 176rpx);
+    min-height: calc( 100vh - 176rpx - env(safe-area-inset-bottom) );
+    .tab-hd {
+        position: fixed;
+        top: 88rpx;
+        width: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        height: 88rpx;
+        display: flex;
+        align-items: center;
+        background: #fff;
+        font-weight: bold;
+        &::after {
+            @include setBottomLine($c: #f0f0f0);
+        }
+    }
+
+    .navtab-item {
+        text-align: center;
+        flex: 1;
+        font-size: 16px;
+        color: #999999;
+        &.current {
+            color: #265cf0;
+        }
+    }
+    .navtab__slider {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 160rpx;
+        height: 3rpx;
+        background: #265cf0;
+        transition: all 0.3s ease;
+    }
+}
+
+.mod-list {
+    .item {
+        display: flex;
+        position: relative;
+        padding: 12px 15px;
+        background: #fff;
+        &::after {
+            @include setBottomLine($c: #f0f0f0);
+        }
+        &:last-child::after {
+            display: none;
+        }
+        .item-info {
+            flex: 1;
+            overflow: hidden;
+        }
+        .item-avatar {
+            position: relative;
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            background: #eee;
+            margin-right: 15px;
+            image {
+                width: 100%;
+                height: 100%;
+            }
+            .red-dot {
+                min-width: 18px;
+                height: 18px;
+                background: #ed4343;
+                border-radius: 9px;
+                color: #fff;
+                font-size: 13px;
+                padding: 0rpx 8rpx;
+                box-sizing: border-box;
+                position: absolute;
+                left: 35px;
+                top: -7px;
+                text-align: center;
+                vertical-align: middle;
+                line-height: 18px;
+            }
+        }
+        .item-name {
+            font-size: 16px;
+            color: #000;
+            @include ellipsis-lines($lines: 1);
+            word-break: break-all;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        .item-text {
+            font-size: 14px;
+            color: #999;
+            margin-top: 2px;
+            @include ellipsis-lines($lines: 1);
+            word-break: break-all;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        .item-time {
+            font-size: 13px;
+            color: #999;
+            margin-top: 2px;
+        }
+        .red-txt {
+            color: #e81414;
+        }
+        .icon-33,
+        .icon-01,
+        .icon-34 {
+            position: absolute;
+            right: 15px;
+            bottom: 14px;
+            font-size: 14px;
+            color: #ed4343;
+        }
+        .icon-01 {
+            color: #76cc21;
+            font-size: 32rpx;
+        }
+
+        &.notfinish {
+            .item-name {
+                color: #999;
+            }
+            .item-text,
+            .item-time {
+                color: #cccccc;
+            }
+        }
+    }
+}
+.user-request {
+}
+.voice-list.fixed-user-request {
+    top: 168rpx;
+    .voice-hd {
+        top: 80rpx;
+    }
+    .mod-navtab {
+        padding-top: 88rpx;
+        min-height: calc( 100vh - 168rpx - 88rpx);
+        min-height: calc( 100vh - 168rpx - 88rpx - env(safe-area-inset-bottom) );
+    }
+    .mod-navtab .tab-hd {
+        top: 168rpx;
+    }
+}

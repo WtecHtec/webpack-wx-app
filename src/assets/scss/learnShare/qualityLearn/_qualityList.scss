@@ -1,0 +1,17 @@
+@import '../../base/mixin.scss';
+
+.quality-list {
+  min-height: 100vh;
+
+  @include clearfix();
+  .m-list--quality {
+    margin-top: calc(88rpx + 16rpx);
+  }
+  .mask {
+    display: none;
+    &.is-show {
+      display: block;
+    }
+  }
+}
+

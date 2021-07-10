@@ -1,0 +1,132 @@
+@import "../base/mixin.scss";
+.m-tabtitle {
+  display: flex;
+  height: 96rpx;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+  &.-bottomLine {
+    &:before {
+        @include setBottomLine($c: #E5E5E6);
+    }
+  }
+  &.-single {
+    height: auto;
+    padding: 0;
+    .tabs-item {
+      margin-left: 12rpx;
+    }
+  }
+  .tabtitle__hd {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    .tabtitle__tabs .tabs-item {
+      background: #F5F6FA;
+      .txt {
+        color: #999999;
+      }
+    }
+  }
+  .tabtitle__title {
+    font-size: 28rpx;
+    color: #000000;
+    max-width: 224rpx;
+    @include text-overflow();
+  }
+  .type__tips {
+    margin-left: 8rpx;
+    .icon-69 {
+      margin-left: 0rpx;
+    }
+  }
+  .icon-69 {
+    font-size: 28rpx;
+    color: #ccc;
+    margin-left: 8rpx;
+  }
+  .tabtitle__tabs {
+    display: flex;
+    align-items: center;
+    .tabs-itemWrap {
+      position: relative;
+      .tabs-item {
+        margin-right: 0;
+      }
+    }
+    .tabs-item{
+      display: flex;
+      align-items: center;
+      padding: 12rpx 20rpx;
+      background: #F5F6FA;
+      border-radius: 28rpx;
+      margin-right: 12rpx;
+      &:last-child {
+        margin-right: 0;
+      }
+      .txt {
+        font-size: 24rpx;
+        color: #265CF0;
+      }
+      .icon-71 {
+        font-size: 28rpx;
+        color: #265CF0;
+        margin-left: 8rpx;
+        transition: transform .3s ease;
+      }
+      &.-one {
+        .txt {
+          max-width: 192rpx;
+          @include text-overflow();
+        }
+      }
+      &.-two {
+        .txt {
+          max-width: 120rpx;
+          @include text-overflow();
+        }
+      }
+      &.-words6 {
+        .txt {
+          max-width: 144rpx;
+          @include text-overflow();
+        }
+      }
+
+      &.-close {
+        .icon-71  {
+          transform:rotate(180deg);
+        }
+      }
+      &.-current {
+        background: rgba(38,92,240,0.08);
+        .txt {
+          color: #265CF0;
+        }
+      }
+      &.-noBg {
+        background: none;
+      }
+      &.-default {
+        background: #F5F6FA;
+        .txt {
+          color: #999;
+        }
+      }
+    }
+  }
+  &.no-tabs {
+    .tabtitle__title {
+      max-width: unset;
+    }
+    .tabtitle__tabs {
+      display: none;
+    }
+  }
+  &.-noPadding {
+    height: auto;
+    padding: 0;
+  }
+}

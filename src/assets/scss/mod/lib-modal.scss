@@ -1,0 +1,213 @@
+// 弹窗样式
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  .modal-mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(55, 55, 55, 0.6);
+    height: 100%;
+    z-index: 999;
+    transition: all 0.4s ease;
+    opacity: 1;
+  }
+  .modal-content {
+    position: relative;
+    width: 100%;
+    // height: 100%;
+    z-index: 1000;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    &.-radius {
+      border-radius: 19rpx 19rpx 0 0;
+      overflow: hidden;
+    }
+    &.-card {
+      width: calc(100% - 150rpx);
+      left: 50%;
+      top: 50%;
+      bottom: auto;
+      transform: translateX(-50%) translateY(-50%);
+      .modal-content-slideCard {
+        background: #fff;
+        border-radius: 8rpx;
+      }
+      .modal-avatar-person {
+        position: relative;
+        padding-bottom: 32rpx;
+        &::after {
+          @include setBottomLine($c: #e5e5e6);
+        }
+      }
+      .modal-avatar-person__photo {
+        width: 100rpx;
+        height: 100rpx;
+        border-radius: 8rpx;
+        overflow: hidden;
+        margin-top: 32rpx;
+        &::after {
+          @include retina-one-px-border($direction: all, $color: #e5e5e6);
+          border-radius: 16rpx;
+        }
+      }
+      .modal-avatar-person__name {
+        margin-top: 16rpx;
+      }
+      .modal-avatar-person__type {
+        margin-top: 8rpx;
+      }
+      .modal-content__close-btn {
+        bottom: -98rpx;
+      }
+      .modal-avatar-container {
+        padding-bottom: 32rpx;
+      }
+    }
+    &.-hasFtBtn {
+      .data-time__ft {
+        position: relative;
+        padding: 16rpx 30rpx;
+        background: #fff;
+        &::before {
+          @include setTopLine($c: #e5e5e6);
+        }
+      }
+    }
+  }
+  // 类型为 dialog 的弹窗，默认在全屏居中
+  &.-styleDialog {
+    .modal-content {
+      bottom: unset;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  // 弹窗宽度控制
+  &.-widthAuto {
+    .modal-content {
+      width: auto;
+    }
+  }
+  &.-disableAnimate {
+    .modal-mask,
+    .modal-is-hide,
+    .modal-content-slideCard {
+      transition: none;
+    }
+  }
+}
+// 弹窗动画: 初始添加类名 modal-is-hide (隐藏状态) ,需要显示弹窗时移除 modal-to-hide 即可
+.modal-is-hide {
+  transition: all 0.3s ease;
+  visibility: hidden;
+  .modal-mask {
+    opacity: 0;
+  }
+}
+
+// 数据卡片弹窗
+.modal-data-container {
+  // padding: 30rpx;
+}
+
+.modal-data-header {
+  position: relative;
+}
+
+.modal-data-bg {
+  width: 600rpx;
+  height: 186rpx;
+}
+
+.modal-data-headerContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 30rpx;
+}
+
+.modal-data-title {
+  z-index: 1;
+  font-size: 32rpx;
+  color: #8A97B8;
+}
+
+.modal-data-detail {
+  color: #000;
+  margin-top: 8rpx;
+  display: flex;
+  align-items: center;
+}
+
+.modal-data-detailNum {
+  font-size: 50rpx;
+  font-weight: bold;
+  margin-right: 8rpx;
+}
+
+.modal-data-detailUnit,
+.modal-data-detailTrend {
+  margin-top: 12rpx;
+}
+
+.modal-data-detailUnit {
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+
+.modal-data-detailTrend {
+  display: flex;
+  align-items: center;
+  .icon-148 {
+    color: #ed4343;
+  }
+  .icon-149 {
+    color: #fa9128;
+  }
+}
+
+.modal-data-detailTrendNum {
+  margin-left: 8rpx;
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: #ed4343;
+  &.-trendDown {
+    color: #fa9128;
+  }
+}
+
+.modal-data-form {
+  height: 446rpx;
+  overflow-y: auto;
+  overflow-y: overlay;
+  &.-padding {
+    padding: 0 30rpx 30rpx;
+  }
+  .m-table {
+    .m-table__row {
+      padding: 7rpx 0;
+    }
+    .m-table__thead .m-table__row {
+      padding: 16rpx 0 7rpx;
+    }
+  }
+  .m-list--access {
+    .list-access__item {
+      padding: 8rpx 0 8rpx;
+    }
+    .list-access__hd,
+    .list-access__avatar {
+      width: 70rpx;
+      height: 70rpx;
+    }
+  }
+}

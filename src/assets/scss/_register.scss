@@ -1,0 +1,33 @@
+.register {
+  min-height: calc(100vh - 60rpx);
+  
+  .register-banner {
+    height: 350rpx;
+    padding: 160rpx 140rpx 0 140rpx;
+  }
+  .register-title {
+    font-size: 44rpx;
+    color: #265BED;
+    text-align: center;
+    font-family: 'TencentSans W7';
+    margin-top: 24rpx;
+  }
+  .register-desc {
+    font-size: 36rpx;
+    color: #265BED;
+    text-align: center;
+    font-family: 'TencentSans W3';
+    padding: 0 51rpx;
+    margin-top: 24rpx;
+  }
+  .register-desc-wrap {
+    margin-top: 24rpx;
+    .register-desc {
+      margin-top: 0;
+    }
+  }
+  .register-btn {
+    margin-top: 80rpx;
+    padding: 0 30rpx;
+  }
+}

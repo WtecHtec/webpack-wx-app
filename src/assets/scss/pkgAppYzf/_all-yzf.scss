@@ -1,0 +1,22 @@
+/**
+* 云智服理想版分包独立样式汇总
+* 分包页面会适用主包已有的样式，但是此处的独立样式不影响主包样式
+* 分包每一个页面的样式文件 *.scss 里面都要引用这个汇总样式。如：@import "../../../app-yzf.wxss";
+**/
+
+// 汇总理想版各个模块样式
+// @import "./**.scss";
+// @import "./**.scss";
+
+// @import "../../scss//components/components-all";
+@import "./pages/page-base";
+
+@import "./pages/page-personal-center";
+
+@import "./pages/page-start";
+
+@import "./pages/page-details";
+
+@import "./pages/page-push";
+
+@import "./pages/page-task-node";

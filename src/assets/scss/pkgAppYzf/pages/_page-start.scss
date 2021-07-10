@@ -1,0 +1,33 @@
+// 云智服理想版启动页样式
+.start-page {
+  position: relative;
+}
+
+.start-page--logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 320rpx;
+  .logo-imageWrap {
+    width: 280rpx;
+    height: 200rpx;
+  }
+}
+
+.start-page--loading {
+  position: relative;
+  width: 100%;
+  margin-top: 48rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.start-page--footer {
+  position: relative;
+  width: 100%;
+  .footer-imageWrap {
+    width: 100%;
+    height: 430rpx;
+    display: flex;
+  }
+}

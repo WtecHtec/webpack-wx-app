@@ -1,0 +1,147 @@
+@import "../../base/mixin.scss";
+
+.page-wrapx  {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #F5F6FA;
+}
+
+
+.page-main {
+  flex: 1;
+  @include clearfix();
+  box-sizing: border-box;
+}
+
+.page-fixtop {
+  position: relative;
+  // position: fixed;
+  // z-index: 1000;
+  width: 100%;
+}
+.page-fixtop__wrap {
+  position: relative;
+  .page-fixtop__content {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 110;
+  }
+  // 不同组件的不同高度包裹层定义
+  // 通用的顶部悬浮条组件高度
+  &.-topBarDefault--high {
+    height: 96rpx;
+  }
+}
+
+.page-white-bg {
+  background: #fff;
+}
+
+.page-safearea  {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+
+.page-fixbottom__wrap {
+  position: relative;
+  .page-fixbottom__content {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 110;
+  }
+
+  // 不同组件的不同高度包裹层定义
+  &.-mBtn--high {
+    height: 180rpx;
+  }
+  // 通用的底部输入框组件高度
+  &.-bottomInputDefault--high {
+    height: 104rpx;
+  }
+}
+
+
+
+
+//  新的页面骨架样式
+.pagex-wrap  {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: content-box;
+}
+
+.pagex-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  .pagex-main__content {
+    flex: 1;
+  }
+}
+
+.pagex-fixbottom__content {
+  position: fixed;
+  bottom:0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: #fff; // 默认添加底部悬浮区域的背景颜色为白色，以后需要其它颜色则扩展行内样式
+}
+.pagex-fixtop__content {
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.pagex-fixbottom--flow {
+  text-align: center;
+}
+
+.pagex-safearea .pagex-safearea__bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+.pagex-safearea .pagex-main{
+  padding-bottom: 0!important;
+}
+.pagex-dialog {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+
+  &.pagex-dialog--top {
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  &.pagex-dialog--center {
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  &.pagex-dialog--bottom {
+    
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  &.pagex-dialog--safearea {
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    box-sizing: border-box;
+  }
+}

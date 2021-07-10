@@ -1,0 +1,486 @@
+@import "../base/mixin.scss";
+// 对话样式
+.chat-data {
+  // height: 100vh;
+  // padding: 30rpx 0rpx;
+  box-sizing: border-box;
+  &.no-avater {
+    .conversation .right-info {
+      padding-right: 0;
+    }
+    .conversation .left-info {
+      padding-left: 0;
+    }
+  }
+  .chat-area {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30rpx;
+    // height: 100%;
+    overflow-y: auto;
+    overflow-y: overlay;
+    overflow-x: hidden;
+  }
+  .chat-wrap {
+    position: relative;
+  }
+  .history {
+    padding-bottom: 30rpx;
+    .desc {
+      font-size: 24rpx;
+      color: #999999;
+      text-align: center;
+      line-height: 36rpx;
+      &:not(:first-child) {
+        margin-top: 10rpx;
+      }
+    }
+  }
+  .cz-tips {
+    padding: 30rpx;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 20rpx;
+    box-shadow: 0 2px 4px 0 rgba(155, 162, 177, 0.04);
+
+    margin: 0 50rpx 30rpx 50rpx;
+    .cz-hd {
+      padding-bottom: 10rpx;
+      position: relative;
+      &::after {
+        content: " ";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 1px;
+        border-bottom: 1px dotted #eee;
+        color: #eee;
+        transform-origin: 0 100%;
+        transform: scaleY(0.5);
+      }
+    }
+    .cz-hd__title {
+      font-size: 30rpx;
+      color: #000000;
+      font-weight: bolder;
+    }
+    .cz-bd {
+      padding-top: 20rpx;
+    }
+    .cz-bd_con {
+      font-size: 14px;
+      color: #666666;
+      text-align: justify;
+    }
+  }
+  .conversation {
+    &:not(:last-child) {
+      margin-bottom: 30rpx;
+    }
+    .left-info {
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 100rpx;
+      padding-right: 120rpx;
+      .avater {
+        left: 0rpx;
+      }
+      .user-side {
+        // 文字
+        // .info-txt {
+        //     &:after {
+        //         content: "";
+        //         position: absolute;
+        //         z-index: 1;
+        //         left: 0rpx;
+        //         transform: translateX(-100%);
+        //         top: 16rpx;
+        //         width: 0rpx;
+        //         height: 0rpx;
+        //         border: 9rpx solid transparent;
+        //         border-left-width: 0rpx;
+        //         border-right-color: #e6ecff;
+        //         border-right-width: 10rpx;
+        //     }
+        // }
+        // 语音
+        .info-voice {
+          // &:after {
+          //     content: "";
+          //     position: absolute;
+          //     z-index: 1;
+          //     left: 0rpx;
+          //     transform: translateX(-100%);
+          //     top: 16rpx;
+          //     width: 0rpx;
+          //     height: 0rpx;
+          //     border: 9rpx solid transparent;
+          //     border-left-width: 0rpx;
+          //     border-right-color: #e6ecff;
+          //     border-right-width: 10rpx;
+          // }
+          .voice-icon.voice-gif {
+            transform-origin: center;
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+    .right-info {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      // flex-direction: column;
+      padding-left: 120rpx;
+      // padding-right: 100rpx;
+      .avater {
+        right: 0rpx;
+      }
+      .con-info {
+        text-align: right;
+      }
+      .user-name {
+        text-align: right;
+      }
+      .user-side {
+        .send-error-icon {
+          left: -52rpx;
+          right: unset;
+        }
+        // 语音播放中 gif
+        .voice-playing-image {
+          left: -37rpx;
+          right: unset;
+        }
+        // 文字
+        .info-txt {
+          // background: #f3f3f3;
+          // &:after {
+          //     content: "";
+          //     position: absolute;
+          //     z-index: 1;
+          //     right: 0rpx;
+          //     transform: translateX(100%);
+          //     top: 16rpx;
+          //     width: 0rpx;
+          //     height: 0rpx;
+          //     border: 9rpx solid transparent;
+          //     border-right-width: 0rpx;
+          //     border-left-color: #f3f3f3;
+          //     border-left-width: 10rpx;
+          // }
+        }
+        // 语音
+        .info-voice {
+          width: 150rpx;
+          // background: #f3f3f3;
+          padding-right: 62rpx;
+          justify-content: flex-end;
+          // &:after {
+          //     content: "";
+          //     position: absolute;
+          //     z-index: 1;
+          //     right: 0rpx;
+          //     transform: translateX(100%);
+          //     top: 16rpx;
+          //     width: 0rpx;
+          //     height: 0rpx;
+          //     border: 9rpx solid transparent;
+          //     border-right-width: 0rpx;
+          //     border-left-color: #f3f3f3;
+          //     border-left-width: 10rpx;
+          // }
+          .voice-icon {
+            position: absolute;
+            right: 20rpx;
+            top: 50%;
+            transform: translateY(-50%) rotate(0deg);
+            margin-right: 0rpx;
+            &.iconfont2 {
+              transform: translateY(-50%) rotate(0deg);
+            }
+          }
+        }
+        // 已读、未读图标
+        .voice-read {
+          left: -32rpx;
+          right: unset;
+        }
+      }
+    }
+    // 头像
+    .avater {
+      position: absolute;
+      top: 0rpx;
+      width: 80rpx;
+      height: 80rpx;
+      border-radius: 20rpx;
+      .avater-image {
+        display: block;
+        width: 80rpx;
+        height: 80rpx;
+        border-radius: 20rpx;
+      }
+      &:after {
+        border-radius: 4rpx;
+        content: "";
+        box-sizing: border-box;
+        width: 200%;
+        height: 200%;
+        border: 2rpx solid #f3f3f3;
+        position: absolute;
+        left: 0rpx;
+        top: 0rpx;
+        transform-origin: left top;
+        transform: scale(0.5);
+      }
+    }
+    // 时间信息
+    .con-info {
+      position: relative;
+      margin-bottom: 8rpx;
+      font-size: 0;
+      .user-name {
+        display: inline-block;
+        margin-bottom: 0;
+        &:not(:first-child) {
+          margin-left: 12rpx;
+        }
+      }
+      .con-date {
+        &:not(:first-child) {
+          margin-left: 12rpx;
+        }
+      }
+    }
+    .con-date {
+      display: inline-block;
+      font-size: 28rpx;
+      color: #999999;
+    }
+    // 用户名字
+    .user-name {
+      font-size: 28rpx;
+      color: #999999;
+      margin-bottom: 8rpx;
+    }
+    // 对话内容
+    .user-side {
+      position: relative;
+      flex-shrink: 1;
+      max-width: 570rpx;
+      // 播放中样式
+      &.voice-playing {
+        .info-txt {
+          background: #265cf0;
+          .txt {
+            color: #fff;
+          }
+        }
+      }
+
+      // 发送失败图标
+      .send-error-icon {
+        position: absolute;
+        top: 50%;
+        right: -52rpx;
+        transform: translateY(-50%);
+        line-height: 1;
+        font-size: 40rpx;
+        color: #ed4343;
+      }
+      // 语音播放中 gif
+      .voice-playing-image {
+        display: flex;
+        position: absolute;
+        right: -37rpx;
+        bottom: 0rpx;
+        width: 28rpx;
+        height: 28rpx;
+      }
+      // 文字
+      .info-txt {
+        // word-break: break-all;
+        word-wrap: break-word;
+        word-break: normal;
+        position: relative;
+        padding: 20rpx;
+        font-size: 0rpx;
+        .txt {
+          color: #000000;
+          text-align: justify;
+          font-size: 30rpx;
+          line-height: 42rpx;
+        }
+      }
+      .info-txt__bottom {
+        position: relative;
+        margin-top: 20rpx;
+        padding-top: 20rpx;
+        font-size: 26rpx;
+        color: #999;
+        &::after {
+          @include setTopLine($c: #D4DEFC);
+        }
+      }
+      // 图片
+      .info-image {
+        font-size: 0rpx;
+        display: flex;
+        padding: 10rpx;
+        box-sizing: border-box;
+        .image {
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+          max-width: 280rpx;
+          max-height: 280rpx;
+          border-radius: 12rpx;
+        }
+      }
+      // 语音
+      .info-voice {
+        position: relative;
+        width: 192rpx;
+        height: 40rpx;
+        // background: #e6ecff;
+        // border-radius: 4rpx;
+        padding: 20rpx;
+        display: flex;
+        align-items: center;
+        .voice-icon {
+          width: 32rpx;
+          height: 32rpx;
+          font-size: 32rpx;
+          color: #999;
+          margin-right: 10rpx;
+          &.iconfont2 {
+            transform: rotate(180deg);
+          }
+        }
+        .voice-txt {
+          color: #000000;
+          text-align: justify;
+          font-size: 30rpx;
+          line-height: 40rpx;
+        }
+      }
+      // 已读、未读图标
+      .voice-read {
+        font-size: 24rpx;
+        color: #80a1ff;
+        position: absolute;
+        right: -32rpx;
+        bottom: 8rpx;
+        &.being-read {
+          color: #ccc;
+        }
+      }
+      // 卡片消息
+      .info-card {
+        word-wrap: break-word;
+        word-break: normal;
+        position: relative;
+        padding: 30rpx;
+        min-width: 400rpx;
+        font-size: 0rpx;
+        box-sizing: border-box;
+        .info-card__title {
+          font-size: 30rpx;
+          font-weight: bold;
+          color: #000000;
+          margin-bottom: 10rpx;
+        }
+        .info-card__content {
+          position: relative;
+        }
+        .info-card__p {
+          font-size: 30rpx;
+          color: #000000;
+          line-height: 48rpx;
+        }
+
+        // 查询结果卡片
+        &.search-result-card {
+          .info-card__list {
+            position: relative;
+          }
+          .info-card__item {
+            position: relative;
+            padding-top: 20rpx;
+            &:not(:first-child) {
+              margin-top: 20rpx;
+            }
+            &:after {
+              @include setTopLine($c: #cbcbcc);
+              border-top-style: dashed;
+            }
+          }
+        }
+      }
+    }
+    .cz-tips {
+      margin: 0;
+      .check-back {
+        .item {
+          display: flex;
+          font-size: 14px;
+          padding-bottom: 20rpx;
+          &:last-child {
+            padding-bottom: 0;
+          }
+        }
+        .item-name {
+          color: #666666;
+          margin-right: 30rpx;
+        }
+        .item-txt {
+          color: #000;
+        }
+      }
+    }
+    .info-txt,
+    .info-image,
+    .info-voice,
+    .cz-tips,
+    .info-card {
+      background: #ffffff;
+      box-shadow: 0 2px 4px 0 rgba(155, 162, 177, 0.04);
+      border-radius: 0px 20rpx 20rpx 20rpx;
+    }
+    .right-info {
+      .info-txt,
+      .info-image,
+      .info-voice,
+      .cz-tips,
+      .info-card {
+        background: #e6ecff;
+        border-radius: 16rpx 0 20rpx 20rpx;
+      }
+      .info-card .info-card__p {
+        color: #666;
+      }
+    }
+  }
+  // 点击加载更多按钮
+  .chat-data-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 24rpx;
+    .btn {
+      padding: 8rpx 32rpx;
+      font-size: 28rpx;
+      color: #265cf0;
+      position: relative;
+      &::after {
+        content: "";
+        border-radius: 45px;
+        @include retina-one-px-border($direction: all, $color: #265cf0);
+      }
+    }
+  }
+}

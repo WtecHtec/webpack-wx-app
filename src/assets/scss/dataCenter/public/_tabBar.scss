@@ -1,0 +1,323 @@
+// 标签栏滚动组件
+@import '../../base/mixin.scss';
+
+.tabBarWrap--container {
+  position: relative;
+  width: 100%;
+  height: 96rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  .tabBarWrap {
+    flex: 1;
+  }
+  .m-tabBarScroll {
+    height: 96rpx;
+    .m-tabBarScroll--list {
+      height: 100%;
+    }
+  }
+  &:after {
+    @include setBottomLine($c: #E5E5E6);
+  }
+}
+
+.tabBarWrap__right {
+  position: relative;
+  width: 144rpx;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48rpx;
+  color: #666;
+  .iconfont2 {
+    font-size: 40rpx;
+  }
+  &:after {
+    @include setLeftLine($c: #eeeeee);
+    height: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.tabBarWrap {
+  position: relative;
+  &.tabBar--fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
+  &.bottom-spac {
+    margin-bottom: 16rpx;
+  }
+}
+
+.m-tabBarScroll {
+  display: flex;
+  height: 88rpx;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+  &.-no-BottomLine {
+    &:after {
+      display: none;
+    }
+  }
+  &:after {
+    content: "";
+    @include setBottomLine($c: #E5E5E6);
+  }
+  &.-flex {
+    .m-tabBarScroll--list {
+      width: 100%;
+    }
+    .m-tabBarScroll--listWrap {
+      display: flex;
+      align-items: center;
+    }
+    .m-tabBarScroll__item {
+      flex: 1;
+      text-align: center;
+    }
+  }
+  &.-noSort {
+    .m-tabBarScroll--sort {
+      display: none;
+    }
+    .m-tabBarScroll--container {
+      width: 100%;
+    }
+    .m-tabBarScroll--list {
+      width: 100%;
+    }
+  }
+  .m-tabBarScroll--container {
+    flex: 1;
+  }
+  .m-tabBarScroll--list {
+    position: relative;
+    width: 662rpx;
+    height: 88rpx;
+    white-space: nowrap;
+  }
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+  }
+  .m-tabBarScroll--wrap {
+    display: flex;
+    position: relative;
+    white-space: nowrap;
+  }
+  .m-tabBarScroll__item {
+    display: inline-block;
+    font-size: 28rpx;
+    color: #333333;
+    padding: 0rpx 24rpx;
+    line-height: 88rpx;
+    &.current {
+      color: #265CF0;
+      font-weight: bold;
+    }
+  }
+  .m-tabBarScroll--slider {
+    display: inline-flex;
+    position: absolute;
+    left: 0rpx;
+    bottom: 0rpx;
+    transition: all 0.3s ease;
+    width: 40rpx;
+    height: 4rpx;
+    background: #265CF0;
+    border-radius: 2rpx;
+    z-index: 1;
+  }
+  .m-tabBarScroll--sort {
+    width: 88rpx;
+    height: 88rpx;
+    display: flex;
+    flex-grow: 0;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -1px 0 4px 0 rgba(0,0,0,0.16);
+    background: #FFFFFF;
+    .iconfont2 {
+      font-size: 48rpx;
+      color: #999;
+      &.-ftSize-32 {
+        font-size: 32rpx;
+      }
+    }
+  }
+
+  .m-tabBarScroll__content {
+    position: relative;
+    display: inline-flex;
+    line-height: 1;
+  }
+  // .m-tabBarScroll__text {}
+  .m-tabBarScroll__dot {
+    position: absolute;
+    top: 0rpx;
+    right: 0rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32rpx;
+    height: 32rpx;
+    line-height: 1;
+    padding: 0rpx 8rpx;
+    background: #ED4343;
+    font-size: 20rpx;
+    color: #FFFFFF;
+    border-radius: 16rpx;
+    transform: translate(70%, -70%);
+    box-sizing: border-box;
+    &.-single {
+      width: 16rpx;
+      min-width: 16rpx;
+      height: 16rpx;
+    }
+  }
+}
+
+
+// 跟标签栏滚动组件联动的内容
+.m-tabBarScroll-content-boxWrap {
+  position: relative;
+  width: 100%;
+}
+.m-tabBarScroll-content-box {
+  position: relative;
+  display: block;
+  width: 100%;
+  // 提升 简易tab滑动模块 的层级
+  .m-scrollView--tabWrap {
+    z-index: 101;
+  }
+}
+// 遮罩层
+.m-tabBarScroll-content-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(55, 55, 55, 0.6);
+  height: calc(100vh - 88rpx);
+  z-index: 100;
+  transition: all 0.4s ease;
+  opacity: 1;
+}
+// 提示条
+.m-tabBarScroll-content-tips {
+  position: relative;
+  z-index: 101;
+}
+// 标签栏滚动组件内容区域里面二级嵌套
+.m-tabBarScroll-secondary {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  z-index: 101;
+  &:after {
+    content: "";
+    @include setTopLine($c: #E5E5E6);
+  }
+  .secondary-labelWrap {
+    height: 800rpx;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-y: overlay;
+  }
+}
+.secondary-labelWrap {
+  position: relative;
+  width: 100%;
+  padding: 32rpx 30rpx;
+  background: #fff;
+  box-sizing: border-box;
+  .m-label-group .m-label-item {
+    margin-right: 16rpx;
+    margin-bottom: 16rpx;
+  }
+  &.-hasLeft {
+    display: flex;
+    padding: 0;
+    .m-label-group {
+      align-items: stretch;
+      align-content: flex-start;
+      flex: 1;
+      height: 100%;
+      padding: 32rpx 30rpx;
+      box-sizing: border-box;
+    }
+  }
+}
+.labelWrap-left--list {
+  position: relative;
+  flex-shrink: 0;
+  width: 188rpx;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow-y: overlay;
+  @include clearScrollbar();
+  &:after {
+    content: "";
+    @include setRightLine($c: #E5E5E6);
+  }
+  .labelWrap-left--item {
+    position: relative;
+    width: 100%;
+    padding: 24rpx 30rpx;
+    background: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    &:after {
+      content: "";
+      @include setBottomLine($c: #E5E5E6);
+    }
+    &.-current {
+      background: #E9EEFD;
+      .item-text {
+        color: #265CF0;
+        font-weight: bold;
+      }
+    }
+  }
+  .item-text {
+    font-size: 28rpx;
+    color: #666666;
+  }
+}
+.test-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rpx 4rpx;
+  margin-right: 8rpx;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1rpx solid #ccc;
+    z-index: 0;
+  }
+  .text {
+    position: relative;
+    font-size: 12rpx;
+    color: #000;
+    line-height: 1;
+    transform: scale(0.833);
+    z-index: 1;
+  }
+}

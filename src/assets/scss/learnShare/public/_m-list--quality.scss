@@ -1,0 +1,224 @@
+@import '../../base/mixin.scss';
+.m-list--quality {
+  background: #F5F6FA;
+  .list__push {
+    text-align: center;
+    background: #fff;
+    padding: 20rpx 0 12rpx 0;
+    .txt {
+      display: inline-block;
+      font-size: 26rpx;
+      color: #333333;
+      padding: 10rpx 24rpx;
+      background: #F5F6FA;
+      border-radius: 28rpx;
+    }
+  }
+  .list__item{
+    position: relative;
+    padding: 30rpx;
+    background: #fff;
+    &.bottom-spac {
+      margin-bottom: 16rpx;
+    }
+    &.bottom-line:after {
+      @include setBottomLine($c: #E5E5E6);
+      left: 30rpx;
+    }
+  }
+  .list__title {
+    &.-oneline {
+      @include ellipsis-lines($lines: 1);
+      padding-right: 100rpx;
+    }
+    @include ellipsis-lines($lines: 2);
+    .iconfont2 {
+      font-size: 36rpx;
+      color: #265CF0;
+      margin-right: 8rpx;
+      display: inline-block;
+      vertical-align: top;
+      margin-top: 8rpx;
+    }
+    .title-icon {
+      display: inline-flex;
+      font-size: 0;
+      vertical-align: middle;
+      .iconfont2 {
+        margin-top: 4rpx;
+        vertical-align: middle;
+        margin-right: 12rpx;
+      }
+      .m-tag--normal {
+        line-height: 33rpx;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 12rpx;
+      }
+      .weapp-image {
+        margin-top: 10rpx;
+        margin-right: 12rpx;
+      }
+    }
+    .title {
+      font-size: 32rpx;
+      line-height: 48rpx;
+      color: #000000;
+      font-weight: bold;
+      display: inline;
+      vertical-align: middle;
+    }
+    .weapp-image {
+      width: 28rpx;
+      height: 28rpx;
+      margin-right: 16rpx;
+      margin-top: 6rpx;
+    }
+    
+    &.-blue {
+      .title {
+        color: #265CF0;
+      }
+    }
+    &.-active {
+      opacity: 0.5;
+    }
+
+  }
+  .list__content {
+    font-size: 28rpx;
+    color: #666666;
+    margin-top: 16rpx;
+    @include ellipsis-lines($lines: 1);
+    &.-oneline {
+      @include ellipsis-lines($lines: 1);
+      padding-right: 100rpx;
+    }
+  }
+  .list__label {
+    display: flex;
+    margin-top: 16rpx;
+    .label-item {
+      padding: 5rpx 8rpx;
+      background: #F0F2F8;
+      border-radius: 4rpx;
+      font-size: 22rpx;
+      color: #8E9ABA;
+      margin-right: 12rpx;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    .state {
+      position: relative;
+      font-size: 22rpx;
+      color: #F03E3E;
+      border-radius: 4rpx;
+      padding: 0 8rpx;
+      line-height: 40rpx;
+      white-space: nowrap;
+      margin-right: 12rpx;
+      &::after {
+        content: '';
+        @include retina-one-px-border($direction: all, $color: #F03E3E);
+        border-radius: 8rpx;
+      }
+    }
+    .time {
+      color: #999;
+      font-size: 24rpx;
+      margin-left: auto;
+    }
+  }
+  .list__info {
+    display: flex;
+    align-items: center;
+    color: #999;
+    margin-top: 16rpx;
+    .info-box1 {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      .name {
+        flex: 0 0 1;
+        @include ellipsis-lines($lines: 1);
+        min-height: 31rpx; //兼容三星一款机型 字母被截断
+      }
+    }
+    .info-box2 {
+      width: 240rpx;
+      text-align: right;
+    }
+    .name {
+      font-size: 28rpx;
+      margin-right: 8rpx;
+    }
+    .state {
+      position: relative;
+      font-size: 22rpx;
+      color: #F03E3E;
+      border-radius: 4rpx;
+      padding: 0 8rpx;
+      line-height: 40rpx;
+      white-space: nowrap;
+      &::after {
+        content: '';
+        @include retina-one-px-border($direction: all, $color: #F03E3E);
+        border-radius: 4rpx;
+      }
+      
+    }
+    .time {
+      font-size: 24rpx;
+    }
+  }
+  .list-test {
+    display: flex;
+    font-size: 24rpx;
+    color: #999999;
+    justify-content: space-between;
+    margin-top: 16rpx;
+    .test-state {
+      &.-blue {
+        color: #265CF0;
+      }
+      &.-red {
+        color: #F03E3E;
+      }
+    }
+  }
+
+  .list__loading {
+    background: #fff;
+    padding: 24rpx 0;
+    height: 40rpx;
+    text-align: center;
+    .weapp-image {
+      width: 40rpx;
+      height: 40rpx;
+      vertical-align: top;
+      animation: loading 1s infinite linear;
+      @keyframes loading {
+        from {transform: rotate(0deg)}
+        to {transform: rotate(360deg)}
+			}
+    }
+  }
+
+  // 扣分
+  .list-points {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 30rpx;
+    top:26rpx;
+    .num {
+      font-size: 40rpx;
+    }
+    .unit {
+      font-size: 26rpx;
+      margin-left: 4rpx;
+      margin-top: 6rpx;
+    }
+  }
+}

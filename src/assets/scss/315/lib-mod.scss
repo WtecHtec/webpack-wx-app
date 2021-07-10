@@ -1,0 +1,508 @@
+@import "../base/mixin.scss";
+
+// 箭头
+.arrow {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  // margin: 20px auto;
+  position: relative;
+  .right {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .right-arrow1,
+  .right-arrow2 {
+    width: 0;
+    height: 0;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-top: 6px transparent dashed;
+    border-right: 6px transparent dashed;
+    border-bottom: 6px transparent dashed;
+    border-left: 6px white solid;
+    overflow: hidden;
+  }
+  .right-arrow1 {
+    left: 1rpx;
+    border-left: 6px solid #888;
+  }
+  .right-arrow2 {
+    border-left: 6px solid white;
+  }
+}
+
+// 提示信息
+.prompt-info {
+  position: fixed;
+  left: 50%;
+  top: 170px;
+  transform: translateX(-50%);
+  padding: 15px;
+  border-radius: 2px;
+  text-align: center;
+  overflow: hidden;
+  min-width: 160px;
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    opacity: 0.75;
+    background: #000000;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  .txt {
+    display: block;
+    position: relative;
+    font-size: 14px;
+    line-height: 26px;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+
+  // &.animation-to-hide{
+  //     animation: animation-to-hide 2s ease-in 1 forwards;
+  // }
+
+  @keyframes animation-to-hide {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    50% {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+// 弹窗
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  .modal-mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(55, 55, 55, 0.6);
+    height: 100%;
+    z-index: 999;
+    transition: all 0.4s ease;
+    opacity: 1;
+  }
+  .modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+  }
+
+  // 截图操作弹窗
+  .common-modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 275px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    .wrap {
+      padding: 15px;
+      .title {
+        line-height: 22px;
+        padding: 10px 0px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #000;
+        text-align: center;
+      }
+      .content {
+        line-height: 20px;
+        font-size: 14px;
+        color: #444;
+        text-align: center;
+      }
+    }
+    .bottom-btn-wrap {
+      display: flex;
+      line-height: 50px;
+      background: #fff;
+      border-top: 1rpx solid #dbdde6;
+      .btn-item {
+        flex-grow: 1;
+        font-size: 15px;
+        text-align: center;
+        font-weight: bold;
+        color: #222222;
+        &.color-blue {
+          color: #0033cc;
+        }
+      }
+    }
+  }
+
+  // 广告弹窗
+  .advertising {
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.5s ease;
+    .image-wrap {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0px 22px;
+      .image {
+        display: block;
+        width: 100%;
+        border-radius: 10px;
+      }
+    }
+    .close-btn {
+      margin-top: 30px;
+      text-align: center;
+      .iconfont-315 {
+        font-size: 32px;
+        color: #fff;
+      }
+    }
+  }
+
+  // 选择业务类型浮层
+  .list-type {
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background: #f1f3f7;
+    transition: all 0.3s ease;
+    .list-type-content {
+      padding: 15px;
+      background: #fff;
+    }
+    .title {
+      width: 100%;
+      padding-bottom: 10px;
+      font-size: 15px;
+      color: #999;
+      text-align: left;
+      background: #fff;
+    }
+    .content {
+      background: #fff;
+      display: flex;
+      flex-flow: row wrap;
+      &:not(:last-child) {
+        padding-bottom: 15px;
+      }
+      .list-type-item {
+        width: 113px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 15px;
+        color: #444;
+        text-align: center;
+        background: #f3f5fd;
+        border-radius: 2px;
+        margin-right: 3px;
+        margin-bottom: 3px;
+        &:nth-child(3n + 3) {
+          margin-right: 0px;
+        }
+        &.cur {
+          color: #0033cc;
+          background: #e0e8ff;
+          font-weight: bold;
+        }
+      }
+    }
+    .bottom-btn-wrap {
+      display: flex;
+      line-height: 44px;
+      background: #fff;
+      margin-top: 6px;
+      .btn-item {
+        flex-grow: 1;
+        font-size: 15px;
+        text-align: center;
+        color: #222222;
+      }
+    }
+  }
+}
+
+// 选择业务类型浮层
+.list-type--sort {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 88rpx;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  background: #fff;
+  transition: all 0.3s ease;
+  &:before {
+    @include setTopLine($c: #e5e5e6);
+    top: 88rpx;
+  }
+  .list-type--content {
+    flex: 1;
+    padding-top: 30rpx;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-y: overlay;
+  }
+  .list-type--item {
+    position: relative;
+    padding-left: 172rpx;
+  }
+  .bottom-btn-wrap {
+    display: flex;
+    flex-shrink: 0;
+    padding: 30rpx;
+    .btn-item {
+      flex: 1;
+      &:not(:last-child) {
+        margin-right: 30rpx;
+      }
+    }
+  }
+  .title {
+    position: absolute;
+    top: 16rpx;
+    left: 0px;
+    padding: 0px 30rpx;
+    width: 172rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    color: #999999;
+    @include ellipsis-lines($lines: 1);
+  }
+}
+// 弹窗动画: 初始添加类名 modal-is-hide (隐藏状态) ,需要显示弹窗时移除 modal-to-hide 即可
+.modal-is-hide {
+  visibility: hidden;
+  .modal-mask {
+    opacity: 0;
+  }
+  // 广告位浮层动画
+  .advertising {
+    // 掉落动效
+    // .image-wrap {
+    //     transition:all 0.5s cubic-bezier(1, 2, 0.01, 0.5);
+    //     transform: translateY(-120%);
+    // }
+    // .close-btn {
+    //     transition:all 0.5s cubic-bezier(1, 2, 0.01, 0.5);
+    //     transform: translateY(280%);
+    // }
+    opacity: 0;
+  }
+  // 选择业务类型浮层
+  .list-type {
+    transform: translateY(100%);
+  }
+  .list-type--sort {
+    transform: translateY(-100%);
+  }
+}
+
+// 水印
+.water-mark-wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  pointer-events: none;
+  overflow: hidden;
+  .water-mark {
+    display: block;
+    margin: 0 auto;
+    color: #888;
+    font-size: 45px;
+    line-height: 1;
+    opacity: 0.06;
+    margin-top: 100px;
+    padding: 68px 0px;
+    transform: rotate(-45deg);
+  }
+}
+
+// 音频组件样式
+.weui-audio {
+  position: relative;
+  width: 100%;
+  background: #f3f5fd;
+  border-radius: 2px;
+  display: flex;
+  padding: 10px 15px 10px 10px;
+  box-sizing: border-box;
+  align-items: center;
+  .weui-audio__play {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 37px;
+    height: 37px;
+    .weui-grid__icon {
+      display: block;
+      width: 100%;
+      height: 100%;
+      image {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .weui-audio__info {
+    width: 100%;
+    padding-left: 47px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    // 标题信息
+    .weui-audio__title {
+      font-size: 14px;
+      color: #888888;
+      line-height: 17px;
+      margin-bottom: 5px;
+      word-break: break-all;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    // 滚动条
+    .weui-audio__timeline {
+      background: #d9e3ff;
+      border-radius: 2px;
+      height: 4px;
+      .weui-audio__progress {
+        position: relative;
+        width: 0%;
+        height: 4px;
+        background: #1f56ff;
+        border-radius: 2px;
+        .slider {
+          position: absolute;
+          right: -6px;
+          top: -3px;
+          display: block;
+          width: 6px;
+          height: 6px;
+          border: 2px solid #88a5fe;
+          border-radius: 50%;
+          background: #1f56ff;
+        }
+      }
+    }
+    // 时间
+    .weui-audio__time {
+      font-size: 10px;
+      color: #999999;
+      text-align: right;
+      position: relative;
+      margin-top: 4px;
+      .now__time {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+      }
+    }
+  }
+}
+
+// 两侧是圆形的按钮
+.m-btn--round {
+  position: relative;
+  display: inline-block;
+  padding: 8rpx 24rpx 8rpx 25rpx;
+  line-height: 32rpx;
+  background: #265cf0;
+  border-radius: 45rpx;
+  font-size: 24rpx;
+  color: #ffffff;
+  text-align: center;
+  &.deauful {
+    background: #ffffff;
+    color: #265cf0;
+    &:after {
+      content: "";
+      @include retina-one-px-border($direction: all, $color: #265cf0);
+      border-radius: 90rpx;
+    }
+  }
+  .iconfont2 {
+    font-size: 28rpx;
+    margin-left: 4rpx;
+    color: #265cf0;
+  }
+}
+
+// 表扬信卡片
+.commend-letter--card {
+  position: relative;
+  padding: 20rpx 40rpx 24rpx 40rpx;
+  .commend-letter__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .commend-letter__bd {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .commend-letter__infoWrap {
+    flex: 1;
+  }
+  .commend-letter__title {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #265cf0;
+    line-height: 52rpx;
+  }
+  .commend-letter__desc {
+    font-size: 24rpx;
+    color: #265cf0;
+    line-height: 36rpx;
+    margin-top: 12rpx;
+    @include ellipsis-lines($lines: 1);
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+  .commend-letter__btnWrap {
+    flex-shrink: 0;
+  }
+}

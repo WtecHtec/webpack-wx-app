@@ -1,0 +1,285 @@
+@import "../scss/base/mixin.scss";
+.home-page {
+  position: relative;
+  min-height: calc(100vh - 60rpx);
+  .page__hd {
+    width: 100%;
+    height: 146rpx;
+    background: #265bed;
+  }
+  .page__bd {
+    width: 100%;
+  }
+  .page__ft {
+    display: flex;
+    height: 100rpx;
+    padding-bottom: env(safe-area-inset-bottom);
+    align-items: center;
+    justify-content: center;
+    font-size: 20rpx;
+    color: #cccccc;
+    .footer-logo {
+      display: inline-block;
+      width: 155rpx;
+      height: 30rpx;
+    }
+    .line {
+      display: inline-block;
+      padding-left: 10rpx;
+      padding-right: 20rpx;
+    }
+  }
+
+  // 头部个人信息
+  @at-root .personal-info {
+    display: flex;
+    height: 146rpx;
+    background: #265bed;
+    padding: 0rpx 30rpx;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    &.-new {
+      position: relative;
+      background: unset;
+    }
+    // 个人中心页面的头部信息跟首页有区别 -perCenter
+    &.-perCenter {
+      height: 208rpx;
+    }
+    .personal-info__bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .personal-info__left {
+      position: relative;
+      flex-shrink: 0;
+      margin-right: 20rpx;
+      .personal-avatar {
+        display: block;
+        width: 80rpx;
+        height: 80rpx;
+        border-radius: 50%;
+      }
+    }
+    .personal-info__center {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      margin-right: 30rpx;
+      .personal-name {
+        font-size: 32rpx;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 8rpx;
+      }
+      .personal-desc {
+        flex-grow: 1;
+        font-size: 24rpx;
+        color: #ffffff;
+        @include ellipsis-lines($lines: 1);
+        &.-color-grey {
+          color: rgba($color: #fff, $alpha: 0.5);
+        }
+      }
+    }
+    .personal-info__right {
+      position: relative;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .tips-num {
+        margin-right: 10rpx;
+        width: 38rpx;
+        height: 38rpx;
+        line-height: 38rpx;
+        text-align: center;
+        font-size: 22rpx;
+        color: #ffffff;
+        border-radius: 50%;
+        background: #f03e3e;
+      }
+      .annual-bill {
+        display: flex;
+        align-items: center;
+        .annual-bill__txt {
+          margin-right: 8rpx;
+          font-size: 24rpx;
+          color: #ffffff;
+          letter-spacing: 0;
+          line-height: 36rpx;
+        }
+        .annual-bill__dot {
+          display: inline-block;
+          margin-right: 8rpx;
+          width: 12rpx;
+          height: 12rpx;
+          background: #ed4343;
+          border-radius: 50%;
+        }
+      }
+      .iconfont2 {
+        display: block;
+        font-size: 28rpx;
+        color: #ffffff;
+      }
+    }
+  }
+
+  // 首页内容卡片区
+  .home-page-card {
+    padding: 30rpx;
+    .card-item {
+      position: relative;
+      background: #ffffff;
+      border-radius: 20rpx;
+      box-shadow: 0 0 16px 0 rgba($color: #8f9fcc, $alpha: 0.16);
+      &:not(:last-child) {
+        margin-bottom: 20rpx;
+      }
+
+      // 新增315入口
+      .card-flex-layout {
+        position: relative;
+        padding: 30rpx 36rpx;
+        display: flex;
+        align-items: center;
+      }
+      .card-icon {
+        flex-shrink: 0;
+        width: 48rpx;
+        height: 48rpx;
+        margin-right: 16rpx;
+      }
+      .card-content-boldTxt {
+        flex: 1;
+        font-size: 32rpx;
+        font-weight: bold;
+        color: #000000;
+        @include ellipsis-lines($lines: 1);
+      }
+      .card-arrow {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        margin-left: 30rpx;
+        font-size: 28rpx;
+        color: #999999;
+        .card-arrow__txt {
+          margin-right: 8rpx;
+        }
+        .iconfont2 {
+          font-size: 28rpx;
+          color: #999;
+        }
+      }
+
+      // 卡片水印
+      .card-watermark {
+        position: absolute;
+        top: 0rpx;
+        right: 0rpx;
+        display: block;
+        width: 190rpx;
+        height: 150rpx;
+      }
+      // 卡片内容区
+      .card-content {
+        position: relative;
+        padding: 40rpx;
+        .card-image {
+          position: absolute;
+          display: block;
+          width: 100rpx;
+          height: 100rpx;
+        }
+        .card-content-inner {
+          padding-left: 130rpx;
+          .card-title {
+            display: block;
+            font-size: 40rpx;
+            color: #000000;
+            line-height: 60rpx;
+            margin-bottom: 10rpx;
+            // font-family: 'TencentSans W7';
+            font-weight: bold;
+          }
+          .card-desc {
+            display: block;
+            font-size: 28rpx;
+            font-weight: normal;
+            color: #999999;
+            line-height: 40rpx;
+            @include ellipsis-lines($lines: 1);
+          }
+        }
+      }
+      // 卡片按钮组
+      .card-btn-group {
+        position: relative;
+        display: flex;
+        height: 108rpx;
+        &:after {
+          @include setTopLine($c: #eeeeee);
+        }
+        .btn-item {
+          position: relative;
+          display: flex;
+          flex: 1;
+          align-items: center;
+          justify-content: center;
+          &:not(:last-child):after {
+            @include setRightLine($c: #eeeeee);
+            height: 40rpx;
+            top: 50%;
+            margin-top: -20rpx;
+          }
+          &.-disabled {
+            opacity: 0.4;
+          }
+          .iconfont2 {
+            font-size: 40rpx;
+            margin-right: 8rpx;
+            background: linear-gradient(135deg, #66a6ff, #4d7dff);
+            background-clip: text;
+            color: transparent;
+          }
+          .txt {
+            font-size: 28rpx;
+            font-weight: bold;
+            color: #265cf0;
+          }
+        }
+      }
+    }
+  }
+}
+// 广告弹窗
+.advertising {
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.5s ease;
+  .image-wrap {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 22px;
+    .image {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+  .close-btn {
+    margin-top: 30px;
+    text-align: center;
+    .iconfont2 {
+      font-size: 32px;
+      color: #fff;
+    }
+  }
+}
